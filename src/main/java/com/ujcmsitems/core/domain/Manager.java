@@ -35,4 +35,8 @@ public class Manager implements Serializable {
     private String password;
 
 
+    public Manager(String admin, String password) {
+        this.admin = admin;
+        this.password = password;
+    }
 }

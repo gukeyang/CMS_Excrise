@@ -24,12 +24,21 @@ mybatis-plus:
     #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
     map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  global-config:
-    db-config:
-      id-type: ASSIGN_ID
-        # 1 代表已删除，不配置默认是1，也可修改配置
-        logic-delete-value: 1
-        # 0 代表未删除，不配置默认是0，也可修改配置
-        logic-not-delete-value: 0
+  jackson:
+    #指定日期格式，比如yyyy-MM-dd HH:mm:ss
+    date-format: yyyy-MM-dd HH:mm:ss
+    #指定日期格式化时区
+    time-zone: GMT+8
+
+
+
+jwt:
+  route:
+    authentication:
+      path: /login
+  #  header: Authorization
+  header: token
+  expiration: 604800
+  secret: Authorization
 
 
