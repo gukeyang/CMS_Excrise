@@ -26,4 +26,10 @@ public interface ManagerService extends IService<Manager> {
 
     //退出登录
     void quit(HttpServletRequest request);
+
+    R sendEmail(String email);
+
+    R registerByEmail(String email, String userPassword, String code);
+
+    R loginByCode(String email, String code);
 }

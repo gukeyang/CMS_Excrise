@@ -11,7 +11,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
+/**
+ * <p>
+ *  前端控制器
+ * </p>
+ *
+ * @author xingchen
+ * @since 2022-10-09
+ */
 @Component
 public final class RedisUtil {
 

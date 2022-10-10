@@ -1,7 +1,14 @@
 package com.ujcmsitems.utils;
 
 import lombok.Data;
-
+/**
+ * <p>
+ *  前端控制器
+ * </p>
+ *
+ * @author xingchen
+ * @since 2022-10-09
+ */
 @Data
 public class R {
     private Boolean flag;

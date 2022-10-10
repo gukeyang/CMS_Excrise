@@ -15,7 +15,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.Collections.singletonList;
-
+/**
+ * <p>
+ *  前端控制器
+ * </p>
+ *
+ * @author xingchen
+ * @since 2022-10-09
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {

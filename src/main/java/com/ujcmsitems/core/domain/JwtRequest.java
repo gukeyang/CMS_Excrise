@@ -5,8 +5,12 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * @author Li
- * @Date 2022/7/23 0:59
+ * <p>
+ *  前端控制器
+ * </p>
+ *
+ * @author xingchen
+ * @since 2022-10-09
  */
 @Data
 public class JwtRequest implements Serializable {

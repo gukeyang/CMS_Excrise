@@ -30,7 +30,12 @@ public class ManagerController {
     @Autowired
     private ManagerService managerService;
 
-
+    /**
+     * 账号注册
+     * @param admin
+     * @param password
+     * @return
+     */
     @ApiOperation(value = "账号注册")
     @PostMapping(value = "/register")
     @ApiImplicitParams({
@@ -42,9 +47,46 @@ public class ManagerController {
         return managerService.register(admin,password);
     }
 
+    /**
+     * 发送邮件
+     * @param email
+     * @return
+     */
+    @ApiOperation(value = "发送邮件")
+    @PostMapping(value = "/sendEmail")
+    @ResponseBody
+    public R sendEmail(String email){
+        return managerService.sendEmail(email);
+    }
 
 
+    /**
+     *邮箱号注册
+     * @date 2022/7/1 22:20
+     * @param email 邮箱
+     * @param userPassword 密码
+     * @param code 验证码
+     * @return com.xingchen.utils.R
+     */
+    @ApiOperation(value = "邮箱号注册")
+    @PostMapping(value = "/registerByEmail")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "email",value = "邮箱",required = true),
+            @ApiImplicitParam(name = "userPassword",value = "密码",required = true),
+            @ApiImplicitParam(name = "code",value = "验证码",required = true)
+    })
+    @ResponseBody
+    public R registerByEmail(String email,String userPassword,String code){
+        return managerService.registerByEmail(email,userPassword,code);
+    }
 
+
+    /**
+     * 用户密码登录
+     * @param admin
+     * @param password
+     * @return
+     */
     @ApiOperation(value = "用户密码登录")
     @PostMapping(value = "/login")
     @ApiImplicitParams({
@@ -55,6 +97,26 @@ public class ManagerController {
     public R login(String admin, String password){
         return managerService.login(admin,password);
     }
+
+
+    /**
+     *验证码登录
+     * @date 2022/7/2 20:05
+     * @param email 邮箱
+     * @param code 验证码
+     * @return com.xingchen.utils.R
+     */
+    @ApiOperation(value = "用户验证码登录")
+    @PostMapping(value = "/loginByCode")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "email",value = "邮箱",required = true),
+            @ApiImplicitParam(name = "code",value = "验证码",required = true)
+    })
+    @ResponseBody
+    public R loginByCode(String email,String code){
+        return managerService.loginByCode(email,code);
+    }
+
 
 
     /**

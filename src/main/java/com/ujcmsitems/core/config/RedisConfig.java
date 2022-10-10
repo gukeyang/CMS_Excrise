@@ -11,7 +11,14 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
-
+/**
+ * <p>
+ *  前端控制器
+ * </p>
+ *
+ * @author xingchen
+ * @since 2022-10-09
+ */
 @Configuration
 //redis的序列化配置
 public class RedisConfig extends CachingConfigurerSupport {
