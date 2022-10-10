@@ -48,7 +48,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
         final String requestTokenHeader = request.getHeader("token");
-        if(requestTokenHeader!=null){
+        if(requestTokenHeader!=null&&redisUtil.hasKey("manager@Limit:Token")&&redisUtil.sHasKey("manager@Limit:Token","token@Limit"+requestTokenHeader)){
             JSONObject res = new JSONObject();
             res.put( "flag", "false");
             res.put( "msg", "Unauthorized");

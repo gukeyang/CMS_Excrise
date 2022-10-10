@@ -58,9 +58,11 @@ public class ManagerServiceImpl extends ServiceImpl<ManagerMapper, Manager> impl
     public JwtUser isLogin(HttpServletRequest request) {
         String token = request.getHeader(tokenHeader).substring(7);
         String username = jwtTokenUtil.getUsernameFromToken(token);
+        //        JwtUser jwtUser = (JwtUser) userDetailsService.loadUserByUsername(username);
         DecodedJWT decode = JWT.decode(token);
         Claim id = decode.getClaim("id");
         Claim account = decode.getClaim("admin");
+        System.out.println(account);
         Claim password = decode.getClaim("password");
         Claim auth=decode.getClaim("authorities");
         return new JwtUser(id.asInt(),account.asString(),password.asString(),auth.asMap().get("authority").toString(),true);
@@ -73,13 +75,19 @@ public class ManagerServiceImpl extends ServiceImpl<ManagerMapper, Manager> impl
         if (manager == null){
             return new R(false, "密码错误");
         }
+        String key="managerLimit";
+        String managerKey="user@"+manager.getId();
+        if(redisUtil.hasKey(key)&&redisUtil.sHasKey(key,"\""+managerKey+"\"")){
+            return new R(false,"该用户已经被封禁");
+        }
         try {
-            authenticate(admin,password);
+            authenticate(manager.getAdmin(),manager.getPassword());
         } catch (Exception e) {
             e.printStackTrace();
         }
         final UserDetails userDetails = userDetailsService
-                .loadUserByUsername(admin);
+                .loadUserByUsername(manager.getAdmin());
+        System.out.println(userDetails);
         final String token = jwtTokenUtil.generateToken(userDetails);
         return new R(true, ResponseEntity.ok(new JwtResponse(token)),"登录成功");
     }
