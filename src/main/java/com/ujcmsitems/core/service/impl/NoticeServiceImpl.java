@@ -8,6 +8,8 @@ import com.ujcmsitems.utils.YangUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -19,9 +21,22 @@ public class NoticeServiceImpl implements NoticeService {
     private NoticeRepository noticeRepository;
 
     @Override
-    public Response addNotice(Notice notice) {
+    public Response addNotice(String noticeTitle, String noticeContent, String firstTarget) {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-hh-ss");
+        Date date = new Date();
+        int status = 0;
+        Notice notice = new Notice(noticeTitle, noticeContent, format.format(date), status, firstTarget);
         noticeRepository.save(notice);
         return Response.ok("添加成功！");
+    }
+
+    @Override
+    public Response updateNotice(int id, String noticeTitle, String noticeContent, int status, String firstTarget) {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-hh-ss");
+        Date date = new Date();
+        Notice notice = new Notice(id, noticeTitle, noticeContent, format.format(date), status, firstTarget);
+        noticeRepository.save(notice);
+        return Response.ok("修改成功！");
     }
 
     @Override

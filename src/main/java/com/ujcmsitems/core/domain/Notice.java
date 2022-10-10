@@ -33,4 +33,19 @@ public class Notice {
     private Integer status;
     @Column(name = "first_target")
     private String firstTarget;
+
+    public Notice(String noticeTitle, String noticeContent, String noticeTime, Integer status, String firstTarget) {
+        this.noticeTitle = noticeTitle;
+        this.noticeContent = noticeContent;
+        this.noticeTime = noticeTime;
+        this.status = status;
+        this.firstTarget = firstTarget;
+    }
+
+    public Notice(String noticeTitle, String noticeContent, String noticeTime, String firstTarget) {
+        this.noticeTitle = noticeTitle;
+        this.noticeContent = noticeContent;
+        this.noticeTime = noticeTime;
+        this.firstTarget = firstTarget;
+    }
 }

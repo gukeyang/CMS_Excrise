@@ -1,6 +1,5 @@
 package com.ujcmsitems.core.controller;
 
-import com.ujcmsitems.core.domain.Notice;
 import com.ujcmsitems.core.service.NoticeService;
 import com.ujcmsitems.utils.Response;
 import io.swagger.annotations.Api;
@@ -23,13 +22,35 @@ public class NoticeController {
     private NoticeService noticeService;
 
     /**
-     * 添加/修改中心要闻或公告通知
+     * 添加中心要闻或公告通知
      */
     @PostMapping("/addNotice")
-    @ApiOperation(value = "添加/修改中心要闻或公告通知")
+    @ApiOperation(value = "添加中心要闻或公告通知")
     @ResponseBody
-    public Response addNotice(Notice notice) {
-        return noticeService.addNotice(notice);
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "noticeTitle", value = "标题", required = true),
+            @ApiImplicitParam(name = "noticeContent", value = "内容", required = true),
+            @ApiImplicitParam(name = "firstTarget", value = "中心要闻/公告通知", required = true),
+    })
+    public Response addNotice(String noticeTitle, String noticeContent, String firstTarget) {
+        return noticeService.addNotice(noticeTitle, noticeContent, firstTarget);
+    }
+
+    /**
+     * 修改中心要闻或公告通知
+     */
+    @PutMapping("/updateNotice")
+    @ApiOperation(value = "修改中心要闻或公告通知")
+    @ResponseBody
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id", value = "所要修改的id       ", required = true),
+            @ApiImplicitParam(name = "status", value = "文章审核状态", required = true),
+            @ApiImplicitParam(name = "noticeTitle", value = "标题", required = true),
+            @ApiImplicitParam(name = "noticeContent", value = "内容", required = true),
+            @ApiImplicitParam(name = "firstTarget", value = "中心要闻/公告通知", required = true),
+    })
+    public Response updateNotice(int id, String noticeTitle, String noticeContent, int status, String firstTarget) {
+        return noticeService.updateNotice(id, noticeTitle, noticeContent, status, firstTarget);
     }
 
 
