@@ -7,10 +7,10 @@ spring:
     active: test
   datasource:
     druid:
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/ujcms-table?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://110.40.211.224:3306/ujcms-table?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
       username: root
-      password: 12345678
+      password: 419520
   redis:
     host: 110.40.211.224
     port: 6379
