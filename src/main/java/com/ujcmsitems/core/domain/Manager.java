@@ -34,6 +34,9 @@ public class Manager implements Serializable {
     @ApiModelProperty(value = "密码")
     private String password;
 
+    @ApiModelProperty(value = "账号")
+    private String username;
+
 
     public Manager(String admin, String password) {
         this.admin = admin;
