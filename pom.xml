@@ -140,6 +140,18 @@
             <version>${druid.version}</version>
         </dependency>
 
+        <!--        QQ邮箱相关jar包-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-email</artifactId>
+            <version>1.4</version>
+        </dependency>
+
         <!--spring-data-jpa-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

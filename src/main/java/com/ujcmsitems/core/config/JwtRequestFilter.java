@@ -27,12 +27,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+
 /**
- * @author Li
- * @Date 2022/7/23 1:08
+ * <p>
+ *  前端控制器
+ * </p>
+ *
+ * @author xingchen
+ * @since 2022-10-09
  */
-
-
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
     @Autowired

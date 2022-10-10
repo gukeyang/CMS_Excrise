@@ -13,8 +13,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @author Li
- * @Date 2022/7/23 1:00
+ * <p>
+ *  前端控制器
+ * </p>
+ *
+ * @author xingchen
+ * @since 2022-10-09
  */
 @Data
 public class JwtUser implements UserDetails {
