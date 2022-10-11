@@ -9,10 +9,12 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * <p>
@@ -131,6 +133,18 @@ public class ManagerController {
         return managerService.isLogin(request);
     }
 
-}
+
+    /**
+     * 注销用户
+     *
+     */
+    @ApiOperation(value = "注销用户")
+    @ResponseBody
+    @GetMapping("/logout")
+    public void logout(HttpSession session){
+        session.invalidate();
+        System.out.println("logout执行了...");
+        }
+    }
 
 

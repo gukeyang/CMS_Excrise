@@ -231,4 +231,16 @@ public class ManagerServiceImpl extends ServiceImpl<ManagerMapper, Manager> impl
         final String token = jwtTokenUtil.generateToken(userDetails);
         return new R(true,token,"登录成功");
     }
+
+
+    /**
+     * 根据用户名获取用户
+     * @param username
+     * @return
+     */
+    @Override
+    public Manager getUserByUserName(String username) {
+        return managerMapper.selectOne(new QueryWrapper<Manager>().eq("username",username)
+        .eq("enabled",true));
+    }
 }
