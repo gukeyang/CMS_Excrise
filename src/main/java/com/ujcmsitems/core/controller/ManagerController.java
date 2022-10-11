@@ -9,10 +9,12 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * <p>
@@ -117,39 +119,32 @@ public class ManagerController {
         return managerService.loginByCode(email,code);
     }
 
+
+
     /**
-     * 修改账户信息
-     * @param id
-     * @param username
-     * @return
+     *判断登录
+     * @date 2022/7/5 21:31
+     * @return com.xingchen.utils.R
      */
-    @ApiOperation(value = "修改账户信息")
-    @PutMapping(value = "/all/update")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "id",value = "id",required = true),
-            @ApiImplicitParam(name = "username",value = "昵称")
-    })
+    @ApiOperation(value = "判断登录")
+    @GetMapping(value = "/isLogin")
     @ResponseBody
-    public R update(Integer id,String username){
-        return managerService.change(id,username);
+    public JwtUser isLogin(HttpServletRequest request){
+        return managerService.isLogin(request);
     }
 
 
-
-
-
-//    /**
-//     *判断登录
-//     * @date 2022/7/5 21:31
-//     * @return com.xingchen.utils.R
-//     */
-//    @ApiOperation(value = "判断登录")
-//    @GetMapping(value = "/isLogin")
-//    @ResponseBody
-//    public JwtUser isLogin(HttpServletRequest request){
-//        return managerService.isLogin(request);
-//    }
-
-}
+    /**
+     * 注销用户
+     *
+     */
+    @ApiOperation(value = "注销用户")
+    @ResponseBody
+    @GetMapping("/logout")
+    public void logout(HttpSession session){
+        session.invalidate();
+        System.out.println("logout执行了...");
+        }
+    }
 
 

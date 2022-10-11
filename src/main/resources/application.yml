@@ -41,3 +41,4 @@ jwt:
   expiration: 604800
   secret: Authorization
 
+

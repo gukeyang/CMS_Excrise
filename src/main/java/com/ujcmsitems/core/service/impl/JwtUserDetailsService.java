@@ -10,11 +10,19 @@ import com.ujcmsitems.core.domain.JwtUser;
 import com.ujcmsitems.core.domain.Manager;
 import com.ujcmsitems.core.mapper.ManagerMapper;
 
+import com.ujcmsitems.utils.JwtTokenUtil;
+import com.ujcmsitems.utils.RespBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * JwtUserDetailsService
@@ -39,6 +47,7 @@ public class JwtUserDetailsService implements UserDetailsService{
             throw new UsernameNotFoundException(String.format("No user found with username '%s'.", username));
         }
     }
+
 }
 
 
