@@ -33,7 +33,7 @@ public class JwtUserDetailsService implements UserDetailsService{
         QueryWrapper<Manager> queryWrapper=new QueryWrapper<>();
         Manager manager = managerMapper.selectOne(queryWrapper.eq("admin",username));
         if(manager!=null){
-            return new JwtUser(manager.getId(), username,manager.getPassword(), String.valueOf(manager.getId()), true);
+            return new JwtUser(manager.getId(), username,manager.getPassword(), String.valueOf(manager.getUserAuthority()), true);
         }
         else {
             throw new UsernameNotFoundException(String.format("No user found with username '%s'.", username));

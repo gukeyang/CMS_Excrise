@@ -53,6 +53,10 @@ public class Manager implements Serializable {
     @ApiModelProperty(value = "邮箱号")
     private String email;
 
+    public Manager(Integer id,String username) {
+        this.id = id;
+        this.username = username;
+    }
 
     public Manager(String admin, String password) {
         this.admin = admin;

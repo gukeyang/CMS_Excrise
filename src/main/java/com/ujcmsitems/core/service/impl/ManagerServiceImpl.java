@@ -70,11 +70,10 @@ public class ManagerServiceImpl extends ServiceImpl<ManagerMapper, Manager> impl
     public JwtUser isLogin(HttpServletRequest request) {
         String token = request.getHeader(tokenHeader).substring(7);
         String username = jwtTokenUtil.getUsernameFromToken(token);
-        //        JwtUser jwtUser = (JwtUser) userDetailsService.loadUserByUsername(username);
+        //JwtUser jwtUser = (JwtUser) userDetailsService.loadUserByUsername(username);
         DecodedJWT decode = JWT.decode(token);
         Claim id = decode.getClaim("id");
-        Claim account = decode.getClaim("admin");
-        System.out.println(account);
+        Claim account = decode.getClaim("username");
         Claim password = decode.getClaim("password");
         Claim auth=decode.getClaim("authorities");
         return new JwtUser(id.asInt(),account.asString(),password.asString(),auth.asMap().get("authority").toString(),true);
@@ -230,5 +229,18 @@ public class ManagerServiceImpl extends ServiceImpl<ManagerMapper, Manager> impl
                 .loadUserByUsername(manager.getAdmin());
         final String token = jwtTokenUtil.generateToken(userDetails);
         return new R(true,token,"登录成功");
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public R change(Integer id, String username) {
+        if(id==null||username==null){
+            return new R(false,"不能为空值");
+        }
+        Manager manager=new Manager(id,username);
+        if(managerMapper.updateById(manager)>0){
+            return new R(true,"修改成功");
+        }
+        return new R(false,"未修改");
     }
 }

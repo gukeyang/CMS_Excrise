@@ -117,19 +117,38 @@ public class ManagerController {
         return managerService.loginByCode(email,code);
     }
 
-
-
     /**
-     *判断登录
-     * @date 2022/7/5 21:31
-     * @return com.xingchen.utils.R
+     * 修改账户信息
+     * @param id
+     * @param username
+     * @return
      */
-    @ApiOperation(value = "判断登录")
-    @GetMapping(value = "/isLogin")
+    @ApiOperation(value = "修改账户信息")
+    @PutMapping(value = "/all/update")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id",value = "id",required = true),
+            @ApiImplicitParam(name = "username",value = "昵称")
+    })
     @ResponseBody
-    public JwtUser isLogin(HttpServletRequest request){
-        return managerService.isLogin(request);
+    public R update(Integer id,String username){
+        return managerService.change(id,username);
     }
+
+
+
+
+
+//    /**
+//     *判断登录
+//     * @date 2022/7/5 21:31
+//     * @return com.xingchen.utils.R
+//     */
+//    @ApiOperation(value = "判断登录")
+//    @GetMapping(value = "/isLogin")
+//    @ResponseBody
+//    public JwtUser isLogin(HttpServletRequest request){
+//        return managerService.isLogin(request);
+//    }
 
 }
 
