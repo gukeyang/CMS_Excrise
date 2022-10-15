@@ -232,6 +232,19 @@ public class ManagerServiceImpl extends ServiceImpl<ManagerMapper, Manager> impl
         return new R(true,token,"登录成功");
     }
 
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public R change(Integer id, String username) {
+        if(id==null||username==null){
+            return new R(false,"不能为空值");
+        }
+        Manager manager=new Manager(id,username);
+        if(managerMapper.updateById(manager)>0){
+            return new R(true,"修改成功");
+        }
+        return new R(false,"未修改");
+    }
+
 
     /**
      * 根据用户名获取用户

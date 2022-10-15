@@ -34,4 +34,6 @@ public interface ManagerService extends IService<Manager> {
     R loginByCode(String email, String code);
 
     Manager getUserByUserName(String username);
+
+    R change(Integer id, String username);
 }

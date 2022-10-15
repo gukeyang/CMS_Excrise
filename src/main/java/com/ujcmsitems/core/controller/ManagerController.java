@@ -145,6 +145,24 @@ public class ManagerController {
         session.invalidate();
         System.out.println("logout执行了...");
         }
+
+
+    /**
+     * 修改账户信息
+     * @param id
+     * @param username
+     * @return
+     */
+    @ApiOperation(value = "修改账户信息")
+    @PutMapping(value = "/all/update")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id",value = "id",required = true),
+            @ApiImplicitParam(name = "username",value = "昵称")
+    })
+    @ResponseBody
+    public R update(Integer id,String username){
+        return managerService.change(id,username);
     }
+}
 
 
