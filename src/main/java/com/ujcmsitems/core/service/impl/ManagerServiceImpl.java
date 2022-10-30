@@ -118,8 +118,8 @@ public class ManagerServiceImpl extends ServiceImpl<ManagerMapper, Manager> impl
         }
         username.append("号");
         Manager manager=new Manager(admin,password);
-        managerMapper.insert(manager);
-        return new R(true, "账号添加成功");
+        int insert = managerMapper.insert(manager);
+        return new R(true,insert,"账号添加成功");
     }
 
     void authenticate(String username, String password) throws Exception {
