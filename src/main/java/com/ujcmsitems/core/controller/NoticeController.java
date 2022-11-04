@@ -6,6 +6,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -24,6 +26,7 @@ public class NoticeController {
     /**
      * 添加中心要闻或公告通知
      */
+    @CacheEvict(value = "noticeCache", allEntries = true)
     @PostMapping("/addNotice")
     @ApiOperation(value = "添加中心要闻或公告通知")
     @ResponseBody
@@ -39,6 +42,7 @@ public class NoticeController {
     /**
      * 修改中心要闻或公告通知
      */
+    @CacheEvict(value = "noticeCache", allEntries = true)
     @PutMapping("/updateNotice")
     @ApiOperation(value = "修改中心要闻或公告通知")
     @ResponseBody
@@ -57,6 +61,7 @@ public class NoticeController {
     /**
      * 删除中心要闻或公告通知
      */
+    @CacheEvict(value = "noticeCache", allEntries = true)
     @DeleteMapping("/deleteNotice/{id}")
     @ApiOperation(value = "删除中心要闻或公告通知")
     @ResponseBody
@@ -82,6 +87,7 @@ public class NoticeController {
     /**
      * 通过id查询中心要闻或公告通知
      */
+    @Cacheable(value = "noticeCache", key = "#id", unless = "#result==null")//返回结果等于空的话不缓存
     @GetMapping("/findNoticeById/{id}")
     @ApiOperation(value = "通过id查询中心要闻或公告通知")
     @ResponseBody
