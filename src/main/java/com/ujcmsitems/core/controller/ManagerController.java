@@ -100,7 +100,7 @@ public class ManagerController {
     })
     @ResponseBody
     public R login(String admin, String password) {
-        return managerService.loshiro - springgin(admin, password);
+        return managerService.login(admin, password);
     }
 
 

@@ -19,6 +19,15 @@ spring:
   cache:
     redis:
       time-to-live: 1800000  #设置缓存时间
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+mybatis:
+  mapper-locations: classpath*:com/*.xml
+
 mybatis-plus:
   configuration:
     #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
@@ -38,4 +47,10 @@ jwt:
   expiration: 604800
   secret: Authorization
 
-
+#FTP:
+#  ADDRESS: 110.40.210.213
+#  PORT: 21
+#  USERNAME: images
+#  PASSWORD: HN5ptkP4xJxWpwhE
+#  BASEPATH: www/wwwroot/images
+#  URL: http://110.40.210.213/img
