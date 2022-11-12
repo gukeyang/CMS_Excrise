@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ujcmsitems.core.domain.Picture;
 import com.ujcmsitems.core.mapper.PictureMapper;
 import com.ujcmsitems.core.service.PictureService;
-import com.ujcmsitems.utils.R;
+import com.ujcmsitems.utils.Response;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import sun.misc.BASE64Encoder;
@@ -27,13 +27,13 @@ public class PictureServiceImpl extends ServiceImpl<PictureMapper, Picture> impl
 
 
     @Override
-    public R upload(MultipartFile file, String imgName) throws IOException {
+    public Response upload(MultipartFile file, String imgName) throws IOException {
         BASE64Encoder encoder = new BASE64Encoder();
         String img = encoder.encode(file.getBytes());
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-hh-ss");
         Date date = new Date();
         Picture picture = new Picture(img, format.format(date), imgName);
         pictureService.save(picture);
-        return null;
+        return Response.ok("success");
     }
 }

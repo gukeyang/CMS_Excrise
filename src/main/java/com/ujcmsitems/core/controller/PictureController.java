@@ -2,7 +2,7 @@ package com.ujcmsitems.core.controller;
 
 
 import com.ujcmsitems.core.service.PictureService;
-import com.ujcmsitems.utils.R;
+import com.ujcmsitems.utils.Response;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -32,7 +32,7 @@ public class PictureController {
             @ApiImplicitParam(name = "imgName", value = "备注", required = true)
     })
     @ResponseBody
-    public R upload(@RequestParam("files") MultipartFile file, String imgName) throws IOException {
+    public Response upload(@RequestParam("files") MultipartFile file, String imgName) throws IOException {
         return pictureService.upload(file, imgName);
     }
 }
