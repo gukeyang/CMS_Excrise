@@ -5,6 +5,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * @author xing'chen
@@ -13,6 +14,7 @@ import org.springframework.cache.annotation.EnableCaching;
 @SpringBootApplication
 @MapperScan("com.ujcmsitems.core.mapper")
 @EnableCaching
+@EnableTransactionManagement
 public class UjcmsItemsApplication {
     public static void main(String[] args) {
         SpringApplication.run(UjcmsItemsApplication.class, args);

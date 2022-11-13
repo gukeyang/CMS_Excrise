@@ -8,6 +8,7 @@ import com.ujcmsitems.utils.YangUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import javax.transaction.Transactional;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -21,6 +22,7 @@ public class NoticeServiceImpl implements NoticeService {
     private NoticeRepository noticeRepository;
 
     @Override
+    @Transactional
     public Response addNotice(String noticeTitle, String noticeContent, String firstTarget) {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-hh-ss");
         Date date = new Date();
@@ -31,6 +33,7 @@ public class NoticeServiceImpl implements NoticeService {
     }
 
     @Override
+    @Transactional
     public Response updateNotice(int id, String noticeTitle, String noticeContent, int status, String firstTarget) {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-hh-ss");
         Date date = new Date();
@@ -40,18 +43,21 @@ public class NoticeServiceImpl implements NoticeService {
     }
 
     @Override
+    @Transactional
     public Response deleteNotice(int id) {
         noticeRepository.deleteById(id);
         return Response.ok("删除成功！");
     }
 
     @Override
+    @Transactional
     public Response findNoticeByPages(int pages, int num) {
         List<Notice> list = noticeRepository.findAll();
         return Response.ok(YangUtils.queryPages(list, pages, num));
     }
 
     @Override
+    @Transactional
     public Response findNoticeById(int id) {
         Notice notice = noticeRepository.findById(id).orElse(null);
         if (notice != null) {
