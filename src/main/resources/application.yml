@@ -54,3 +54,9 @@ jwt:
 #  PASSWORD: HN5ptkP4xJxWpwhE
 #  BASEPATH: www/wwwroot/images
 #  URL: http://110.40.210.213/img
+# minio 参数配置
+minio:
+  endpoint: http://110.40.210.213:9000
+  accessKey: minioadmin
+  secretKey: minioadmin
+  bucketName: test
