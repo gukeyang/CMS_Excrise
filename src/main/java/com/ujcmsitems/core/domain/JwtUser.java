@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @author xingchen
@@ -47,6 +47,7 @@ public class JwtUser implements UserDetails {
         this.authorities = mapToGrantedAuthorities(authorities);
         this.enabled = enabled;
     }
+
     public JwtUser(
             Integer id,
             String username,
@@ -60,14 +61,17 @@ public class JwtUser implements UserDetails {
         this.authorities = mapToGrantedAuthorities(authoritie);
         this.enabled = enabled;
     }
+
     private List<GrantedAuthority> mapToGrantedAuthorities(List<String> authorities) {
         return authorities.stream()
                 .map(authority -> new SimpleGrantedAuthority(authority))
                 .collect(Collectors.toList());
     }
+
     private List<GrantedAuthority> mapToGrantedAuthorities(String authoritie) {
         return Arrays.asList(new SimpleGrantedAuthority(authoritie));
     }
+
     public Integer getId() {
         return id;
     }
@@ -107,6 +111,5 @@ public class JwtUser implements UserDetails {
     public boolean isEnabled() {
         return enabled;
     }
-
 }
 

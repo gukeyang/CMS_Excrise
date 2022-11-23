@@ -56,15 +56,9 @@ public class PictureServiceImpl extends ServiceImpl<PictureMapper, Picture> impl
                 bytes[i] += 256;
             }
         }
-
-//        byte[] byteTime = picture.getImgTime().getBytes();
-//        byte[] byteName = picture.getImgName().getBytes();
-
         response.setContentType("image/jpeg");
         ServletOutputStream outputStream = response.getOutputStream();
         outputStream.write(bytes);
-//        outputStream.write(byteTime);
-//        outputStream.write(byteName);
         outputStream.flush();
         outputStream.close();
 
