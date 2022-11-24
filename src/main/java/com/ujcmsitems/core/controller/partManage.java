@@ -10,11 +10,10 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.xml.crypto.Data;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -43,17 +42,17 @@ public class partManage {
     }
 
     @ApiOperation(value = "删除指定id的区块")
-    @GetMapping(value = "/deleteById")
+    @DeleteMapping(value = "/deleteById")
     @ResponseBody
-    public RespBean deleteById(Integer id){
-        return partMaService.deletePartMaById(id);
+    public R deleteById(Integer id){
+        return new R(true,partMaService.deletePartMaById(id),"删除区块");
     }
 
     @ApiOperation(value = "新增区块")
-    @GetMapping(value = "/addPart")
+    @PostMapping(value = "/addPart")
     @ResponseBody
-    public RespBean addPart(String name, String picture, Data data){
-        return partMaService.addPartMa(name,picture,data);
+    public R  addPart(String name, String picture, Date date){
+        return new R(true,partMaService.addPartMa(name,picture,date),"新增区块");
     }
 
     @ApiOperation(value = "查询区块")
@@ -64,7 +63,7 @@ public class partManage {
     }
 
     @ApiOperation(value = "修改区块")
-    @GetMapping(value = "/updatePart")
+    @PutMapping(value = "/updatePart")
     @ResponseBody
     public partMa updatePart(int id){
         return partMaService.updatePartMa(id);

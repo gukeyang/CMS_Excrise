@@ -71,13 +71,13 @@ public class SwaggerConfig {
             return new ApiInfoBuilder()
                     .title("SWAGGER API MANAGEMENT")
                     .description("基于 Spring MVC 的 Swagger API 管理")
-                    .contact(contact())
+//                    .contact(contact())
                     .version("1.0")
                     .build();
         }
-        private Contact contact() {
-            return new Contact("toSkyNews", "https://www.xingchen.net/", "3056726345@qq.com");
-        }
+//        private Contact contact() {
+//            return new Contact("1", "https://www.xingchen.net/", "3056726345@qq.com");
+//        }
 
     }
 
