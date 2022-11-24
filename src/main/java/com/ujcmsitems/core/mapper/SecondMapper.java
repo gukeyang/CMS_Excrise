@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
  * @since 2022-10-15
  */
 @Repository
+
 public interface SecondMapper extends BaseMapper<Second> {
 
 }
