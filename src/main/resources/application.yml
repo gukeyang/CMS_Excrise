@@ -11,6 +11,8 @@ spring:
       url: jdbc:mysql://110.40.211.224:3306/ujcms-table?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
       username: root
       password: 419520
+    mvc:
+      static-path-pattern: /static/**
   redis:
     host: 110.40.211.224
     port: 6379
@@ -60,3 +62,35 @@ minio:
   accessKey: minioadmin
   secretKey: minioadmin
   bucketName: test
+
+
+#freemarker配置
+freemarker:
+  allow-request-override: false
+  check-template-location: false
+  request-context-attribute: req  #req访问request
+  suffix: .ftlh  #后缀名
+  content-type: text/html
+  expose-request-attributes: true
+  expose-session-attributes: true
+  enabled: true
+  cache: false #缓存配置
+  template-loader-path: classpath:/templates/ftl #模板加载路径 按需配置
+  charset: UTF-8 #编码格式
+  number_format: '0.##'   #数字格式化，无小数点
+
+
+  #html存放的具体路径，可进行自定义，示例：resources/templates
+  #  spring.thymeleaf.prefix=classpath:/templates/
+  #  spring.thymeleaf.encoding=UTF-8
+  #  spring.thymeleaf.cache=false
+  #  spring.thymeleaf.suffix=.html
+  #  spring.thymeleaf.servlet.content-type=text/html
+  thymeleaf:
+    prefix: classpath:/static/
+    encoding: UTF-8
+    cache: false
+    suffix: .html
+    servlet:
+      content-type: text/html
+    check-template-location: true

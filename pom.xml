@@ -40,6 +40,7 @@
             <artifactId>spring-jdbc</artifactId>
             <version>5.2.8.RELEASE</version>
         </dependency>
+
         <!--上传图片-->
         <!--        &lt;!&ndash;ftp文件上传&ndash;&gt;-->
         <!--        <dependency>-->
