@@ -59,6 +59,7 @@ public class MinIoUtil {
      * @param bucketName 存储bucket名称
      * @return Boolean
      */
+
     public Boolean makeBucket(String bucketName) {
         try {
             minioClient.makeBucket(MakeBucketArgs.builder()

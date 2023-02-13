@@ -58,7 +58,7 @@ jwt:
 #  URL: http://110.40.210.213/img
 # minio 参数配置
 minio:
-  endpoint: http://110.40.210.213:9000
+  endpoint: http://43.138.119.32:9000
   accessKey: minioadmin
   secretKey: minioadmin
   bucketName: test
