@@ -3,23 +3,30 @@ package com.ujcmsitems.core.controller;
 
 
 import com.ujcmsitems.utils.FreeMarkerUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * gukeyang
  * 生成静态页面的接口
  */
+@Api(tags = "生成页面/更新页面")
+@CrossOrigin
 @Controller
-public class test {
+public class ProduceHtml {
 
     /**
      * 生成静态页面的接口
      * @return
      */
-
+    @ApiOperation(value = "生成页面")
     @RequestMapping(value = {"/","/h1"})
+
     public String freeMarkerHtml(Model model) {
 
         //根据模板生成静态html页面
