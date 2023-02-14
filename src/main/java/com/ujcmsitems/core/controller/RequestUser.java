@@ -8,10 +8,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
@@ -19,6 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Controller
+@CrossOrigin
 @Api(tags = "获取当前用户信息")
 public class RequestUser {
 
@@ -54,11 +52,12 @@ public class RequestUser {
     @ApiOperation(value = "获取现在时间")
     @RequestMapping(value = "/date", method = RequestMethod.GET)
     @ResponseBody
-    public Date currentDate() {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    public String currentDate() {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd  HH:mm:ss");
         Date date = new Date(System.currentTimeMillis());
+        String format = formatter.format(date);
         System.out.println(formatter.format(date));
-        return date;
+        return format;
     }
 
 
