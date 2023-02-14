@@ -87,7 +87,7 @@ public class NoticeController {
     /**
      * 通过id查询中心要闻或公告通知
      */
-    @Cacheable(value = "noticeCache", key = "#id", unless = "#result==null")//返回结果等于空的话不缓存
+  //  @Cacheable(value = "noticeCache", key = "#id", unless = "#result==null")//返回结果等于空的话不缓存
     @GetMapping("/findNoticeById/{id}")
     @ApiOperation(value = "通过id查询中心要闻或公告通知")
     @ResponseBody
