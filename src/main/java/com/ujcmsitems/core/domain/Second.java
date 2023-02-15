@@ -28,7 +28,7 @@ public class Second implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "第二目录id")
-    @TableId(value = "second_id", type = IdType.AUTO)
+    @TableId(value = "secondId", type = IdType.AUTO)
     private Integer secondId;
 
     @ApiModelProperty(value = "第一目录id")

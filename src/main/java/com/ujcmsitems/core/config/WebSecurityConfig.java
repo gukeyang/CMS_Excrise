@@ -72,10 +72,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // 不对此特定请求进行身份验证
                 .and()
                 .authorizeRequests()
-                .antMatchers("/isLogin").hasAnyAuthority("0","1")
-                .antMatchers("/all/*").hasAnyAuthority("0","1")
-                .antMatchers("/user/*").hasAuthority("0")
-                .antMatchers("/administrator/*").hasAuthority("1")
+                .antMatchers("/isLogin").hasAnyAuthority("1","0")
+                .antMatchers("/all/*").hasAnyAuthority("1","0")
+                .antMatchers("/user/*").hasAuthority("1")
+                .antMatchers("/administrator/*").hasAuthority("0")
                 .antMatchers("/*").permitAll()
                 .anyRequest().authenticated()
 

@@ -49,7 +49,7 @@ public class SecondServiceImpl extends ServiceImpl<SecondMapper, Second> impleme
         QueryWrapper<Second> secondQueryWrapper=new QueryWrapper<>();
         String secondTargetName= second.getSecondTargetName();
         Integer firstId = second.getFirstId();
-        secondQueryWrapper.eq("first_id",firstId);
+        secondQueryWrapper.eq("firstId",firstId);
         List<Second> secondList = secondMapper.selectList(secondQueryWrapper);
         for(Second course1:secondList){
             String secondTargetName1 = course1.getSecondTargetName();
@@ -64,7 +64,7 @@ public class SecondServiceImpl extends ServiceImpl<SecondMapper, Second> impleme
     @Override
     public List<Second> getAllSecond(Integer firstId) {
         QueryWrapper<Second> courseQueryWrapper=new QueryWrapper<>();
-        courseQueryWrapper.eq("first_id",firstId);
+        courseQueryWrapper.eq("firstId",firstId);
         List<Second> seconds = secondMapper.selectList(courseQueryWrapper);
         return seconds;
     }
@@ -72,7 +72,7 @@ public class SecondServiceImpl extends ServiceImpl<SecondMapper, Second> impleme
     @Override
     public IPage<Second> getPageSecond(Integer firstId, Integer currentPage, Integer pageSize) {
         QueryWrapper<Second> courseQueryWrapper=new QueryWrapper<>();
-        courseQueryWrapper.eq("first_id",firstId);
+        courseQueryWrapper.eq("firstId",firstId);
         IPage page=new Page(currentPage,pageSize);
         secondMapper.selectPage(page,courseQueryWrapper);
         return page;
@@ -93,8 +93,8 @@ public class SecondServiceImpl extends ServiceImpl<SecondMapper, Second> impleme
     @Override
     public IPage<Second> searchPageSecond(Integer firstId, String search, Integer currentPage, Integer pageSize) {
         QueryWrapper<Second> courseQueryWrapper=new QueryWrapper<>();
-        courseQueryWrapper.eq("first_id",firstId);
-        courseQueryWrapper.like("second_target_name",search);
+        courseQueryWrapper.eq("firstId",firstId);
+        courseQueryWrapper.like("secondTargetName",search);
         IPage page=new Page(currentPage,pageSize);
         secondMapper.selectPage(page,courseQueryWrapper);
         return page;

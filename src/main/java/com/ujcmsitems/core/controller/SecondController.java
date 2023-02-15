@@ -54,8 +54,8 @@ public class SecondController {
     public R saveSecond(Integer firstId,String secondTargetName) throws IOException {
         Second second=new Second(firstId,secondTargetName);
         QueryWrapper<Second> courseQueryWrapper=new QueryWrapper<>();
-        courseQueryWrapper.eq("first_id",firstId);
-        courseQueryWrapper.eq("second_target_name", secondTargetName);
+        courseQueryWrapper.eq("firstId",firstId);
+        courseQueryWrapper.eq("secondTargetName", secondTargetName);
         List<Second> seconds = secondService.list(courseQueryWrapper);
         if(seconds.isEmpty()){
             boolean flag = secondService.save(second);
@@ -114,7 +114,7 @@ public class SecondController {
      * @return
      */
     @ApiOperation(value = "查询第一目录下的所有第二目录")
-    @PostMapping(value = "/getAllSecond")
+    @GetMapping(value = "/getAllSecond")
     @ApiImplicitParam(name = "firstId",value = "第一目录的id",required = true)
     @ResponseBody
     public R getAllSecond(Integer firstId){
