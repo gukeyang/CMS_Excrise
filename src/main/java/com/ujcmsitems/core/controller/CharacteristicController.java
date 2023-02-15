@@ -25,6 +25,7 @@ import java.util.List;
 @Controller
 @CrossOrigin
 @Api(tags = "特色平台库")
+@RequestMapping("/administrator")
 public class CharacteristicController {
 
 

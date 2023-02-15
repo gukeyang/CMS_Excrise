@@ -138,15 +138,18 @@ public class ManagerController {
     }
 
 
+
     /**
-     * 注销用户
+     *退出登录
+     * @date 2022/7/26 14:59
+     * @return com.xingchen.pojo.JwtUser
      */
-    @ApiOperation(value = "注销用户")
+    @ApiOperation(value = "退出登录")
+    @GetMapping(value = "/quit")
     @ResponseBody
-    @GetMapping("/logout")
-    public void logout(HttpSession session) {
-        session.invalidate();
-        System.out.println("logout执行了...");
+    public R quit(HttpServletRequest request){
+        managerService.quit(request);
+        return new R(true,"退出成功");
     }
 
 

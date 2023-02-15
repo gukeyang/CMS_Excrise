@@ -22,3 +22,11 @@ public class UjcmsItemsApplication {
         log.info("项目启动成功...");
     }
 }
+
+
+// jpg加载器工厂 class JpgReaderFactory implements ReaderFactory {     @Override     public Reader getReader() {         return new JpgReader();     } } // png加载器工厂 class PngReaderFactory implements ReaderFactory {     @Override     public Reader getReader() {         return new PngReader();     } } // gif加载器工厂 class GifReaderFactory implements ReaderFactory {     @Override     public Reader getReader() {         return new GifReader();     } } 
+
+
+
+
+
