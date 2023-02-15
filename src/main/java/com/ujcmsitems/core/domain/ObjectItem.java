@@ -1,5 +1,6 @@
 package com.ujcmsitems.core.domain;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,11 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ObjectItem {
     private Long id;
+    @TableField("object_name")
     private String objectName;
     private Long size;
-
-    public ObjectItem(String objectName, Long size) {
-        this.objectName = objectName;
-        this.size = size;
-    }
 }
