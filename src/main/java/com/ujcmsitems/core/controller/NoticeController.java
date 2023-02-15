@@ -1,5 +1,6 @@
 package com.ujcmsitems.core.controller;
 
+import com.ujcmsitems.core.dto.NoticeDto;
 import com.ujcmsitems.core.service.NoticeService;
 import com.ujcmsitems.utils.Response;
 import io.swagger.annotations.Api;
@@ -30,13 +31,13 @@ public class NoticeController {
     @PostMapping("/addNotice")
     @ApiOperation(value = "添加中心要闻或公告通知")
     @ResponseBody
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "noticeTitle", value = "标题", required = true),
-            @ApiImplicitParam(name = "noticeContent", value = "内容", required = true),
-            @ApiImplicitParam(name = "firstTarget", value = "中心要闻/公告通知", required = true),
-    })
-    public Response addNotice(String noticeTitle, String noticeContent, String firstTarget) {
-        return noticeService.addNotice(noticeTitle, noticeContent, firstTarget);
+//    @ApiImplicitParams({
+//            @ApiImplicitParam(name = "noticeTitle", value = "标题", required = true),
+//            @ApiImplicitParam(name = "noticeContent", value = "内容", required = true),
+//            @ApiImplicitParam(name = "firstTarget", value = "中心要闻/公告通知", required = true),
+//    })
+    public Response addNotice(@RequestBody NoticeDto noticeDto) {
+        return noticeService.addNotice(noticeDto);
     }
 
     /**
