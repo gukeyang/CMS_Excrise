@@ -49,7 +49,6 @@ public class Manager implements Serializable {
      */
     private Integer userAuthority;
 
-
     @ApiModelProperty(value = "邮箱号")
     private String email;
 

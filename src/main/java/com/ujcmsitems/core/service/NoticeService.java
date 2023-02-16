@@ -1,5 +1,6 @@
 package com.ujcmsitems.core.service;
 
+import com.ujcmsitems.core.dto.NoticeDto;
 import com.ujcmsitems.utils.Response;
 
 /**
@@ -9,7 +10,7 @@ public interface NoticeService {
     /**
      * 添加中心要闻或公告通知
      */
-    Response addNotice(String noticeTitle, String noticeContent, String firstTarget);
+    Response addNotice(NoticeDto noticeDto);
 
     /**
      * 修改中心要闻或公告通知

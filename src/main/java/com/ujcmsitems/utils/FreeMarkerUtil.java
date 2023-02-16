@@ -14,7 +14,7 @@ import java.util.Locale;
  */
 public class FreeMarkerUtil {
 
-    private static final String htmlUrl = "D:\\idealocation\\ujcms-items\\src\\main\\resources\\static\\";//生成静态html文件的位置
+    private static final String htmlUrl = "src\\main\\resources\\static\\";//生成静态html文件的位置
 
     private static final Version configVersion = Configuration.VERSION_2_3_19;
 

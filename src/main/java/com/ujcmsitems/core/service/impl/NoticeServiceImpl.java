@@ -2,6 +2,7 @@ package com.ujcmsitems.core.service.impl;
 
 import com.ujcmsitems.core.Repository.NoticeRepository;
 import com.ujcmsitems.core.domain.Notice;
+import com.ujcmsitems.core.dto.NoticeDto;
 import com.ujcmsitems.core.service.NoticeService;
 import com.ujcmsitems.utils.Response;
 import com.ujcmsitems.utils.YangUtils;
@@ -23,7 +24,10 @@ public class NoticeServiceImpl implements NoticeService {
 
     @Override
     @Transactional
-    public Response addNotice(String noticeTitle, String noticeContent, String firstTarget) {
+    public Response addNotice(NoticeDto noticeDto) {
+        String noticeTitle=noticeDto.getNoticeTitle();
+        String noticeContent=noticeDto.getNoticeContent();
+        String firstTarget=noticeDto.getFirstTarget();
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-hh-ss");
         Date date = new Date();
         int status = 0;

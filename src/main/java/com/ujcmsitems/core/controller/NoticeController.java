@@ -1,5 +1,6 @@
 package com.ujcmsitems.core.controller;
 
+import com.ujcmsitems.core.dto.NoticeDto;
 import com.ujcmsitems.core.service.NoticeService;
 import com.ujcmsitems.utils.Response;
 import io.swagger.annotations.Api;
@@ -7,7 +8,6 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -35,8 +35,8 @@ public class NoticeController {
             @ApiImplicitParam(name = "noticeContent", value = "内容", required = true),
             @ApiImplicitParam(name = "firstTarget", value = "中心要闻/公告通知", required = true),
     })
-    public Response addNotice(String noticeTitle, String noticeContent, String firstTarget) {
-        return noticeService.addNotice(noticeTitle, noticeContent, firstTarget);
+    public Response addNotice(@RequestBody NoticeDto noticeDto) {
+        return noticeService.addNotice(noticeDto);
     }
 
     /**
@@ -87,7 +87,7 @@ public class NoticeController {
     /**
      * 通过id查询中心要闻或公告通知
      */
-    @Cacheable(value = "noticeCache", key = "#id", unless = "#result==null")//返回结果等于空的话不缓存
+  //  @Cacheable(value = "noticeCache", key = "#id", unless = "#result==null")//返回结果等于空的话不缓存
     @GetMapping("/findNoticeById/{id}")
     @ApiOperation(value = "通过id查询中心要闻或公告通知")
     @ResponseBody

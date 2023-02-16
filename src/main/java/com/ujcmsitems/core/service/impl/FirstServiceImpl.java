@@ -34,7 +34,7 @@ public class FirstServiceImpl extends ServiceImpl<FirstMapper, First> implements
     public boolean modify(First first) {
         QueryWrapper<First> courseQueryWrapper=new QueryWrapper<>();
         String firstTargetName = first.getFirstTargetName();
-        courseQueryWrapper.eq("first_target_name",firstTargetName);
+        courseQueryWrapper.eq("firstTargetName",firstTargetName);
         First first1 = firstMapper.selectOne(courseQueryWrapper);
         if(first1==null){
             firstMapper.updateById(first);
@@ -66,7 +66,7 @@ public class FirstServiceImpl extends ServiceImpl<FirstMapper, First> implements
     @Override
     public IPage<First> searchFirst(Integer currentPage, Integer pageSize, String search) {
         QueryWrapper<First> queryWrapper = new QueryWrapper<>();
-        queryWrapper.like("first_target_name",search);
+        queryWrapper.like("firstTargetName",search);
         IPage<First> page=new Page<>(currentPage,pageSize);
         firstMapper.selectPage(page, queryWrapper);
         return page;
@@ -76,7 +76,7 @@ public class FirstServiceImpl extends ServiceImpl<FirstMapper, First> implements
     public R saveFirst(String firstTargetName) {
         First first = new First(firstTargetName);
         QueryWrapper<First> courseQueryWrapper = new QueryWrapper<>();
-        courseQueryWrapper.eq("first_target_name", firstTargetName);
+        courseQueryWrapper.eq("firstTargetName", firstTargetName);
         First first1 = firstMapper.selectOne(courseQueryWrapper);
         if (first1==null) {
             firstMapper.insert(first);
