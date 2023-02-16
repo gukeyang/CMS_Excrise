@@ -12,13 +12,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Picture {
     private Long id;
-    private Object imgPath;
+    private String imgPath;
     private String imgTime;
     private String imgName;
 
-    public Picture(Object imgPath, String imgTime, String imgName) {
-        this.imgPath = imgPath;
-        this.imgTime = imgTime;
-        this.imgName = imgName;
-    }
 }

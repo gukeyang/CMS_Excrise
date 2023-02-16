@@ -1,7 +1,11 @@
 package com.ujcmsitems.utils;
 
 import com.ujcmsitems.core.domain.ObjectItem;
+import com.ujcmsitems.core.domain.Picture;
+import com.ujcmsitems.core.mapper.PictureMapper;
+import com.ujcmsitems.core.service.CpictureService;
 import com.ujcmsitems.core.service.ObjectItemService;
+import com.ujcmsitems.core.service.PictureService;
 import io.minio.*;
 import io.minio.messages.DeleteError;
 import io.minio.messages.DeleteObject;
@@ -141,6 +145,49 @@ public class MinIoUtil {
         return true;
     }
 
+
+
+
+    @Value("${minio.endpoint}")
+    private String minioip;
+    private String PbucketName = "carousel";
+    @Autowired
+    private PictureMapper pictureMapper;
+
+    /**
+     * 图片上传
+     *
+     * @param file 图片
+     * @return Boolean
+     */
+    public Boolean uploadCPicture(MultipartFile file,String CPictureName) {
+
+        try {
+            bucketName = "carousel";
+            Date d = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+            String filePathc = sdf.format(d) + "&&" + CPictureName;
+            PutObjectArgs objectArgs = PutObjectArgs.builder().bucket(bucketName).object(filePathc)
+                    .stream(file.getInputStream(), file.getSize(), -1).contentType(file.getContentType()).build();
+            //文件名称相同会覆盖
+            minioClient.putObject(objectArgs);
+            /*********************/
+            log.info("filepath=========={}", filePathc);
+            log.info("fileName=========={}", CPictureName);
+            Picture picture = new Picture( null,minioip + "/" + PbucketName + "/" + filePathc,sdf.format(d),CPictureName);
+            System.out.println(picture.getId());
+            pictureMapper.insert(picture);
+            //将照片信息存储到数据库中
+            /*********************/
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+
     /**
      * 文件下载
      *
@@ -252,4 +299,5 @@ public class MinIoUtil {
         Iterable<Result<DeleteError>> results = minioClient.removeObjects(RemoveObjectsArgs.builder().bucket(bucketName).objects(dos).build());
         return results;
     }
+
 }
