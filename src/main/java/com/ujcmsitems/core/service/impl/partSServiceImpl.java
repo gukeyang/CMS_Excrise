@@ -3,12 +3,11 @@ package com.ujcmsitems.core.service.impl;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.ujcmsitems.core.domain.Notice;
 import com.ujcmsitems.core.domain.partS;
 import com.ujcmsitems.core.mapper.partSMapper;
 import com.ujcmsitems.core.service.partSService;
 import com.ujcmsitems.utils.Response;
-import io.swagger.models.auth.In;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,14 +30,14 @@ public class partSServiceImpl extends ServiceImpl<partSMapper, partS> implements
     }
 
     @Override
-    public Response updatePartS(Integer id, String name, String status) {
+    public Response updatePartS(Long id, String name, String status) {
         partS partS = new partS(id,name,status);
-        partSMapper.insert(partS);
+        partSMapper.updateById(partS);
         return Response.ok("修改成功");
     }
 
     @Override
-    public Response deletePartS(Integer id) {
+    public Response deletePartS(Long id) {
         partSMapper.deleteById(id);
         return Response.ok("删除成功");
     }
@@ -49,7 +48,7 @@ public class partSServiceImpl extends ServiceImpl<partSMapper, partS> implements
     }
 
     @Override
-    public Response findPartSById(Integer id) {
+    public Response findPartSById(Long id) {
         partS partS = partSMapper.selectById(id);
         if (partS != null) {
             return Response.ok(partS);

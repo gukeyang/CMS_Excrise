@@ -3,12 +3,13 @@ package com.ujcmsitems.core.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ujcmsitems.core.domain.partS;
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Mapper;
+
 
 /**
  * @Author gukeyang
  *
  */
-@Repository
+@Mapper
 public interface partSMapper extends BaseMapper<partS> {
 }

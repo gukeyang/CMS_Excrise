@@ -26,7 +26,7 @@ import java.io.Serializable;
 public class partS implements Serializable {
 
     @ApiModelProperty(value = "id")
-    private Integer id;
+    private Long id;
     @ApiModelProperty(value = "名称")
     private String name;
     @ApiModelProperty(value = "状态")
@@ -34,29 +34,6 @@ public class partS implements Serializable {
 
     public partS(String name, String status) {
         this.name = name;
-        this.status = status;
-    }
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
         this.status = status;
     }
 }

@@ -2,6 +2,7 @@ package com.ujcmsitems.core.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ujcmsitems.core.domain.partM;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 /**

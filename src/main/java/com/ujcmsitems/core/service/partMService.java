@@ -1,6 +1,8 @@
 package com.ujcmsitems.core.service;
 
 
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.ujcmsitems.core.domain.partM;
 import com.ujcmsitems.utils.Response;
 
 
@@ -10,22 +12,22 @@ import com.ujcmsitems.utils.Response;
  */
 
 
-public interface partMService {
+public interface partMService extends IService<partM> {
 
     /**
      * 添加
      */
-    Response addPartM(String title, String picture, Integer part);
+    Response addPartM(String title, String picture, Long part);
 
     /**
      * 修改
      */
-    Response updatePartM(Integer id, String title, String picture, Integer part);
+    Response updatePartM(Long id, String title, String picture, Long part);
 
     /**
      * 删除
      */
-    Response deletePartM(Integer id);
+    String deletePartM(Long id);
 
     /**
      * 分页查询
@@ -35,7 +37,7 @@ public interface partMService {
     /**
      * 通过id查询
      */
-    Response findPartMById(Integer id);
+    Response findPartMById(Long id);
 
 
 }
