@@ -36,13 +36,13 @@ public class MinioController {
     @ApiOperation(value = "上传文件")
     @ResponseBody
     @PostMapping("/minioUpload")
-    public String upload(MultipartFile file) {
+    public String upload(MultipartFile file,String title,String part) {
         String bucketName = "test";
         System.out.println(bucketName);
         if (StringUtils.isBlank(bucketName)) {
             return "存储bucket名称为空，无法上传";
         }
-        if (!minIoUtil.upload(file)) {
+        if (!minIoUtil.upload(file,title,part)) {
             return "文件上传异常";
         }
         return "文件上传成功";
