@@ -70,4 +70,11 @@ public class NoticeServiceImpl implements NoticeService {
             return Response.error("不存在此notice！");
         }
     }
+
+    @Override
+    public List<Notice> queryNoticeFour() {
+        return noticeRepository.queryNoticeFour();
+    }
+
+
 }
