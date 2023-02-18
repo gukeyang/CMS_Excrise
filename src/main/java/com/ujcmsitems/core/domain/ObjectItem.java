@@ -16,4 +16,10 @@ public class ObjectItem {
     @TableField("object_name")
     private String objectName;
     private Long size;
+
+    @TableField("htitle")
+    private String htitle;
+    @TableField("hpart")
+    private String hpart;
+
 }

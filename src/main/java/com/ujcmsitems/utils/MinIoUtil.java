@@ -7,6 +7,7 @@ import com.ujcmsitems.core.service.CpictureService;
 import com.ujcmsitems.core.service.ObjectItemService;
 import com.ujcmsitems.core.service.PictureService;
 import io.minio.*;
+import io.minio.errors.*;
 import io.minio.messages.DeleteError;
 import io.minio.messages.DeleteObject;
 import io.minio.messages.Item;
@@ -19,6 +20,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -101,15 +105,15 @@ public class MinIoUtil {
      * @param
      * @return Boolean
      */
-    public Boolean upload(MultipartFile file) {
+    public Boolean upload(MultipartFile file,String title,String part) {
         try {
             Date d = new Date();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
             String fileNewName = System.currentTimeMillis() + file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
             String filePathc = sdf.format(d) + "&&" + fileNewName;
-
-            PutObjectArgs objectArgs = PutObjectArgs.builder().bucket(bucketName).object(filePathc)
+            String name="test";
+            PutObjectArgs objectArgs = PutObjectArgs.builder().bucket(name).object(filePathc)
                     .stream(file.getInputStream(), file.getSize(), -1).contentType(file.getContentType()).build();
             //文件名称相同会覆盖
             minioClient.putObject(objectArgs);
@@ -123,6 +127,9 @@ public class MinIoUtil {
 
             ObjectItem objectItem = new ObjectItem();
             objectItem.setObjectName(filePathc);
+            objectItem.setHtitle(title);
+            objectItem.setHpart(part);
+
             try {
                 for (Result<Item> result : results) {
                     Item item = result.get();
@@ -144,6 +151,7 @@ public class MinIoUtil {
         }
         return true;
     }
+
 
 
 
@@ -299,5 +307,6 @@ public class MinIoUtil {
         Iterable<Result<DeleteError>> results = minioClient.removeObjects(RemoveObjectsArgs.builder().bucket(bucketName).objects(dos).build());
         return results;
     }
+
 
 }

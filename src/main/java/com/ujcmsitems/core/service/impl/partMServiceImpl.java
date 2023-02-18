@@ -28,7 +28,7 @@ public class partMServiceImpl  extends ServiceImpl<partMMapper, partM>  implemen
 
         partM partM = new partM(title,picture,part);
         partMMapper.insert(partM);
-        return Response.ok("添加成功");
+        return Response.ok("success!");
     }
 
     @Override
