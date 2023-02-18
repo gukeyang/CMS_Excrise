@@ -19,7 +19,7 @@
 //    @Override
 //    protected void addResourceHandlers(ResourceHandlerRegistry registry) {
 //        log.info("开始进行静态资源映射...");
-//        registry.addResourceHandler("/templates/**").addResourceLocations("classpath:/templates/");
+//        registry.addResourceHandler("/templates/**").addResourceLocations("classpath:/templates/ftl");
 //        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
 //        registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/", "classpath:/META-INF/resources/webjars/");
 //    }

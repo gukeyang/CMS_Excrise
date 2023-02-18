@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+@media screen and (min-width:1560px) {
+    html {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width:1559px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width:1199px) {
+    html {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width:991px) {
+    html {
+        font-size: 8px;
+    }
+}
+
+@media screen and (max-width:767px) {
+    html {
+        font-size: 5px;
+    }
+}
+
+.banner {
+    width: 100%;
+    height: 8rem;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+}
+
+.nav {
+    /* position: fixed; */
+    width: 100%;
+    height: 2.5rem;
+    padding-left: 8rem;
+    background-color: #337AB7;
+}
+
+.nav div {
+    float: left;
+    width: 10rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    line-height: 2.5rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.nav div .menu-bar {
+    display: none;
+    background-color: #337AB7;
+}
+
+.nav div:hover .menu-bar {
+    display: block;
+    z-index: 10000 !important;
+}
+
+.nav div a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav div a:hover {
+    color: red;
+    text-decoration: none;
+}
+.nav {
+    position: fixed;
+    width: 100%;
+    height: 2.5rem;
+    z-index: 100;
+    background-color: #337AB7;
+  }
+  
+.content {
+    width: 70%;
+    margin: 3rem auto;
+}
+.content div {
+    float: left;
+}
+.content .left-lab {
+    margin-top: 10rem;
+}
+.content .right-lab {
+    width: 50rem;
+    /* margin-top: 4rem; */
+    margin-left: 4rem;
+}
+.content .left-lab ul li {
+    display: block;
+    width: 10rem;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    border: 1px solid #0000FF;
+    border-radius: 2.5rem;
+}
+
+.content .right-lab .linear {
+    width: 100%;
+    height: 6px;
+    margin-bottom: 1rem;
+    background: -webkit-linear-gradient(left, #0072d836, #0072d8, #0072d836);
+}
+
+.content .right-lab h2 {
+    width: 100%;
+    height: 2rem;
+    text-align: center;
+    line-height: 2rem;
+}
+.content .right-lab .li li{
+    width: 100%;
+    height: 3rem;
+    line-height: 3rem;
+    border: 1px solid #0000FF;
+    border-radius: 2.5rem;
+    padding-left: 2rem;
+    margin-bottom: 10px;
+}
+.content .right-lab .li li a{
+    float: left;
+    width: 50%;
+}
+.content .right-lab .li li div {
+    width: 96%;
+   text-align: right;
+}
+.neil{
+    padding:0 1.25rem;
+}
+.neil p{
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-indent: 2em;
+}
+

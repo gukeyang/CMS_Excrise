@@ -137,7 +137,7 @@
                                 </ul>
                                 <img src="images/bg3.png" alt="">
                             </span>
-                        <span class="col-sm-6 col-xs-6">
+                        <span class="ol-sm-6 col-xs-6">
                                 <ul>
                                     <li><a href="">河南省教育厅办公室关于虚拟仿真实验教学项目</a></li>
                                     <li>2021-07-27 20:43:39</li>
