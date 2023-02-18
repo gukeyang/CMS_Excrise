@@ -38,5 +38,6 @@ public interface NoticeService {
     /**
      * 获取后四条数据
      */
-    List<Notice> queryNoticeFour();
+
+    List<Notice> queryNoticeFour(String firstTarget);
 }

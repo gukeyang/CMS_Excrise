@@ -71,9 +71,10 @@ public class NoticeServiceImpl implements NoticeService {
         }
     }
 
+
     @Override
-    public List<Notice> queryNoticeFour() {
-        return noticeRepository.queryNoticeFour();
+    public List<Notice> queryNoticeFour(String firstTarget) {
+        return noticeRepository.queryNoticeFour(firstTarget);
     }
 
 

@@ -92,77 +92,37 @@
                     <div class="title">公告通知</div>
                     <div class="more">查看更多公告</div>
                     <div class="news">
+                        <#list notices as item>
                             <span class="col-sm-6 col-xs-6">
                                 <img src="./images/bg3.png" alt="">
                                 <ul>
-                                    <li><a href="">你好，${name}</a></li>
-                                    <li>2021-07-27 20:43:39</li>
+                                    <li><a href="">${item.noticeTitle}</a></li>
+                                    <li>${item.noticeTime}</li>
                                 </ul>
-
                             </span>
-                        <span class="col-sm-6 col-xs-6">
-                                <img src="./images/bg3.png" alt="">
-                                <ul>
-                                    <li><a href="">实验室安全制度</a></li>
-                                    <li>2021-07-27 20:43:39</li>
-                                </ul>
 
-                            </span>
-                        <span class="col-sm-6 col-xs-6">
-                                <img src="./images/bg3.png" alt="">
-                                <ul>
-                                    <li><a href="">实验室安全检查制度</a></li>
-                                    <li>2021-07-27 20:43:39</li>
-                                </ul>
-
-                            </span>
-                        <span class="col-sm-6 col-xs-6">
-                                <img src="./images/bg3.png" alt="">
-                                <ul>
-                                    <li><a href="">关于加强对钥匙管理的规定</a></li>
-                                    <li>2021-07-27 20:43:39</li>
-                                </ul>
-
-                            </span>
+                        </#list>
                     </div>
                 </div>
                 <div class="center col-lg-4 col-md-4">
                     <div class="title">中心要闻</div>
                     <div class="more">查看更多</div>
                     <div class="news">
+                        <#list news as item1>
                             <span class="col-sm-6 col-xs-6">
-                                <ul>
-                                    <li><a href="">畜牧兽医现代教育技术研发与应用教学团队小组</a></li>
-                                    <li>2021-07-27 20:43:39</li>
-                                </ul>
                                 <img src="./images/bg3.png" alt="">
-                            </span>
-                        <span class="col-sm-6 col-xs-6">
                                 <ul>
-                                    <li><a href="">河南省教育厅办公室关于虚拟仿真实验教学项目</a></li>
-                                    <li>2021-07-27 20:43:39</li>
+                                    <li><a href="">${item1.noticeTitle}</a></li>
+                                    <li>${item1.noticeTime}</li>
                                 </ul>
-                                <img src="./images/bg3.png" alt="">
                             </span>
-                        <span class="col-sm-6 col-xs-6">
-                                <ul>
-                                    <li><a href="">教育部办公厅关于开展2018年度国家虚拟仿真实验</a></li>
-                                    <li>2021-07-27 20:43:39</li>
-                                </ul>
-                                <img src="./images/bg3.png" alt="">
-                            </span>
-                        <span class="col-sm-6 col-xs-6">
-                                <ul>
-                                    <li><a href="">河南科技学院关于开展2018-2020年虚拟仿真实验教</a></li>
-                                    <li>2021-07-27 20:43:39</li>
-                                </ul>
-                                <img src="./images/bg3.png" alt="">
-                            </span>
+
+                        </#list>
                     </div>
                 </div>
                 <div class="tupian col-lg-4 col-md-4 hidden-sm hidden-xs">
                     <div class="img1">
-                        <img src="./images/m4.jpg" alt="" >
+                        <img src="http://43.138.119.32:9000/carousel/2023-02-18&&侧边图" alt="" >
                     </div>
                     <div class="img1">
                         <img src="./images/m2.jpg" alt="" >
