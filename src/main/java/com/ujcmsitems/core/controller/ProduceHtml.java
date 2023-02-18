@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * gukeyang
  * 生成静态页面的接口
+ * @author
  */
 @Api(tags = "生成页面/更新页面")
 @CrossOrigin

@@ -9,7 +9,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {
             "classpath:/META-INF/resources/", "classpath:/resources/",
-            "classpath:/static/", "classpath:/templates.ftl/" ,"/**"};
+            "classpath:/static/", "classpath:/public/" ,"/**"};
 
 
     @Override

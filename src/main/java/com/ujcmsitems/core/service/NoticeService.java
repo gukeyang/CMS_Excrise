@@ -1,7 +1,10 @@
 package com.ujcmsitems.core.service;
 
+import com.ujcmsitems.core.domain.Notice;
 import com.ujcmsitems.core.dto.NoticeDto;
 import com.ujcmsitems.utils.Response;
+
+import java.util.List;
 
 /**
  * @author a1002
@@ -31,4 +34,9 @@ public interface NoticeService {
      * 通过id查询中心要闻或公告通知
      */
     Response findNoticeById(int id);
+
+    /**
+     * 获取后四条数据
+     */
+    List<Notice> queryNoticeFour();
 }
