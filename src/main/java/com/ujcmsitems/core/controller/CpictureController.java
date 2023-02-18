@@ -10,6 +10,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
+@CrossOrigin
 @Api(tags = "轮播图")
 @RestController
 public class CpictureController {

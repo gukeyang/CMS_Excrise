@@ -1,20 +1,14 @@
 package com.ujcmsitems.core.controller;
 
 
-
 import com.ujcmsitems.utils.FreeMarkerUtil;
 import io.swagger.annotations.Api;
+
 import io.swagger.annotations.ApiOperation;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.core.Ordered;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * gukeyang
@@ -25,12 +19,6 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class ProduceHtml {
 
-    @RequestMapping("/")
-    public String index(Model model, HttpServletResponse response) {
-        model.addAttribute("name", "simonsfan");
-        return "redirect:index.html";
-
-    }
     /**
      * 生成静态页面的接口
      * @return
@@ -54,8 +42,6 @@ public class ProduceHtml {
 
         FreeMarkerUtil.processTemplate("zhongxin.ftl",model,"zhongxin.html");
 
-
-//        return "redirect:index.html";
     }
 
 }

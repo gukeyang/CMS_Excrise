@@ -76,20 +76,20 @@ freemarker:
   number_format: '0.##'   #数字格式化，无小数点
 
 
-  #html存放的具体路径，可进行自定义，示例：resources/templates
-  #  spring.thymeleaf.prefix=classpath:/templates/
-  #  spring.thymeleaf.encoding=UTF-8
-  #  spring.thymeleaf.cache=false
-  #  spring.thymeleaf.suffix=.html
-  #  spring.thymeleaf.servlet.content-type=text/html
-  thymeleaf:
-    prefix: classpath:/static/
-    encoding: UTF-8
-    cache: false
-    suffix: .html
-    servlet:
-      content-type: text/html
-    check-template-location: true
+#  #html存放的具体路径，可进行自定义，示例：resources/templates
+#  #  spring.thymeleaf.prefix=classpath:/templates/
+#  #  spring.thymeleaf.encoding=UTF-8
+#  #  spring.thymeleaf.cache=false
+#  #  spring.thymeleaf.suffix=.html
+#  #  spring.thymeleaf.servlet.content-type=text/html
+#  thymeleaf:
+#    prefix: classpath:/static/
+#    encoding: UTF-8
+#    cache: false
+#    suffix: .html
+#    servlet:
+#      content-type: text/html
+#    check-template-location: true
 
 
 
