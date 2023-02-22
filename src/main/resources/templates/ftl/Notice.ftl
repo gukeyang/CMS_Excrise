@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>河南省虚拟仿真实验教学中心</title>
     <link rel="shortcut icon" href="./images/favicon.ico">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/非首页.css">
+    <title>${noticeTitle}</title>
 </head>
-
 <body>
 <div class="banner">
     <img src="./images/banne10.png" alt="">
 </div>
 <div class="nav">
     <div>
-        <a href="./index.html">首页</a>
+        <a href="./新版首页.html">首页</a>
     </div>
     <div>
         <a href="">新闻公告</a>
@@ -69,25 +67,21 @@
 <div class="content">
     <div class="left-lab">
         <ul>
-            <li><a href="">虚拟养猪</a></li>
-            <li><a href="">虚拟养鸡</a></li>
-            <li><a href="">猪文化馆</a></li>
-            <li><a href="">动物标本馆</a></li>
-            <li><a href="">病理标本馆</a></li>
+            <li><a href="./zhongxin.html">中心要闻</a></li>
+            <li><a href="">公告通知</a></li>
         </ul>
     </div>
     <div class="right-lab">
-        <h2>文章列表</h2>
+        <h2>${noticeTitle}</h2>
         <ul>
             <li class="linear"></li>
         </ul>
-        <ul class="li">
-            <li><a href="./xn.html">养殖生产模拟视频教学</a></li>
-            <li><a href="">养猪场虚拟仿真实验室</a></li>
-            <li><a href="">饲料厂虚拟仿真实验室</a></li>
-        </ul>
+        <div class="neil">
+            <p>
+                ${noticeTitle}
+            </p>
+        </div>
     </div>
 </div>
 </body>
-
 </html>

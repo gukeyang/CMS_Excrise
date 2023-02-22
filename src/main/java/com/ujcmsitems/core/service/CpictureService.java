@@ -22,6 +22,7 @@ public interface CpictureService  {
     List<Picture> GetPictureinformation();
 
     boolean Delete(Long id);
+
     List<String>  Getallurl();
 
 

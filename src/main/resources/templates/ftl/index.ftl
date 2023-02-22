@@ -79,9 +79,24 @@
             <li class="li"></li>
             <li class="li"></li>
         </ul>
-        <img class="img" class="img_one" src="./images/banner11.png" alt="" style="display: block;">
-        <img class="img" class="img_two" src="./images/banner12.jpg" alt="">
-        <img class="img" class="img_three" src="./images/banner13.jpg" alt="">
+        <#list pictures as p>
+            <#if p.imgName == "轮播图1">
+                  <img class="img" class="img_one" src= ${p.imgPath} alt="" style="display: block;">
+            </#if>
+        </#list>
+        <#list pictures as p>
+            <#if p.imgName == "轮播图2">
+                <img class="img" class="img_two" src= ${p.imgPath} alt="" >
+            </#if>
+        </#list>
+        <#list pictures as p>
+            <#if p.imgName == "轮播图3">
+                <img class="img" class="img_three" src= ${p.imgPath} alt="">
+            </#if>
+        </#list>
+<#--        <img class="img" class="img_one" src="./images/banner11.png" alt="" style="display: block;">-->
+<#--        <img class="img" class="img_two" src="./images/banner12.jpg" alt="">-->
+<#--        <img class="img" class="img_three" src="./images/banner13.jpg" alt="">-->
         <!-- 添加文字 -->
         <span>畜牧兽医河南省虚拟仿真实验中心</span>
     </div>
@@ -122,10 +137,19 @@
                 </div>
                 <div class="tupian col-lg-4 col-md-4 hidden-sm hidden-xs">
                     <div class="img1">
-                        <img src="http://43.138.119.32:9000/carousel/2023-02-18&&侧边图" alt="" >
+                        <#list pictures as p>
+                            <#if p.imgName == "侧边图A">
+                                <img src=${p.imgPath} alt="" >
+                            </#if>
+                        </#list>
+<#--                        <img src=${} alt="" >-->
                     </div>
                     <div class="img1">
-                        <img src="./images/m2.jpg" alt="" >
+                        <#list pictures as p>
+                            <#if p.imgName == "侧边图B">
+                                <img src=${p.imgPath} alt="" >
+                            </#if>
+                        </#list>
                     </div>
                 </div>
             </div>
