@@ -31,17 +31,17 @@ public class NoticeServiceImpl implements NoticeService {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-hh-ss");
         Date date = new Date();
         int status = 0;
-        Notice notice = new Notice(noticeTitle, noticeContent, format.format(date), status, firstTarget);
+        Notice notice = new Notice(noticeTitle, noticeContent, format.format(date), status, firstTarget,noticeDto.getHtmlUrl());
         noticeRepository.save(notice);
         return Response.ok("添加成功！");
     }
 
     @Override
     @Transactional
-    public Response updateNotice(int id, String noticeTitle, String noticeContent, int status, String firstTarget) {
+    public Response updateNotice(int id, String noticeTitle, String noticeContent, int status, String firstTarget,String htmlUrl) {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-hh-ss");
         Date date = new Date();
-        Notice notice = new Notice(id, noticeTitle, noticeContent, format.format(date), status, firstTarget);
+        Notice notice = new Notice(id, noticeTitle, noticeContent, format.format(date), status, firstTarget,htmlUrl);
         noticeRepository.save(notice);
         return Response.ok("修改成功！");
     }

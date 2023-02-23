@@ -15,4 +15,6 @@ public class NoticeDto {
     private String noticeContent;
 
     private String firstTarget;
+
+    private String htmlUrl;
 }

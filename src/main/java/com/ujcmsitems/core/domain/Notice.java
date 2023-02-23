@@ -35,6 +35,9 @@ public class Notice implements Serializable {
     @Column(name = "first_target")
     private String firstTarget;
 
+    @Column(name = "html_url")
+    private String htmlUrl;
+
     public Notice(String noticeTitle, String noticeContent, String noticeTime, Integer status, String firstTarget) {
         this.noticeTitle = noticeTitle;
         this.noticeContent = noticeContent;
@@ -48,5 +51,14 @@ public class Notice implements Serializable {
         this.noticeContent = noticeContent;
         this.noticeTime = noticeTime;
         this.firstTarget = firstTarget;
+    }
+
+    public Notice(String noticeTitle, String noticeContent, String format, int status, String firstTarget, String htmlUrl) {
+        this.noticeTitle = noticeTitle;
+        this.noticeContent = noticeContent;
+        this.noticeTime = noticeTime;
+        this.status = status;
+        this.firstTarget = firstTarget;
+        this.htmlUrl=htmlUrl;
     }
 }
