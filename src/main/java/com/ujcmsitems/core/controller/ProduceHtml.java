@@ -6,6 +6,7 @@ import com.ujcmsitems.core.domain.Picture;
 import com.ujcmsitems.core.service.CpictureService;
 import com.ujcmsitems.core.service.NoticeService;
 import com.ujcmsitems.utils.FreeMarkerUtil;
+import com.ujcmsitems.utils.UUIDUtil;
 import io.swagger.annotations.Api;
 
 import io.swagger.annotations.ApiOperation;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.UUID;
 
 
 /**
@@ -69,45 +71,21 @@ public class ProduceHtml {
         return "ok";
     }
 
-    @ApiOperation(value = "更新新闻公告")
-    @RequestMapping("/updateNewAndNotice")
-    private String updateNewsAndNotice(Model model){
-        //查询所有的文章 存储到list集合中
-
-
-        //将list集合存储到域中
-
-
-        //生成模板页面
-        return "ok";
-    }
-
-
-    @ApiOperation(value = "更新新闻")
-    @RequestMapping("/updateNews")
-    private String updateNews(Model model){
-        //查询所有的新闻 存储到list集合中
-
-
-        //将list集合存储到域中
-
-
-        //生成模板页面
-        FreeMarkerUtil.processTemplate("News.ftl",model,"News.html");
-        return "ok";
-    }
-
     @ApiOperation(value = "更新公告")
     @RequestMapping("/updateNotice")
     private String updateNotice(Model model){
-        //查询所有的通知 存储到list集合中
 
+        //生成页面的UUID名称
+        UUIDUtil util = new UUIDUtil();
+        String s = util.getUUID() +".html";
 
-        //将list集合存储到域中
+        List<Notice> notices = noticeService.queryNoticeFour("中心要闻");
+        Notice notice = notices.get(0);
 
+        model.addAttribute("notice",notice);
 
         //生成模板页面
-        FreeMarkerUtil.processTemplate("Notice.ftl",model,"Notice.html");
+        FreeMarkerUtil.processTemplate("Notice.ftl",model,s);
         return "ok";
     }
 
