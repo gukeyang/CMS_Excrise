@@ -8,9 +8,9 @@ spring:
   datasource:
     druid:
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://110.40.211.224:3306/ujcms-table?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
-      username: root
-      password: 419520
+      url: jdbc:mysql://121.4.47.113:3306/ujcms-table?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: ujmcs-table
+      password: 123456
     mvc:
       static-path-pattern: /static/**
   redis:
