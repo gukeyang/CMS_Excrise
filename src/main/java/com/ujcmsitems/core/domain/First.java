@@ -28,7 +28,7 @@ public class First implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "第一目录的id")
-    @TableId(value = "firstId", type = IdType.AUTO)
+    @TableId(value = "first_Id", type = IdType.AUTO)
     private Integer firstId;
 
     @ApiModelProperty(value = "第一目录名字")

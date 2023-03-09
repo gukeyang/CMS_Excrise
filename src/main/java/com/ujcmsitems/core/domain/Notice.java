@@ -34,7 +34,6 @@ public class Notice implements Serializable {
     private Integer status;
     @Column(name = "first_target")
     private String firstTarget;
-
     @Column(name = "html_url")
     private String htmlUrl;
 

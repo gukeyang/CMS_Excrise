@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import java.io.Serializable;
 
 /**
+ *
  * @Author gukeyang
  *
  */
