@@ -7,6 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import java.lang.reflect.Field;
+import java.util.concurrent.atomic.AtomicInteger;
+
 
 /**
  * @author xing'chen
@@ -24,9 +27,4 @@ public class UjcmsItemsApplication {
 }
 
 
-// jpg加载器工厂 class JpgReaderFactory implements ReaderFactory {     @Override     public Reader getReader() {         return new JpgReader();     } } // png加载器工厂 class PngReaderFactory implements ReaderFactory {     @Override     public Reader getReader() {         return new PngReader();     } } // gif加载器工厂 class GifReaderFactory implements ReaderFactory {     @Override     public Reader getReader() {         return new GifReader();     } } 
-
-
-
-
-
+// jpg加载器工厂 class JpgReaderFactory implements ReaderFactory {     @Override     public Reader getReader() {         return new JpgReader();     } } // png加载器工厂 class PngReaderFactory implements ReaderFactory {     @Override     public Reader getReader() {         return new PngReader();     } } // gif加载器工厂 class GifReaderFactory implements ReaderFactory {     @Override     public Reader getReader() {         return new GifReader();     } }

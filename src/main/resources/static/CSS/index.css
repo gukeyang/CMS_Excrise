@@ -54,6 +54,7 @@ body {
   html {
     font-size: 8px !important;
   }
+  
 }
 
 @media screen and (max-width:767px) {
@@ -63,7 +64,19 @@ body {
 
   .row .news span {
     float: left;
-    width: 50% !important;
+  }
+  .page3 span {
+    float: left!important;
+    width: 50%!important;
+  }
+  .page4 .container {
+    width: 450px!important;
+  }
+  .page4 li{
+    width: 50%!important;
+  }
+  .page4 li:nth-child(1){
+    width: 100%!important;
   }
 }
 
@@ -71,12 +84,13 @@ body {
 .nav {
   position: fixed;
   width: 100%;
-  height: 2.5rem;
+  height: 4rem;
   z-index: 100;
   background-color: #337AB7;
 }
 
 .logo {
+  margin-left: 30px;
   width: 2rem;
 }
 
@@ -90,7 +104,7 @@ body {
   width: 8rem;
   height: 2.5rem;
   font-size: 1rem;
-  line-height: 2.5rem;
+  line-height: 4rem;
   text-align: center;
   cursor: pointer;
 }
@@ -222,7 +236,7 @@ body {
 .page2 .row img {
   width: 100%;
   height: auto;
-  margin-top: 5rem;
+  margin-top: 3.6rem;
 }
 
 /* page3部分 */
@@ -293,44 +307,44 @@ body {
 }
 
 /* page4部分 */
-.page4 .leftlab span {
-  font-size: 2rem;
+.page4 .container .row {
+  padding-top: 10rem;
+}
+.page4 li {
+  float: left;
+  width: 25%;
+  height: 14rem;
+  padding-right: 2rem;
+  margin-bottom: 2rem;
 }
 
-.page4 .leftlab img {
+.page4 li:nth-child(1){
+  width: 50%;
+  height: 30rem;
+}
+.page4 li a{
+  position: relative;
+  display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
 }
-
-.page4 .leftlab .start {
-  width: 15rem;
-  height: 5rem;
-  text-align: center;
-  line-height: 5rem;
-  font-size: 4rem;
-  background: linear-gradient(rgb(218, 99, 13), rgb(255, 241, 227), rgb(225, 112, 6));
-  border: 2px solid red;
-  border-radius: 30%;
-  margin-top: 2rem;
-}
-
-.page4 .leftlab .start .icon-enter {
-  font-size: 4rem;
-}
-
-.page4 .rightlab .explain {
-  margin-top: 10rem;
-  font-size: 2rem;
-  font-family: STxingkai;
-  text-decoration: underline;
-}
-
-.page4 .rightlab .explain:nth-child(n+2) {
+.page4 li a img {
   width: 100%;
-  height: 15rem;
-  border: 2px solid red;
+  height: 100%;
 }
-
+.page4 li a p{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3rem;
+  padding: 0 1rem;
+  margin-bottom: 0;
+  line-height: 3rem;
+  background: rgba(0,0,0,.5);
+  font-size: 2rem;
+  color: #fff;
+}
 /* page5部分 */
 .page5 {
   position: relative;

@@ -13,13 +13,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ObjectItem {
     private Long id;
-    @TableField("object_name")
     private String objectName;
     private Long size;
 
-    @TableField("htitle")
     private String htitle;
-    @TableField("hpart")
+
     private String hpart;
 
 }

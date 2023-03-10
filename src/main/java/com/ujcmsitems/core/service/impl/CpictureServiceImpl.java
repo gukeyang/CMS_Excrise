@@ -33,10 +33,11 @@ public class CpictureServiceImpl implements CpictureService {
 
     @Override
     public boolean Delete(Long id) {
-        if (pictureMapper.deleteById(id) == 0)
+        if (pictureMapper.deleteById(id) == 0) {
             return false;
-        else
+        } else {
             return true;
+        }
     }
 
     @Override

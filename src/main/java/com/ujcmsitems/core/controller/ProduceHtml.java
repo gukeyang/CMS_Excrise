@@ -1,6 +1,7 @@
 package com.ujcmsitems.core.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.ujcmsitems.core.domain.Notice;
 import com.ujcmsitems.core.domain.Picture;
 import com.ujcmsitems.core.service.CpictureService;
@@ -19,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.UUID;
 
 
 /**
@@ -77,10 +77,9 @@ public class ProduceHtml {
 
         //生成页面的UUID名称
         UUIDUtil util = new UUIDUtil();
-        String s = util.getUUID() +".html";
-
+        String s = UUIDUtil.getUUID() +".html";
         List<Notice> notices = noticeService.queryNoticeFour("中心要闻");
-        Notice notice = notices.get(0);
+        Notice notice = notices.get(1);
 
         model.addAttribute("notice",notice);
 
@@ -88,6 +87,7 @@ public class ProduceHtml {
         FreeMarkerUtil.processTemplate("Notice.ftl",model,s);
         return "ok";
     }
+
 
 
 }

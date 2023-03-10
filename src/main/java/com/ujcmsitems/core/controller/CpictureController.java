@@ -8,12 +8,10 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.apache.ibatis.annotations.Delete;
 import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -50,13 +48,13 @@ public class CpictureController {
         return cpictureService.Getallurl();
     }
 
-    @PostMapping("/getpictureinformation")
+    @GetMapping("/getpictureinformation")
     @ApiOperation("获取所有照片信息")
     public List<Picture> Getpictureinformation(){
         return cpictureService.GetPictureinformation();
     }
 
-    @PostMapping("/deletebyid")
+    @DeleteMapping("/deletebyid")
     @ApiOperation("根据id删除图片")
     public String deletebyid(long id){
         if (cpictureService.Delete(id)){
