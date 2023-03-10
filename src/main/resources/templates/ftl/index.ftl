@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>畜牧兽医河南省虚拟仿真实验中心</title>
+    <title>河南科技学院</title>
     <link rel="shortcut icon" href="./images/favicon.ico">
-    <link rel="stylesheet" href="./CSS/新版首页.css">
+    <link rel="stylesheet" href="./CSS/index.css">
     <link rel="stylesheet" href="./CSS/bootstrap.min.css">
     <link rel="stylesheet" href="./CSS/jquery.fullPage.css">
     <link rel="stylesheet" href="./Css/style.css">
@@ -15,61 +15,147 @@
     <link rel="stylesheet" href="http://at.alicdn.com/t/c/font_2943196_ha99x8qsa2e.css">
     <script src="./js/jQuery.min.js"></script>
     <script src="./js/jquery.fullPage.min.js"></script>
-    <script src="./js/新版首页.js"></script>
+    <script src="./js/index.js"></script>
 </head>
 
 <body>
 <div class="nav">
-    <div class="logo"><a href=""><img src="./images/logogo.png" alt=""></a></div>
-    <div>
-        <a href="./index.html">首页</a>
+    <div class="logo">
+        <#list pictures as p>
+            <#if p.imgName == "logo">
+                <a href=""><img src = ${p.imgPath} alt=""></a>
+            </#if>
+        </#list>
     </div>
-    <div>
-        <a href="">新闻公告</a>
-        <ul class="menu-bar">
-            <li><a href="./zhongxin.html">中心要闻</a></li>
-            <li><a href="./zhongxin.html">公告通知</a></li>
-        </ul>
-    </div>
-    <div>
-        <a href="">中心概述</a>
-        <ul class="menu-bar">
-            <li><a href="./xueyuan.html">学院概括</a></li>
-        </ul>
-    </div>
-    <div>
-        <a href="">虚拟仿真</a>
-        <ul class="menu-bar">
-            <li><a href="./xuni.html">虚拟养猪</a></li>
-            <li><a href="./xuni.html">虚拟养鸡</a></li>
-            <li><a href="./xuni.html">猪文化馆</a></li>
-            <li><a href="./xuni.html">动物标本馆</a></li>
-            <li><a href="./xuni.html">病理标本馆</a></li>
-        </ul>
-    </div>
-    <div>
-        <a href="">远程互动</a>
-        <ul class="menu-bar">
-            <li><a href="./yuancheng.html">猪场远程</a></li>
-            <li><a href="./yuancheng.html">肉鸡饲养远程</a></li>
-            <li><a href="./yuancheng.html">肉鸡加工远程</a></li>
-        </ul>
-    </div>
-    <div>
-        <a href="">视频教学</a>
-        <ul class="menu-bar">
-            <li><a href="./shipin.html">精品课程</a></li>
-            <li><a href="./shipin.html">动物手术视频</a></li>
-        </ul>
-    </div>
-    <div>
-        <a href="">在线考试</a>
-        <ul class="menu-bar">
-            <li><a href="./shiti.html">试题库</a></li>
-            <li><a href="./shiti.html">在线测试</a></li>
-            <li><a href="./shiti.html">师生互动</a></li>
-        </ul>
-    </div>
+
+<#--    <div>-->
+<#--        <a href="./index.html">首页</a>-->
+<#--    </div>-->
+<#--    -->
+<#--    -->
+<#--    <div>-->
+<#--        <a href="./zhongxin.html">新闻公告</a>-->
+<#--        <ul class="menu-bar">-->
+<#--            <li><a href="./zhongxin.html">中心要闻</a></li>-->
+<#--            <li><a href="./gonggao.html">公告通知</a></li>-->
+<#--        </ul>-->
+<#--    </div>-->
+<#--    -->
+<#--    -->
+<#--    <div>-->
+<#--        <a href="./xueyuan.html">中心概述</a>-->
+<#--        <ul class="menu-bar">-->
+<#--            <li><a href="./xueyuan.html">学院概括</a></li>-->
+<#--        </ul>-->
+<#--    </div>-->
+<#--    -->
+<#--    -->
+<#--    <div>-->
+<#--        <a href="./yangzhu.html">虚拟仿真</a>-->
+<#--        <ul class="menu-bar">-->
+<#--            <li><a href="./yangzhu.html">虚拟养猪</a></li>-->
+<#--            <li><a href="./yanghji.html">虚拟养鸡</a></li>-->
+<#--            <li><a href="./zhuwenhua.html">猪文化馆</a></li>-->
+<#--            <li><a href="./dongwubiaoben.html">动物标本馆</a></li>-->
+<#--            <li><a href="./binglibiaoben.html">病理标本馆</a></li>-->
+<#--        </ul>-->
+<#--    </div>-->
+<#--    -->
+<#--    -->
+<#--    <div>-->
+<#--        <a href="./zhuchangyuancheng.html">远程互动</a>-->
+<#--        <ul class="menu-bar">-->
+<#--            <li><a href="./zhuchangyuancheng.html">猪场远程</a></li>-->
+<#--            <li><a href="./roujisiyang.html">肉鸡饲养远程</a></li>-->
+<#--            <li><a href="./roujijiagong.html">肉鸡加工远程</a></li>-->
+<#--        </ul>-->
+<#--    </div>-->
+<#--    -->
+<#--    -->
+<#--    <div>-->
+<#--        <a href="./jingpin.html">视频教学</a>-->
+<#--        <ul class="menu-bar">-->
+<#--            <li><a href="./jingpinkecheng.html">精品课程</a></li>-->
+<#--            <li><a href="./dongwushoushu.html">动物手术视频</a></li>-->
+<#--        </ul>-->
+<#--    </div>-->
+<#--    -->
+<#--    -->
+<#--    <div>-->
+<#--        <a href="./shitiku.html">在线考试</a>-->
+<#--        <ul class="menu-bar">-->
+<#--            <li><a href="./shitiku.html">试题库</a></li>-->
+<#--            <li><a href="./zaixian.html">在线测试</a></li>-->
+<#--            <li><a href="./shisheng.html">师生互动</a></li>-->
+<#--        </ul>-->
+<#--    </div>-->
+<#--    -->
+
+    <#list first as first>
+        <div>
+            <a href="./shitiku.html">${first.firstTargetName}</a>
+
+            <#if first.firstId == 2>
+                <ul class="menu-bar">
+                <#list allSecond2 as allSecond2>
+                        <li><a href="./shitiku.html">${allSecond2.secondTargetName}</a></li>
+                </#list>
+                </ul>
+            </#if>
+
+            <#if first.firstId == 3>
+                <ul class="menu-bar">
+                <#list allSecond3 as allSecond3>
+
+                        <li><a href="./shitiku.html">${allSecond3.secondTargetName}</a></li>
+
+                </#list>
+                </ul>
+            </#if>
+
+            <#if first.firstId == 4>
+                <ul class="menu-bar">
+                <#list allSecond4 as allSecond4>
+
+                        <li><a href="./shitiku.html">${allSecond4.secondTargetName}</a></li>
+
+                </#list>
+                </ul>
+            </#if>
+
+            <#if first.firstId == 5>
+                <ul class="menu-bar">
+                <#list allSecond5 as allSecond5>
+
+                        <li><a href="./shitiku.html">${allSecond5.secondTargetName}</a></li>
+
+                </#list>
+                </ul>
+            </#if>
+
+            <#if first.firstId == 6>
+                <ul class="menu-bar">
+                <#list allSecond6 as allSecond6>
+
+                        <li><a href="./shitiku.html">${allSecond6.secondTargetName}</a></li>
+
+                </#list>
+                </ul>
+            </#if>
+
+            <#if first.firstId == 7>
+                <ul class="menu-bar">
+                <#list allSecond7 as allSecond7>
+
+                        <li><a href="./shitiku.html">${allSecond7.secondTargetName}</a></li>
+
+                </#list>
+                </ul>
+            </#if>
+
+        </div>
+    </#list>
+
 </div>
 <div id="dowebok">
     <div class="section page1">
@@ -81,7 +167,7 @@
         </ul>
         <#list pictures as p>
             <#if p.imgName == "轮播图1">
-                  <img class="img" class="img_one" src= ${p.imgPath} alt="" style="display: block;">
+                <img class="img" class="img_one" src= ${p.imgPath} alt="" style="display: block;">
             </#if>
         </#list>
         <#list pictures as p>
@@ -94,18 +180,15 @@
                 <img class="img" class="img_three" src= ${p.imgPath} alt="">
             </#if>
         </#list>
-<#--        <img class="img" class="img_one" src="./images/banner11.png" alt="" style="display: block;">-->
-<#--        <img class="img" class="img_two" src="./images/banner12.jpg" alt="">-->
-<#--        <img class="img" class="img_three" src="./images/banner13.jpg" alt="">-->
         <!-- 添加文字 -->
-        <span>畜牧兽医河南省虚拟仿真实验中心</span>
+        <span>河南科技学院</span>
     </div>
     <div class="section page2">
         <div class="container">
             <div class="row">
-                <div class="notice col-lg-4 col-md-4">
+                <div class="notice col-lg-4 col-md-4" style="margin-top: 20px;">
                     <div class="title">公告通知</div>
-                    <div class="more">查看更多公告</div>
+                    <a href="./gonggao.html"><div class="more">查看更多公告</div></a>
                     <div class="news">
                         <#list notices as item>
                             <span class="col-sm-6 col-xs-6">
@@ -119,9 +202,9 @@
                         </#list>
                     </div>
                 </div>
-                <div class="center col-lg-4 col-md-4">
+                <div class="center col-lg-4 col-md-4" style="margin-top: 20px;">
                     <div class="title">中心要闻</div>
-                    <div class="more">查看更多</div>
+                    <a href="./zhongxin.html"><div class="more">查看更多</div></a>
                     <div class="news">
                         <#list news as item1>
                             <span class="col-sm-6 col-xs-6">
@@ -142,7 +225,7 @@
                                 <img src=${p.imgPath} alt="" >
                             </#if>
                         </#list>
-<#--                        <img src=${} alt="" >-->
+                        <#--                        <img src=${} alt="" >-->
                     </div>
                     <div class="img1">
                         <#list pictures as p>
@@ -155,178 +238,105 @@
             </div>
         </div>
     </div>
+
     <div class="section page3">
-        <div class="title">特色平台</div>
-        <span>
-                <div class="wai">
-                    <div class="nei">
-                        <a href="">
-                            <div class="huati">虚拟仿真</div>
-                            <img src="./images/01.jpg" alt="">
-                        </a>
-                    </div>
-                </div>
-            </span>
-        <span>
-                <div class="wai">
-                    <div class="nei">
-                        <a href="">
-                            <div class="huati">远程互动</div>
-                            <img src="./images/02.jpg" alt="">
-                        </a>
-                    </div>
-                </div>
-            </span>
-        <span>
-                <div class="wai">
-                    <div class="nei">
-                        <a href="">
-                            <div class="huati">数字标本</div>
-                            <img src="./images/03.jpg" alt="">
-                        </a>
-                    </div>
-                </div>
-            </span>
-        <span>
-                <div class="wai">
-                    <div class="nei">
-                        <a href="">
-                            <div class="huati">阿里库</div>
-                            <img src="./images/04.jpg" alt="">
-                        </a>
-                    </div>
-                </div>
-            </span>
+        <div class="container">
+            <div class="row">
+                <div class="title">特色平台</div>
+<#--                <span>-->
+<#--                        <div class="wai">-->
+<#--                            <div class="nei">-->
+<#--                                <a href="./yangzhu.html">-->
+<#--                                    <div class="huati">虚拟仿真</div>-->
+<#--                                    <img src="./images/01.jpg" alt="">-->
+<#--                                </a>-->
+<#--                            </div>-->
+<#--                        </div>-->
+<#--                </span>-->
+<#--                <span>-->
+<#--                        <div class="wai">-->
+<#--                            <div class="nei">-->
+<#--                                <a href="./zhuchangyuancheng.html">-->
+<#--                                    <div class="huati">远程互动</div>-->
+<#--                                    <img src="./images/02.jpg" alt="">-->
+<#--                                </a>-->
+<#--                            </div>-->
+<#--                        </div>-->
+<#--                </span>-->
+<#--                <span>-->
+<#--                        <div class="wai">-->
+<#--                            <div class="nei">-->
+<#--                                <a href="./dongwubiaoben.html">-->
+<#--                                    <div class="huati">数字标本</div>-->
+<#--                                    <img src="./images/03.jpg" alt="">-->
+<#--                                </a>-->
+<#--                            </div>-->
+<#--                        </div>-->
+<#--                    </span>-->
+<#--                <span>-->
+<#--                        <div class="wai">-->
+<#--                            <div class="nei">-->
+<#--                                <a href="./binglibiaoben.html">-->
+<#--                                    <div class="huati">阿里库</div>-->
+<#--                                    <img src="./images/04.jpg" alt="">-->
+<#--                                </a>-->
+<#--                            </div>-->
+<#--                        </div>-->
+<#--                </span>-->
+
+                <#list lister as lister>
+                    <span>
+                        <div class="wai">
+                            <div class="nei">
+                                <a href="./binglibiaoben.html">
+                                    <div class="huati">${lister.chTitle}</div>
+                                    <#if lister.id == 1> <img src="./images/01.jpg" alt=""> </#if>
+                                    <#if lister.id == 2> <img src="./images/02.jpg" alt=""> </#if>
+                                    <#if lister.id == 3> <img src="./images/03.jpg" alt=""> </#if>
+                                    <#if lister.id == 4> <img src="./images/04.jpg" alt=""> </#if>
+                                </a>
+                            </div>
+                        </div>
+                </span>
+                </#list>
+            </div>
+        </div>
     </div>
     <div class="section page4">
-        <div class="slide">
-            <div class="container">
-                <div class="row">
-                    <div class="leftlab col-lg-6">
-                        <span>精品课程</span>
-                        <img src="./images/m1.jpg" alt="" class="hidden-md hidden-sm hidden-xs">
-                        <a href="">
-                            <div class="start">GO
-                                <span class="iconfont icon-enter"></span>
-                            </div>
+        <div class="container">
+            <div class="row">
+                <ul>
+                    <li>
+                        <a href="./jingpinkecheng.html">
+                            <img src="./images/m1.jpg" alt="">
+                            <p>精品课程</p>
                         </a>
-                    </div>
-                    <div class="rightlab col-lg-6">
-                        <div class="explain">
-                            <ul class="menu">
-                                <li class="list"><a href="#">省级精品课程</a>
-                                    <ul class="items">
-                                        <li><a href="#">《动物病理学》</a></li>
-                                        <li><a href="#">《动物免疫学》</a></li>
-                                        <li><a href="#">《动物源性食品安全》</a></li>
-                                    </ul>
-                                </li>
-                                <li class="list"><a href="#">省研究生教育优质课程</a>
-                                    <ul class="items">
-                                        <li> <a href="#">《兽医微生物学》</a></li>
-                                        <li> <a href="#">《动物微生物学》</a></li>
-                                        <li> <a href="#">《动物源性食品安全》</a></li>
-                                    </ul>
-                                </li>
-                                <li class="list"><a href="#">校级精品课程</a>
-                                    <ul class="items">
-                                        <li> <a href="#">省级精品课程</a></li>
-                                        <li> <a href="#">河南省在线开放课程</a></li>
-                                        <li class="list"><a href="#">省级精品课程</a>
-                                            <ul class="items">
-                                                <li> <a href="#">《动物病理学》</a></li>
-                                                <li> <a href="#">《动物免疫学》</a></li>
-                                                <li class="list"><a href="#">河南省在线开放课程</a>
-                                                    <ul class="items">
-                                                        <li> <a href="#">《兽医内科学》</a></li>
-                                                        <li> <a href="#">《兽医外科学》</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <div class="container">
-                <div class="row">
-                    <div class="leftlab col-lg-6">
-                        <span>动医课程</span>
-                        <img src="./images/m2.jpg" alt="">
-                        <a href="">
-                            <div class="start">GO
-                                <span class="iconfont icon-enter"></span>
-                            </div>
+                    </li>
+                    <li>
+                        <a href="./zhuchangyuancheng.html">
+                            <img src="./images/m2.jpg" alt="">
+                            <p>动医课程</p>
                         </a>
-                    </div>
-                    <div class="rightlab col-lg-6">
-                        <div class="explain">&nbsp&nbsp&nbsp掌握动物科学的基本理论和动物遗传育种、动物繁殖、动物营养与饲料方面的基本知识</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <div class="container">
-                <div class="row">
-                    <div class="leftlab col-lg-6">
-                        <span>在线学习</span>
-                        <img src="./images/m4.jpg" alt="">
-                        <a href="">
-                            <div class="start">GO
-                                <span class="iconfont icon-enter"></span>
-                            </div>
+                    </li>
+                    <li>
+                        <a href="./dongwushoushu.html">
+                            <img src="./images/m3.jpg" alt="">
+                            <p>在线学习</p>
                         </a>
-                    </div>
-                    <div class="rightlab col-lg-6">
-                        <div class="explain">
-                            &nbsp&nbsp&nbsp掌握动物资源调查、种畜评价、繁殖技术、繁殖体系、饲养和饲料配合、牧场设计、卫生防疫、畜产品开发利用和草地建设等方法与技术</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <div class="container">
-                <div class="row">
-                    <div class="leftlab col-lg-6">
-                        <span>动科课程</span>
-                        <img src="./images/m3.jpg" alt="">
-                        <a href="">
-                            <div class="start">GO
-                                <span class="iconfont icon-enter"></span>
-                            </div>
+                    </li>
+                    <li>
+                        <a href="./roujisiyang.html">
+                            <img src="./images/m4.jpg" alt="">
+                            <p>动科课程</p>
                         </a>
-                    </div>
-                    <div class="rightlab col-lg-6">
-                        <div class="explain">
-                            &nbsp&nbsp&nbsp主要课程:动物生物化学、动物生理学、动物遗传学、动物繁殖学、动物育种学、动物营养学、饲料学、家禽生产学、牛生产学、猪生产学、羊生产学、家畜环境卫生学等
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <div class="container">
-                <div class="row">
-                    <div class="leftlab col-lg-6">
-                        <span>在线考试</span>
-                        <img src="./images/m4.jpg" alt="">
-                        <a href="">
-                            <div class="start">GO
-                                <span class="iconfont icon-enter"></span>
-                            </div>
+                    </li>
+                    <li>
+                        <a href="./zaixian.html">
+                            <img src="./images/m2.jpg" alt="">
+                            <p>在线考试</p>
                         </a>
-                    </div>
-                    <div class="rightlab col-lg-6">
-                        <div class="explain">
-                            &nbsp&nbsp&nbsp掌握动物资源调查、种畜评价、繁殖技术、繁殖体系、饲养和饲料配合、牧场设计、卫生防疫、畜产品开发利用和草地建设等方法与技术
-                        </div>
-                    </div>
-                </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -336,9 +346,9 @@
         <div class="welcome">
             <span class="title">Welcome To Visit!</br>Study Gother!</span>
             <!-- <span class="zixun">扫码关注</span>
-            <span class="zixun iconfont icon-weixin"></span>
-            <span class="zixun iconfont icon-weibo">3</span>
-            <span class="zixun iconfont icon-douyin">4</span> -->
+        <span class="zixun iconfont icon-weixin"></span>
+        <span class="zixun iconfont icon-weibo">3</span>
+        <span class="zixun iconfont icon-douyin">4</span> -->
             <span class="zixun"><img src="./images/keyuan.jpg" alt=""></span>
             <span class="iconfont icon-weixin" style="color: green;">
                     <img src="./images/weixin.png" alt="">
