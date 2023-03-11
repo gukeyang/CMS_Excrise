@@ -181,12 +181,15 @@ public class MinIoUtil {
             //文件名称相同会覆盖
             minioClient.putObject(objectArgs);
             /*********************/
+
             log.info("filepath=========={}", filePathc);
             log.info("fileName=========={}", CPictureName);
             Picture picture = new Picture( null,minioip + "/" + PbucketName + "/" + filePathc,sdf.format(d),CPictureName);
             System.out.println(picture.getId());
             pictureMapper.insert(picture);
+
             //将照片信息存储到数据库中
+
             /*********************/
         } catch (Exception e) {
             e.printStackTrace();

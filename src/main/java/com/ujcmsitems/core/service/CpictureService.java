@@ -15,6 +15,7 @@ public interface CpictureService  {
  *             2.获取图片信息
  *             3.删除图片
  *             4.获取图片url地址
+ *             5.修改图片信息
  * */
 
     boolean upload(MultipartFile file, String imgName);
@@ -24,6 +25,9 @@ public interface CpictureService  {
     boolean Delete(Long id);
 
     List<String>  Getallurl();
+
+    boolean replace (Long id,String imgName);
+
 
 
 }

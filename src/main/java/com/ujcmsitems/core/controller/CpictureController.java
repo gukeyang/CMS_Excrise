@@ -64,4 +64,13 @@ public class CpictureController {
         }
     }
 
+    @PostMapping("/replace")
+    @ApiOperation("修改图片名称")
+    public String deletebyid(long id,String imgName){
+        if (cpictureService.replace(id,imgName)){
+            return "修改成功";
+        }else {
+            return "修改失败";
+        }
+    }
 }
