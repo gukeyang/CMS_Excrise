@@ -3,37 +3,26 @@ package com.ujcmsitems.core.controller;
 
 
 
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
-import com.ujcmsitems.core.domain.partM;
-import com.ujcmsitems.core.service.partMService;
-import com.ujcmsitems.core.service.partSService;
-import com.ujcmsitems.utils.R;
-import com.ujcmsitems.utils.MinIoUtil;
-import com.ujcmsitems.utils.Response;
-import io.minio.errors.*;
-import io.swagger.annotations.Api;
 
-import io.swagger.annotations.ApiOperation;
+import com.ujcmsitems.core.service.partMService;
+import com.ujcmsitems.utils.R;
+import com.ujcmsitems.utils.Response;
+
+import io.swagger.annotations.Api;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
-import java.io.IOException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
 
-@Api(tags = "区块管理和设置")
+@Api(tags = "区块管理")
 @Controller
 @CrossOrigin
-@RequestMapping("/toPart")
-public class partController {
+@RequestMapping("/partm")
+public class PartMController {
 
 
     @Resource
     private partMService partMservice;
-    @Resource
-    private partSService partSService;
 
     /**
      * 区块的管理
@@ -87,36 +76,5 @@ public class partController {
         return new R(true,partMservice.findPartMById(id));
     }
 
-    /**
-     * 区块的设置
-     */
-
-    @PostMapping("/savePartS")
-    @ResponseBody
-    //增添
-    public R savePartS(String name, String status) {
-        return new R(true,partSService.addPartS(name, status));
-    }
-
-    @GetMapping("/deletePartS")
-    @ResponseBody
-    //删除
-    public R deletePartS(Long id){
-        return new R(true,partSService.deletePartS(id));
-    }
-
-    @PutMapping("/updatePartS")
-    @ResponseBody
-    //修改
-    public R updatePartS(Long id, String name, String status){
-        return new R(true,partSService.updatePartS(id,name,status));
-    }
-
-    @GetMapping("/searchPartS")
-    @ResponseBody
-    //查询
-    public R  searchPartS(Long id){
-        return new R(true,partSService.findPartSById(id));
-    }
 
 }

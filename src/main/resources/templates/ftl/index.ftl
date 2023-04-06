@@ -294,6 +294,7 @@
                                     <#if lister.id == 2> <img src="./images/02.jpg" alt=""> </#if>
                                     <#if lister.id == 3> <img src="./images/03.jpg" alt=""> </#if>
                                     <#if lister.id == 4> <img src="./images/04.jpg" alt=""> </#if>
+
                                 </a>
                             </div>
                         </div>

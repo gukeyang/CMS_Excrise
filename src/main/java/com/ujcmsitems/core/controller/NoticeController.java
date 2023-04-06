@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 
 @Api(tags = "中心要闻/公告通知")
 @RestController
-@RequestMapping("/administrator")
+@RequestMapping("/article")
 public class NoticeController {
     @Resource
     private NoticeService noticeService;

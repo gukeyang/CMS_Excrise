@@ -26,6 +26,7 @@ import java.io.IOException;
 @Controller
 @CrossOrigin
 @Api(tags = "第一目录添加库")
+@RequestMapping("/first")
 public class FirstController {
 
     @Autowired

@@ -26,6 +26,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 @CrossOrigin
 @Api(tags = "账号")
+@RequestMapping("/user")
 public class ManagerController {
 
     @Autowired

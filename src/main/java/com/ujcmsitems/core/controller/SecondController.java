@@ -29,6 +29,7 @@ import java.util.Set;
 @Controller
 @CrossOrigin
 @Api(tags = "第二目录添加库")
+@RequestMapping("/second")
 public class SecondController {
 
     @Autowired
