@@ -1,15 +1,16 @@
 package com.ujcmsitems.core.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+import com.ujcmsitems.core.domain.First;
 import com.ujcmsitems.core.domain.Picture;
 import com.ujcmsitems.core.service.impl.CpictureServiceImpl;
 import com.ujcmsitems.utils.MinIoUtil;
+import com.ujcmsitems.utils.R;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.apache.ibatis.annotations.Delete;
-import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -25,11 +26,9 @@ public class CpictureController {
     private  CpictureServiceImpl cpictureService;
     @Autowired
     private MinIoUtil minIoUtil;
+
     @ApiOperation(value = "上传图片")
-//    @ApiImplicitParams({
-//            @ApiImplicitParam(name = "", value = "", required = true),
-//    })
-    @PostMapping("/pictureupload")
+    @PostMapping("/pictureUpload")
     public String upload(MultipartFile file,String pictureName) {
         String bucketName = "carousel";
         System.out.println(bucketName);
@@ -43,19 +42,19 @@ public class CpictureController {
     }
 
 
-    @PostMapping("/getallurl")
+    @PostMapping("/getAllUrl")
     @ApiOperation("获取所有照片url")
     public List<String> Getallurl(){
         return cpictureService.Getallurl();
     }
 
-    @GetMapping("/getpictureinformation")
+    @GetMapping("/getPictureInformation")
     @ApiOperation("获取所有照片信息")
     public List<Picture> Getpictureinformation(){
         return cpictureService.GetPictureinformation();
     }
 
-    @DeleteMapping("/deletebyid")
+    @DeleteMapping("/deleteById")
     @ApiOperation("根据id删除图片")
     public String deletebyid(long id){
         if (cpictureService.Delete(id)){
@@ -74,4 +73,22 @@ public class CpictureController {
             return "修改失败";
         }
     }
+
+    @GetMapping("/getPageAllPicture")
+    @ApiOperation("分页查询")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "currentPage", value = "当前页数", required = true),
+            @ApiImplicitParam(name = "pageSize", value = "每页个数", required = true)
+    })
+    public R getPageAllPicture(Integer currentPage, Integer pageSize) {
+        IPage<Picture> page = cpictureService.getPagePicture(currentPage, pageSize);
+        //如果当前页码值大于了总页码值，那么重新执行查询操作，使用最大页码值作为当前页码值
+        if (currentPage > page.getPages()) {
+            page = cpictureService.getPagePicture((int) page.getPages(), pageSize);
+        }
+        return new R(true,page);
+    }
+
+
+
 }
