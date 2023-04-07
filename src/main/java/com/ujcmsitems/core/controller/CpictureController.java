@@ -18,7 +18,8 @@ import java.util.List;
 
 @CrossOrigin
 @Api(tags = "轮播图")
-@RestController("/picture")
+@RestController
+@RequestMapping("/picture")
 public class CpictureController {
     @Autowired
     private  CpictureServiceImpl cpictureService;
