@@ -10,6 +10,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -25,8 +26,6 @@ import java.util.Set;
  */
 @Service
 public class SecondServiceImpl extends ServiceImpl<SecondMapper, Second> implements SecondService {
-
-
     @Autowired
     private SecondMapper secondMapper;
     @Override
@@ -99,4 +98,5 @@ public class SecondServiceImpl extends ServiceImpl<SecondMapper, Second> impleme
         secondMapper.selectPage(page,courseQueryWrapper);
         return page;
     }
+
 }

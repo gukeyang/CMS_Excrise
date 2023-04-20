@@ -76,7 +76,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/all/*").hasAnyAuthority("1","0")
                 .antMatchers("/user/*").permitAll()
                 .antMatchers("/article/*").permitAll()
-                .antMatchers("/*").permitAll()
+                .antMatchers("/*","/static/**","/index","/iconfont").permitAll()
                 .anyRequest().authenticated()
 
                 .and()
@@ -118,7 +118,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/*.css",
                         "/**/*.js",
                         "/**/*.jpg",
-                        "/**/*.png"
+                        "/**/*.png",
+                        "/**/*.ico",
+                        "/**/*.ttf",
+                        "/**/*.woff",
+                        "/**/*.woff2"
 
                 );
     }

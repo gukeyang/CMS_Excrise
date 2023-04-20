@@ -37,8 +37,12 @@ public class Second implements Serializable {
     @ApiModelProperty(value = "第二目录名字")
     private String secondTargetName;
 
-    public Second(Integer firstId, String secondTargetName) {
+    @ApiModelProperty(value = "页面地址")
+    private String url;
+
+    public Second(Integer firstId, String secondTargetName, String url) {
         this.firstId = firstId;
         this.secondTargetName = secondTargetName;
+        this.url = url;
     }
 }

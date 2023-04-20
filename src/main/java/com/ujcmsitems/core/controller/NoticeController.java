@@ -1,5 +1,6 @@
 package com.ujcmsitems.core.controller;
 
+import com.ujcmsitems.core.domain.Notice;
 import com.ujcmsitems.core.dto.NoticeDto;
 import com.ujcmsitems.core.service.NoticeService;
 import com.ujcmsitems.utils.Response;
@@ -92,7 +93,7 @@ public class NoticeController {
     @ApiOperation(value = "通过id查询中心要闻或公告通知")
     @ResponseBody
     @ApiImplicitParam(name = "id", value = "id", required = true)
-    public Response findNoticeById(@PathVariable int id) {
+    public Notice findNoticeById(@PathVariable int id) {
         return noticeService.findNoticeById(id);
     }
 }

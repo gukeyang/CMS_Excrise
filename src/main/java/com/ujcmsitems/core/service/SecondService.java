@@ -3,6 +3,7 @@ package com.ujcmsitems.core.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.ujcmsitems.core.domain.Second;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 import java.util.Set;
@@ -35,6 +36,5 @@ public interface SecondService extends IService<Second> {
     Set<String> getPageAllSecond();
 
     IPage<Second> searchPageSecond(Integer firstId, String search, Integer currentPage, Integer pageSize);
-
 
 }

@@ -62,13 +62,10 @@ public class NoticeServiceImpl implements NoticeService {
 
     @Override
     @Transactional
-    public Response findNoticeById(int id) {
+    public Notice findNoticeById(int id) {
         Notice notice = noticeRepository.findById(id).orElse(null);
-        if (notice != null) {
-            return Response.ok(notice);
-        } else {
-            return Response.error("不存在此notice！");
-        }
+
+        return notice;
     }
 
 
@@ -77,5 +74,10 @@ public class NoticeServiceImpl implements NoticeService {
         return noticeRepository.queryNoticeFour(firstTarget);
     }
 
+
+    @Override
+    public List<Notice> queryAllNotice() {
+        return noticeRepository.queryAllNotice();
+    }
 
 }

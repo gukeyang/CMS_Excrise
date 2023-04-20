@@ -52,8 +52,8 @@ public class SecondController {
             @ApiImplicitParam(name = "secondTargetName",value = "第二目录名字"),
     })
     @ResponseBody
-    public R saveSecond(Integer firstId,String secondTargetName) throws IOException {
-        Second second=new Second(firstId,secondTargetName);
+    public R saveSecond(Integer firstId,String secondTargetName,String url) throws IOException {
+        Second second=new Second(firstId,secondTargetName,url);
         QueryWrapper<Second> courseQueryWrapper=new QueryWrapper<>();
         courseQueryWrapper.eq("firstId",firstId);
         courseQueryWrapper.eq("secondTargetName", secondTargetName);

@@ -33,11 +33,17 @@ public interface NoticeService {
     /**
      * 通过id查询中心要闻或公告通知
      */
-    Response findNoticeById(int id);
+    Notice findNoticeById(int id);
 
     /**
-     * 获取后四条数据
+     * 获取后八条数据
      */
 
     List<Notice> queryNoticeFour(String firstTarget);
+
+    /**
+     *获取全部的数据
+     * @return
+     */
+    List<Notice> queryAllNotice();
 }
