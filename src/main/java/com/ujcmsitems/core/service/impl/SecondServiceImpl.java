@@ -99,4 +99,13 @@ public class SecondServiceImpl extends ServiceImpl<SecondMapper, Second> impleme
         return page;
     }
 
+
+    public List<Second> searchSecByLike(String secondTargetName){
+        QueryWrapper<Second> wrapper = new QueryWrapper<>();
+        wrapper.like("secondTargetName",secondTargetName);
+        List<Second> Seconds = secondMapper.selectList(wrapper);
+
+        return Seconds ;
+    }
+
 }

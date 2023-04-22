@@ -167,6 +167,13 @@ public class ProduceHtml {
                 if(data.getId() == i) {
                     String htmlUrl = data.getHtmlUrl();
                     String firstT = data.getFirstTarget();
+                    List<Second> seconds = secondService.searchSecByLike(firstT);
+                    if(seconds != null){
+                        Second second = seconds.get(0);
+                        Integer firstId = second.getFirstId();
+                        List<Second> allSecond = secondService.getAllSecond(firstId);
+                        model.addAttribute("allSecond",allSecond);
+                    }
                     model.addAttribute("data", data);
                     FreeMarkerUtil.processTemplate("notice1.ftl", model, "" + htmlUrl + "");
                     System.out.println(htmlUrl + " 更新完成");

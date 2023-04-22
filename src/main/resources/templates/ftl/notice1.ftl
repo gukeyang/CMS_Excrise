@@ -138,14 +138,10 @@
     <div class="row">
         <div class="left-lab col-lg-3 col-md-12">
             <ul>
-<#--                <#list allSecond as item1>-->
-<#--                    <#list secondList as item2>-->
-<#--                        <#if item1_index == item2_index>-->
-<#--                            <li><a href="${item2.url}">${item1.secondTargetName}</a></li>-->
-<#--                        </#if>-->
-<#--                    </#list>-->
-<#--                </#list>-->
-                <li style="border: 1px solid red"><a href="">${data.getFirstTarget()}</a></li>
+                <#list allSecond as item1>
+                            <li><a href="${item1.url}">${item1.secondTargetName}</a></li>
+                </#list>
+<#--                <li style="border: 1px solid red"><a href="">${data.getFirstTarget()}</a></li>-->
             </ul>
         </div>
         <div class="right-lab col-lg-9 col-md-12">

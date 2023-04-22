@@ -37,4 +37,6 @@ public interface SecondService extends IService<Second> {
 
     IPage<Second> searchPageSecond(Integer firstId, String search, Integer currentPage, Integer pageSize);
 
+    List<Second> searchSecByLike(String secondTargetName);
+
 }
