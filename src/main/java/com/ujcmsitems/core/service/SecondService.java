@@ -39,4 +39,7 @@ public interface SecondService extends IService<Second> {
 
     List<Second> searchSecByLike(String secondTargetName);
 
+    //获取全部的Second
+    List<Second> getSecondList();
+
 }

@@ -1,10 +1,12 @@
 window.addEventListener = function () {
+    
+
     // page1轮播图
     var imgs = this.document.getElementsByClassName('img')
     var lis = this.document.getElementsByClassName('dian')
     var a = 0;
 
-    
+
     //添加一个定时器
     setInterval(fun, 2000)
     //遍历添加事件
@@ -46,12 +48,14 @@ window.addEventListener = function () {
         lis[a].style.backgroundColor = 'white'
     }
 
+    
+
     //page2 轮播图
     var yimgs = this.document.getElementsByClassName('yimg')
     var ylis = this.document.getElementsByClassName('ydian')
     var b = 0;
 
-    
+
     //添加一个定时器
     setInterval(funs, 2000)
     //遍历添加事件
@@ -97,79 +101,79 @@ window.addEventListener = function () {
     var zx = document.getElementsByClassName("zhongxin");
     var zxul = document.getElementsByClassName("zhongxinul");
     var gg = document.getElementsByClassName("gonggao");
-    var ggul=document.getElementsByClassName("gonggaoul")
+    var ggul = document.getElementsByClassName("gonggaoul")
     zx[0].onmouseenter = function () {
         ggul[0].style.display = 'none';
         zxul[0].style.display = 'block';
-        gg[0].style.backgroundColor='rgb(249,250,250)';
-        gg[0].style.borderTop='none';
-        zx[0].style.backgroundColor='#fff';
-        zx[0].style.borderTop='rgb(218,0,0) solid 1px';
+        gg[0].style.backgroundColor = 'rgb(249,250,250)';
+        gg[0].style.borderTop = 'none';
+        zx[0].style.backgroundColor = '#fff';
+        zx[0].style.borderTop = 'rgb(218,0,0) solid 1px';
     }
     zx[1].onmouseenter = function () {
         ggul[1].style.display = 'none';
         zxul[1].style.display = 'block';
-        gg[1].style.backgroundColor='rgb(249,250,250)';
-        gg[1].style.borderTop='none';
-        zx[1].style.backgroundColor='#fff';
-        zx[1].style.borderTop='rgb(218,0,0) solid 1px';
+        gg[1].style.backgroundColor = 'rgb(249,250,250)';
+        gg[1].style.borderTop = 'none';
+        zx[1].style.backgroundColor = '#fff';
+        zx[1].style.borderTop = 'rgb(218,0,0) solid 1px';
     }
 
     gg[0].onmouseenter = function () {
         ggul[0].style.display = 'block';
         zxul[0].style.display = 'none';
-        zx[0].style.backgroundColor='rgb(249,250,250)';
-        zx[0].style.borderTop='none';
-        gg[0].style.backgroundColor='#fff';
-        gg[0].style.borderTop='rgb(218,0,0) solid 1px';
+        zx[0].style.backgroundColor = 'rgb(249,250,250)';
+        zx[0].style.borderTop = 'none';
+        gg[0].style.backgroundColor = '#fff';
+        gg[0].style.borderTop = 'rgb(218,0,0) solid 1px';
     }
     gg[1].onmouseenter = function () {
         ggul[1].style.display = 'block';
         zxul[1].style.display = 'none';
-        zx[1].style.backgroundColor='rgb(249,250,250)';
-        zx[1].style.borderTop='none';
-        gg[1].style.backgroundColor='#fff';
-        gg[1].style.borderTop='rgb(218,0,0) solid 1px';
+        zx[1].style.backgroundColor = 'rgb(249,250,250)';
+        zx[1].style.borderTop = 'none';
+        gg[1].style.backgroundColor = '#fff';
+        gg[1].style.borderTop = 'rgb(218,0,0) solid 1px';
     }
-    
+
     // 特色平台控制
-    var tsulli1=document.getElementsByClassName("tsulli1");
-    var tsulli2=document.getElementsByClassName("tsulli2");
-    var tsulli3=document.getElementsByClassName("tsulli3");
-    var tsulli4=document.getElementsByClassName("tsulli4");
-    var gebiaoti=document.getElementsByClassName("gebiaotiimg")
+    var tsulli1 = document.getElementsByClassName("tsulli1");
+    var tsulli2 = document.getElementsByClassName("tsulli2");
+    var tsulli3 = document.getElementsByClassName("tsulli3");
+    var tsulli4 = document.getElementsByClassName("tsulli4");
+    var gebiaoti = document.getElementsByClassName("gebiaotiimg")
 
     // 刷新完页面就加载出来
     tsulli1[0].style.backgroundImage = "url(./images/img542.png)";
     tsulli1[0].style.backgroundSize = "100% 100%";
     tsulli1[0].style.borderLeft = "#337AB7 solid 6px";
     tsulli1[0].style.paddingLeft = "20px";
-    tsulli1[0].style.animation="popup 1s forwards";
-    tsulli1[0].style.width="420px";
-    
-    tsulli1[0].onmouseenter=function(){
-        gebiaoti[0].src="./images/xuni.jpg"
-        tsulli2[0].style.backgroundImage ="";
-        tsulli3[0].style.backgroundImage ="";
-        tsulli4[0].style.backgroundImage ="";
+    tsulli1[0].style.animation = "popup 1s forwards";
+    tsulli1[0].style.width = "420px";
+
+    tsulli1[0].onmouseenter = function () {
+        gebiaoti[0].src = "./images/xuni.jpg"
+        tsulli2[0].style.backgroundImage = "";
+        tsulli3[0].style.backgroundImage = "";
+        tsulli4[0].style.backgroundImage = "";
         tsulli2[0].style.borderLeft = "";
         tsulli3[0].style.borderLeft = "";
         tsulli4[0].style.borderLeft = "";
         tsulli2[0].style.paddingLeft = "";
         tsulli3[0].style.paddingLeft = "";
         tsulli4[0].style.paddingLeft = "";
-        
+
         tsulli1[0].style.backgroundImage = "url(./images/img542.png)";
         tsulli1[0].style.backgroundSize = "100% 100%";
         tsulli1[0].style.borderLeft = "#337AB7 solid 6px";
         tsulli1[0].style.paddingLeft = "20px";
-        
+
     }
-    tsulli2[0].onmouseenter=function(){
-        gebiaoti[0].src="./images/yuancheng.jpg"
-        tsulli1[0].style.backgroundImage ="";
-        tsulli3[0].style.backgroundImage ="";
-        tsulli4[0].style.backgroundImage ="";
+    tsulli2[0].onmouseenter = function () {
+        gebiaoti[0].src = "./images/yuancheng.jpg"
+        tsulli1[0].style.backgroundImage = "";
+        tsulli3[0].style.backgroundImage = "";
+        tsulli4[0].style.backgroundImage = "";
         tsulli1[0].style.borderLeft = "";
         tsulli3[0].style.borderLeft = "";
         tsulli4[0].style.borderLeft = "";
@@ -181,13 +185,13 @@ window.addEventListener = function () {
         tsulli2[0].style.backgroundSize = "100% 100%";
         tsulli2[0].style.borderLeft = "#337AB7 solid 6px";
         tsulli2[0].style.paddingLeft = "20px";
-        
+
     }
-    tsulli3[0].onmouseenter=function(){
-        gebiaoti[0].src="./images/biaoben.jpg"
-        tsulli2[0].style.backgroundImage ="";
-        tsulli1[0].style.backgroundImage ="";
-        tsulli4[0].style.backgroundImage ="";
+    tsulli3[0].onmouseenter = function () {
+        gebiaoti[0].src = "./images/biaoben.jpg"
+        tsulli2[0].style.backgroundImage = "";
+        tsulli1[0].style.backgroundImage = "";
+        tsulli4[0].style.backgroundImage = "";
         tsulli2[0].style.borderLeft = "";
         tsulli1[0].style.borderLeft = "";
         tsulli4[0].style.borderLeft = "";
@@ -200,11 +204,11 @@ window.addEventListener = function () {
         tsulli3[0].style.borderLeft = "#337AB7 solid 6px";
         tsulli3[0].style.paddingLeft = "20px";
     }
-    tsulli4[0].onmouseenter=function(){
-        gebiaoti[0].src="./images/ali.jpg"
-        tsulli2[0].style.backgroundImage ="";
-        tsulli3[0].style.backgroundImage ="";
-        tsulli1[0].style.backgroundImage ="";
+    tsulli4[0].onmouseenter = function () {
+        gebiaoti[0].src = "./images/ali.jpg"
+        tsulli2[0].style.backgroundImage = "";
+        tsulli3[0].style.backgroundImage = "";
+        tsulli1[0].style.backgroundImage = "";
         tsulli2[0].style.borderLeft = "";
         tsulli3[0].style.borderLeft = "";
         tsulli1[0].style.borderLeft = "";

@@ -108,4 +108,11 @@ public class SecondServiceImpl extends ServiceImpl<SecondMapper, Second> impleme
         return Seconds ;
     }
 
+    @Override
+    public List<Second> getSecondList() {
+        QueryWrapper<Second> courseQueryWrapper=new QueryWrapper<>();
+        List<Second> seconds = secondMapper.selectList(courseQueryWrapper);
+        return seconds;
+    }
+
 }

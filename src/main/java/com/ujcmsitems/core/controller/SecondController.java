@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.ujcmsitems.core.domain.Second;
 import com.ujcmsitems.core.service.SecondService;
 import com.ujcmsitems.utils.R;
+import com.ujcmsitems.utils.UUIDUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 /**
  * <p>
@@ -52,8 +54,12 @@ public class SecondController {
             @ApiImplicitParam(name = "secondTargetName",value = "第二目录名字"),
     })
     @ResponseBody
-    public R saveSecond(Integer firstId,String secondTargetName,String url) throws IOException {
-        Second second=new Second(firstId,secondTargetName,url);
+    public R saveSecond(Integer firstId,String secondTargetName) throws IOException {
+        Second second=new Second(firstId,secondTargetName);
+        UUIDUtil util = new UUIDUtil();
+        String generate = util.generate();
+        String url = "second" + generate + ".html";
+        second.setUrl(url);
         QueryWrapper<Second> courseQueryWrapper=new QueryWrapper<>();
         courseQueryWrapper.eq("firstId",firstId);
         courseQueryWrapper.eq("secondTargetName", secondTargetName);

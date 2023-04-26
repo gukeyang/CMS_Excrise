@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 4004528 */
-  src: url('./iconfont.woff2?t=1681217773025') format('woff2'),
-       url('./iconfont.woff?t=1681217773025') format('woff'),
-       url('./iconfont.ttf?t=1681217773025') format('truetype');
+  src: url('iconfont.woff2?t=1682321799213') format('woff2'),
+       url('iconfont.woff?t=1682321799213') format('woff'),
+       url('iconfont.ttf?t=1682321799213') format('truetype');
 }
 
 .iconfont {
@@ -13,54 +13,60 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* 尽量不要在这里面写样式，权重最高，后期改动麻烦 */
-.icon-dizhi:before {
-  content: "\e652";
-  color: #fff;
-}
-
-.icon-gengduo:before {
-  content: "\e605";
-}
-
-.icon-weixin:before {
-  content: "\e631";
-}
-
-.icon-weibo:before {
-  content: "\e619";
-}
-
-.icon-dianhua:before {
-  content: "\e88b";
-  color:#fff;
-}
-
-.icon-youjiantou:before {
-  content: "\eb94";
-}
-
-.icon-douyin:before {
-  content: "\e8db";
-  color: #fff;
-}
-
-.icon-xinwen:before {
-  content: "\e885";
-}
-
-.icon-notice:before {
-  content: "\e6a9";
-}
-
-.icon-jiantou:before {
-  content: "\e7f3";
-  display: inline-block;
-  transform: rotate(90deg);
-  font-size: 20px;
-}
-
-.icon-kuaishou:before {
-  content: "\e8dc";
-}
-
+  /* 尽量不要在这里面写样式，权重最高，后期改动麻烦 */
+  .icon-dizhi:before {
+    content: "\e652";
+    color: #fff;
+  }
+  
+  .icon-gengduo:before {
+    content: "\e605";
+  }
+  
+  .icon-weixin:before {
+    content: "\e631";
+  }
+  
+  .icon-weibo:before {
+    content: "\e619";
+  }
+  
+  .icon-dianhua:before {
+    content: "\e88b";
+    color:#fff;
+  }
+  
+  .icon-youjiantou:before {
+    content: "\eb94";
+  }
+  
+  .icon-douyin:before {
+    content: "\e8db";
+    color: #fff;
+  }
+  
+  .icon-notice:before {
+    content: "\e6a9";
+  }
+  
+  .icon-jiantou:before {
+    content: "\e7f3";
+    display: inline-block;
+    transform: rotate(90deg);
+    font-size: 20px;
+  }
+  
+  .icon-kuaishou:before {
+    content: "\e8dc";
+  }
+  .icon-zhishihudong:before {
+    content: "\e60c";
+  }
+  
+  .icon-kaoshi:before {
+    content: "\e660";
+    font-size: 16px;
+  }  
+  .icon-xinwen:before {
+    content: "\e885";
+  }

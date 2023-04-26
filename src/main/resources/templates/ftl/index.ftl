@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>河南科技学院畜牧兽医</title>
+    <title>畜牧兽医虚拟仿真实验中心</title>
+    <link rel="shortcut icon" href="./images/favicon.ico">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="iconfont/iconfont.css">
@@ -18,93 +19,40 @@
         <div class="logo">
             <#list pictures as p>
                 <#if p.imgName == "logo">
-                    <a href="index.html"><img src= "${p.imgPath}"  alt=""></a>
+                    <a href="./index.html"><img src= "${p.imgPath}" alt=""></a>
                 </#if>
             </#list>
         </div>
+
         <div class="nav">
             <ul class="fm">
                 <#list first as first>
-                    <li class="li"><a href="index.html">${first.firstTargetName}</a>
-                        <#if first.firstId == 2>
-                            <span class="iconfont icon-jiantou"></span>
-                            <ul class="menu-bar">
-                                <#list allSecond2 as allSecond2>
-                                    <li></li>
-                                    <li><a href="${allSecond2.url}">${allSecond2.secondTargetName}</a></li>
-                                </#list>
-                            </ul>
+                    <li class="li" style="color: white"><a href="
+                    <#list secondList as secondList>
+                        <#if first.firstId == secondList.firstId>
+                            ${secondList.url}
+                            <#break>
                         </#if>
-                        <#if first.firstId == 3>
-                            <span class="iconfont icon-jiantou"></span>
-                            <ul class="menu-bar">
-                                <#list allSecond3 as allSecond3>
-                                    <li></li>
-                                    <li><a href="${allSecond3.url}">${allSecond3.secondTargetName}</a></li>
-                                </#list>
-                            </ul>
-                        </#if>
-                        <#if first.firstId == 4>
-                            <span class="iconfont icon-jiantou"></span>
-                            <ul class="menu-bar">
-                                <#list allSecond4 as allSecond4>
-                                    <li></li>
-                                    <li><a href="${allSecond4.url}">${allSecond4.secondTargetName}</a></li>
-                                </#list>
-                            </ul>
-                        </#if>
-                        <#if first.firstId == 5>
-                            <span class="iconfont icon-jiantou"></span>
-                            <ul class="menu-bar">
-                                <#list allSecond5 as allSecond5>
-                                    <li></li>
-                                    <li><a href="${allSecond5.url}">${allSecond5.secondTargetName}</a></li>
-                                </#list>
-                            </ul>
-                        </#if>
-                        <#if first.firstId == 6>
-                            <span class="iconfont icon-jiantou"></span>
-                            <ul class="menu-bar">
-                                <#list allSecond6 as allSecond6>
-                                    <li></li>
-                                    <li><a href="${allSecond6.url}">${allSecond6.secondTargetName}</a></li>
-                                </#list>
-                            </ul>
-                        </#if>
-                        <#if first.firstId == 7>
-                            <span class="iconfont icon-jiantou"></span>
-                            <ul class="menu-bar">
-                                <#list allSecond7 as allSecond7>
-                                    <li></li>
-                                    <li><a href="${allSecond7.url}">${allSecond7.secondTargetName}</a></li>
-                                </#list>
-                            </ul>
-                        </#if>
+                    </#list>
+                    ">${first.firstTargetName}</a>
 
-                        <#if first.firstId == 8>
+                        <#if first.firstTargetName != "首页">
                             <span class="iconfont icon-jiantou"></span>
                             <ul class="menu-bar">
-                                <#list allSecond8 as allSecond8>
-                                    <li></li>
-                                    <li><a href="${allSecond8.url}">${allSecond8.secondTargetName}</a></li>
-                                </#list>
-                            </ul>
-                        </#if>
 
-                        <#if first.firstId == 9>
-                            <span class="iconfont icon-jiantou"></span>
-                            <ul class="menu-bar">
-                                <#list allSecond9 as allSecond9>
-                                    <li></li>
-                                    <li><a href="${allSecond9.url}">${allSecond9.secondTargetName}</a></li>
-                                </#list>
-                            </ul>
+                        <#list secondList as secondList>
+                            <#if first.firstId == secondList.firstId>
+                                        <li></li>
+                                        <li><a href="${secondList.url}">${secondList.secondTargetName}</a></li>
+                            </#if>
+                        </#list>
+                             </ul>
                         </#if>
-
                     </li>
                 </#list>
             </ul>
         </div>
+
     </div>
     <div id="dowebok">
         <div class="section page1">
@@ -132,75 +80,83 @@
             <!-- 添加文字 -->
             <span>畜牧兽医河南省虚拟仿真实验中心</span>
         </div>
+
         <div class="section page2">
             <div class="contents">
-                <div class="indexbox">
-                        <div class="biaotis">
-                            <ul class="biaotiul">
-                                <li class="biaotili zhongxin"><span class="iconfont icon-xinwen"></span>&nbsp;中心要闻</li>
-                                <li class="biaotili gonggao"><span class="iconfont icon-notice"></span>&nbsp;公告通知</li>
-                                <li class="biaotili"></li>
-                            </ul>
-                        </div>
-                        <div class="box-content">
-                            <ul class="zhongxinul">
-                                <#list news as news>
-<#--                                    <#if item.firstTarget == "中心要闻">-->
+                <div class="left">
+                    <div class="indexbox">
+                            <div class="biaotis">
+                                <ul class="biaotiul">
+                                    <li class="biaotili zhongxin"><span class="iconfont icon-xinwen"></span>&nbsp;中心要闻</li>
+                                    <li class="biaotili gonggao"><span class="iconfont icon-notice"></span>&nbsp;公告通知</li>
+                                </ul>
+                            </div>
+                            <div class="box-content">
+                                <ul class="zhongxinul">
+                                    <#list news as news>
+    <#--                                    <#if item.firstTarget == "中心要闻">-->
+                                            <li>
+                                                <span class="iconfont icon-xinwen"></span>
+                                                <span class="xiaobt"><a href="${news.htmlUrl}">${news.noticeTitle}</a></span>
+                                                <span class="shijian">&nbsp;${news.noticeTime}</span>
+
+                                            </li>
+    <#--                                    </#if>-->
+                                    </#list>
+                                </ul>
+                                <ul class="gonggaoul">
+                                    <#list notices as notices>
+    <#--                                    <#if item.firstTarget == "公告通知">-->
+                                            <li>
+                                                <span class="iconfont icon-notice"></span>
+                                                <span class="xiaobt"><a href="${notices.htmlUrl}">${notices.noticeTitle}</a></span>
+                                                <span class="shijian">&nbsp;${notices.noticeTime}</span>
+
+                                            </li>
+    <#--                                    </#if>-->
+                                    </#list>
+                                </ul>
+                            </div>
+                    </div>
+                    <div class="indexbox leftbox">
+                            <div class="biaotis">
+                                <ul class="biaotiul">
+                                    <li class="biaotili zhongxin"><span class="iconfont icon-kaoshi"></span>&nbsp;在线测试</li>
+                                    <li class="biaotili gonggao"><span class="iconfont icon-zhishihudong"></span>&nbsp;师生互动</li>
+
+                                </ul>
+                            </div>
+                            <div class="box-content">
+                                <ul class="zhongxinul">
+
+                                    <#list ceshi as ceshi>
+                                    <#--                                    <#if item.firstTarget == "公告通知">-->
                                         <li>
-                                            <span class="iconfont icon-xinwen"></span>
-                                            <span class="shijian">&nbsp;${news.noticeTime}</span><br>
-                                            <span class="xiaobt"><a href="${news.htmlUrl}">${news.noticeTitle}</a></span>
+                                            <span class="iconfont icon-kaoshi"></span>
+                                            <span class="xiaobt"><a href="${ceshi.htmlUrl}">${ceshi.noticeTitle}</a></span>
+                                            <span class="shijian">&nbsp;${ceshi.noticeTime}</span>
+
                                         </li>
-<#--                                    </#if>-->
-                                </#list>
-                            </ul>
-                            <ul class="gonggaoul">
-                                <#list notices as notices>
-<#--                                    <#if item.firstTarget == "公告通知">-->
+                                    <#--                                    </#if>-->
+                                    </#list>
+
+                                </ul>
+                                <ul class="gonggaoul">
+
+                                    <#list hudong as hudong>
+                                    <#--                                    <#if item.firstTarget == "公告通知">-->
                                         <li>
-                                            <span class="iconfont icon-notice"></span>
-                                            <span class="shijian">&nbsp;${notices.noticeTime}</span><br>
-                                            <span class="xiaobt"><a href="${notices.htmlUrl}">${notices.noticeTitle}</a></span>
+                                            <span class="iconfont icon-zhishihudong"></span>
+                                            <span class="xiaobt"><a href="${hudong.htmlUrl}">${hudong.noticeTitle}</a></span>
+                                            <span class="shijian">&nbsp;${hudong.noticeTime}</span>
+
                                         </li>
-<#--                                    </#if>-->
-                                </#list>
-                            </ul>
-                        </div>
-                </div>
-                <div class="indexbox leftbox">
-                        <div class="biaotis">
-                            <ul class="biaotiul">
-                                <li class="biaotili zhongxin">在线测试</li>
-                                <li class="biaotili gonggao">师生互动</li>
-                                <li class="biaotili"></li>
-                            </ul>
-                        </div>
-                        <div class="box-content">
-                            <ul class="zhongxinul">
+                                    <#--                                    </#if>-->
+                                    </#list>
 
-                                <#list ceshi as ceshi>
-                                <#--                                    <#if item.firstTarget == "公告通知">-->
-                                    <li>
-                                        <span class="shijian">&nbsp;${ceshi.noticeTime}</span><br>
-                                        <span class="xiaobt"><a href="${ceshi.htmlUrl}">${ceshi.noticeTitle}</a></span>
-                                    </li>
-                                <#--                                    </#if>-->
-                                </#list>
-
-                            </ul>
-                            <ul class="gonggaoul">
-
-                                <#list hudong as hudong>
-                                <#--                                    <#if item.firstTarget == "公告通知">-->
-                                    <li>
-                                        <span class="shijian">&nbsp;${hudong.noticeTime}</span><br>
-                                        <span class="xiaobt"><a href="${hudong.htmlUrl}">${hudong.noticeTitle}</a></span>
-                                    </li>
-                                <#--                                    </#if>-->
-                                </#list>
-                                
-                            </ul>
-                        </div>
+                                </ul>
+                            </div>
+                    </div>
                 </div>
                 <div class="youce">
                     <ul>
@@ -273,7 +229,7 @@
                         </#list>
                     </ul>
                 </div>
-            
+
                 <div class="gebiaoti">
                     <img class="gebiaotiimg" src="images/xuni.jpg" alt="">
                 </div>
@@ -362,30 +318,30 @@
                     </ul>
                 </div>
             </div>
-            <div class="jfooter"></div>
-            <div class="zfooter">
-                <img src="images/logo.png" style="width: 220px;height: 65px;vertical-align: middle;" alt="">
-                <span class="diandi">
+            <div class="float1">
+                <div class="jfooter"></div>
+            </div>
+            <div class="float2">
+                <div class="zfooter">
+                    <img src="images/logo.png" style="width: 220px;height: 65px;vertical-align: middle;" alt="">
+                    <span class="diandi">
                     &nbsp;&nbsp;&nbsp;
                     <span class="iconfont icon-dianhua"></span>
                     电话: 0373-3040718&nbsp;&nbsp;&nbsp;
                     <span class="iconfont icon-dizhi"></span>
                     地址: 河南省新乡市华兰大道90号
                 </span>
-                <div class="banquan">
-                    <div class="xian"></div>
-                    <span class="suoyou">
+                    <div class="banquan">
+                        <div class="xian"></div>
+                        <span class="suoyou">
                         版权所有：畜牧兽医仿真实验中心&nbsp;&nbsp;&nbsp;
                         豫ICP备2021029424号-1
                     </span>
-                </div>
-                <div class="erweima">
-                    <#list pictures as p>
-                        <#if p.imgName == "gong">
-                            <span><img src="${p.imgPath}" alt="" style="width: 180px;height: 180px;"></span>
-                        </#if>
-                    </#list>
-                    欢迎关注河南科技学院公众号
+                    </div>
+                    <div class="erweima">
+                        <span><img src="./images/weixin.png" alt="" style="width: 180px;height: 180px;"></span>
+                        欢迎关注河南科技学院公众号
+                    </div>
                 </div>
             </div>
         </div>

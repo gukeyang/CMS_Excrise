@@ -48,6 +48,7 @@ a:hover {
 .top {
     width: 100%;
     height: 10.5rem;
+    background-color: rgba(10,83,155);
 }
 
 /* 顶部图片部分 */
@@ -56,9 +57,23 @@ a:hover {
     height: 8rem;
 }
 
+.banner div{
+    width: 65rem;
+    margin: 0 auto;
+    padding: 1rem 0;
+}
+
+.banner span{
+    float: right;
+    padding-top: 1.4rem;
+    font-family: STxingkai;
+    font-size: 2rem;
+    color: #fff;
+}
+
 .banner img {
-    width: 100%;
-    height: 100%;
+    width: 19rem;
+    height: 5rem;
 }
 
 /* nav部分 */
@@ -68,7 +83,7 @@ a:hover {
     justify-content: center;
     width: 100%;
     height: 2.5rem;
-    background-color: #337AB7;
+    background: #337AB7;
 }
 
 .nav div {
@@ -77,6 +92,8 @@ a:hover {
     font-size: 1rem;
     line-height: 2.5rem;
     text-align: center;
+    font-family: "Microsoft Yahei", sans-serif;
+    font-weight: bold;
 }
 
 .nav div .menu-bar {
@@ -85,18 +102,36 @@ a:hover {
     /*将此元素设为不可见*/
     opacity: 0;
     /*将元素设置为透明*/
-    background-color: #337AB7;
+    background-color: #fff;
     /* animation: move 0.5s 0s; */
     transition: all 0.3s ease-in-out !important;
 }
 
 .nav div:hover .menu-bar {
+    border-left: #337AB7 1px solid;
+    border-right: #337AB7 1px solid;
+    border-bottom: #337AB7 1px solid;
+    border-radius: 0 0 10px 10px;
+    box-sizing: border-box;
     position: relative;
     /* display: block; */
     opacity: 1;
     visibility: visible;
     /*将元素设为可见*/
     z-index: 10000 !important;
+    cursor: pointer;
+}
+
+.nav div .menu-bar li a {
+    color: #337AB7;
+}
+
+.nav div .menu-bar li:hover {
+    background: rgba(0, 0, 0, 0.064);
+}
+
+.nav div .menu-bar li:last-child {
+    border-radius: 0 0 10px 10px;
 }
 
 .nav div a {
@@ -104,7 +139,11 @@ a:hover {
 }
 
 .nav div a:hover {
-    color: red;
+    color: yellow;
+}
+
+.container .row{
+    min-height: 35rem;
 }
 
 .container .left-lab {
@@ -126,7 +165,12 @@ a:hover {
     margin-bottom: 1rem;
     font-size: 1rem;
     border: 1px solid #0000FF;
-    border-radius: 2.5rem;
+    border-radius: .5rem;
+    background-color: rgb(10,83,155);
+}
+
+.container .left-lab ul li a{
+    color: #fff;
 }
 
 .container .right-lab .linear {
@@ -147,19 +191,22 @@ a:hover {
     line-height: 2.5rem;
     border: 1px solid #0000FF;
     border-radius: 2.5rem;
-    padding-left: 2rem;
+    padding: 0 2rem;
     margin-bottom: 10px;
 }
 
-.container .right-lab .li li a {
+.container .right-lab .li li a:nth-child(1) {
     float: left;
-    width: 50%;
+    width: 70%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.container .right-lab .li li div {
-    width: 96%;
-    text-align: right;
+.container .right-lab .li li a:nth-child(2) {
+    float: right;
 }
+
 
 .container .left-lab ul li:hover {
     cursor: pointer;
