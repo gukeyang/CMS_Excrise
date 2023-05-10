@@ -33,6 +33,10 @@
                             ${secondList.url}
                             <#break>
                         </#if>
+                        <#if first.firstTargetName == "首页">
+                            ./index.html
+                            <#break>
+                        </#if>
                     </#list>
                     ">${first.firstTargetName}</a>
 
@@ -58,7 +62,12 @@
         <div class="left-lab col-lg-3 col-md-12">
             <ul>
                 <#list allSecond as item1>
-                            <li style="background-color: #337ab7" ><a href="${item1.url}">${item1.secondTargetName}</a></li>
+                            <li
+                            <#if item1.secondTargetName == current.secondTargetName>
+                                style="background-color: #337ab7"
+                            </#if>
+
+                            ><a href="${item1.url}">${item1.secondTargetName}</a></li>
                 </#list>
 <#--                <li style="border: 1px solid red"><a href="">${data.getFirstTarget()}</a></li>-->
             </ul>

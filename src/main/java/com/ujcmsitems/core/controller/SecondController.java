@@ -132,6 +132,21 @@ public class SecondController {
         return new R(flag,seconds);
     }
 
+    /**
+     * 查询所有第二目录
+     * @return
+     */
+    @ApiOperation(value = "查询所有第二目录")
+    @GetMapping(value = "/getSecondList")
+    @ResponseBody
+    public R getAllSecond(){
+        List<Second> seconds = secondService.getSecondList();
+        if(seconds.isEmpty()){
+            flag = false;
+        }
+        return new R(flag,seconds);
+    }
+
 
     /**
      *

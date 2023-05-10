@@ -13,7 +13,7 @@ import java.util.List;
  */
 @Repository
 public interface NoticeRepository extends JpaRepository<Notice, Integer>, JpaSpecificationExecutor {
-    @Query(value="SELECT * FROM notice WHERE first_target = ? ORDER BY id DESC LIMIT 8",nativeQuery = true)
+    @Query(value="SELECT * FROM notice WHERE first_target = ? ORDER BY id DESC LIMIT 6",nativeQuery = true)
 
     List<Notice> queryNoticeFour(String firstTarget);
 

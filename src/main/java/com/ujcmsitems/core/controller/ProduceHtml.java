@@ -70,6 +70,31 @@ public class ProduceHtml {
         model.addAttribute("news",news);
         model.addAttribute("ceshi",ceshi);
         model.addAttribute("hudong",hudong);
+
+
+        Notice notice = news.get(0);
+        if(notice != null){
+            String firstTarget4 = notice.getFirstTarget();
+            List<Second> seconds = secondService.searchSecByLike(firstTarget4);
+            if(!seconds.isEmpty()){
+                Second second = seconds.get(0);
+                String url = second.getUrl();
+                model.addAttribute("more1",url);
+            }
+        }
+
+        Notice notice1 = ceshi.get(0);
+        if(notice1 != null){
+            String firstTarget5 = notice1.getFirstTarget();
+            List<Second> seconds1 = secondService.searchSecByLike(firstTarget5);
+            if(!seconds1.isEmpty()){
+                Second sec = seconds1.get(0);
+                String urlT = sec.getUrl();
+                model.addAttribute("more2",urlT);
+            }
+        }
+
+
         //也可以查询所有文章的信息，在前端判断类型，符合显示，不符合不显示
 //        List<Notice> notices1 = noticeService.queryAllNotice();
 //        model.addAttribute("notices1",notices1);
@@ -139,7 +164,9 @@ public class ProduceHtml {
         List<Characteristic> lister = characteristicService.list();
         model.addAttribute("lister",lister);
 //----------------------------------------------------------------------------
-        for (int i = 1; i <= 70;i++){
+        List<Notice> n = noticeService.queryAllNotice();
+        int sizeN = n.size() + 1;
+        for (int i = 1; i <= sizeN * 3;i++){
             Notice data = noticeService.findNoticeById(i);
             if(data != null){
                 System.out.println(data);
@@ -147,11 +174,12 @@ public class ProduceHtml {
                     String htmlUrl = data.getHtmlUrl();
                     String firstT = data.getFirstTarget();
                     List<Second> seconds = secondService.searchSecByLike(firstT);
-                    if(seconds != null){
+                    if(!seconds.isEmpty()){
                         Second second = seconds.get(0);
                         Integer firstId = second.getFirstId();
                         List<Second> allSecond = secondService.getAllSecond(firstId);
                         model.addAttribute("allSecond",allSecond);
+                        model.addAttribute("current",second);
                     }
                     model.addAttribute("data", data);
                     FreeMarkerUtil.processTemplate("notice.ftl", model, "" + htmlUrl + "");
@@ -191,6 +219,7 @@ public class ProduceHtml {
         //顶部的导航栏
         //查询全部的一级标题
         List<First> list = firstService.list();
+        int size1 = list.size() + 2;
         //放在addAttribute域中
         model.addAttribute("first",list);
         //获取second的全部信息 让first.id == firstID 相等，然后执行html下面的语句
@@ -203,7 +232,7 @@ public class ProduceHtml {
         model.addAttribute("lister",lister);
 
 
-        for (int j = 1; j <= 15; j++) {
+        for (int j = 1; j <= size1 * 3; j++) {
             List<Second> allSecond = secondService.getAllSecond(j);
             if (allSecond.isEmpty()){
                 continue;

@@ -164,7 +164,6 @@ a:hover {
     text-align: center;
     margin-bottom: 1rem;
     font-size: 1rem;
-    border: 1px solid #0000FF;
     border-radius: .5rem;
     background-color: rgb(10,83,155);
 }
@@ -188,11 +187,23 @@ a:hover {
 .container .right-lab .li li {
     width: 100%;
     height: 2.5rem;
-    line-height: 2.5rem;
-    border: 1px solid #0000FF;
-    border-radius: 2.5rem;
+    line-height: 2.3rem;
+    /* border: 1px solid #0000FF; */
+    border-bottom: .2rem solid #337AB7;
+    border-top: .1rem solid #337AB7;
+    border-left: .1rem solid #337AB7;
+    border-right: .1rem solid #337AB7;
+    /* border-radius: 2.5rem; */
     padding: 0 2rem;
     margin-bottom: 10px;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 1px 1px #aecde7;
+    transition: transform 0.2s ease-in-out;
+    
+}
+
+.container .right-lab .li li:hover{
+    transform: scale(1.01);
 }
 
 .container .right-lab .li li a:nth-child(1) {
@@ -228,7 +239,7 @@ a:hover {
     text-indent: 2em;
 }
 
-/* footer部分 */
+/* rooter部分 */
 .rooter {
     position: absolute;
     width: 100%;

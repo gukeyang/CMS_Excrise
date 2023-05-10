@@ -34,6 +34,10 @@
                             ${secondListT.url}
                             <#break>
                         </#if>
+                        <#if first.firstTargetName == "首页">
+                            ./index.html
+                            <#break>
+                        </#if>
                     </#list>
                 ">${first.firstTargetName}</a>
 
@@ -61,12 +65,17 @@
                 <#list allSecond as item1>
                     <#list secondList as item2>
                         <#if item1_index == item2_index>
-                            <li style="background-color: #337ab7"><a href="${item2.url}">${item1.secondTargetName}</a></li>
+                            <li
+                                    <#if item1_index == item2_index && item1.secondTargetName == currentTargetName>
+                                        style="background-color: #337ab7"
+                                    </#if>
+                            ><a href="${item2.url}">${item1.secondTargetName}</a></li>
                         </#if>
                     </#list>
                 </#list>
             </ul>
         </div>
+
         <div class="right-lab col-lg-9 col-md-12">
             <h2>文章列表</h2>
             <ul>
@@ -79,11 +88,10 @@
                          <#if notices1.firstTarget == currentTargetName>
                             <li>
 
-                                    <div style="text-align: left;">
-                                        <a href="${notices1.htmlUrl}" >
-                                            ${notices1.noticeTitle}
-                                        </a>
-                                    </div>
+                                 <a href="${notices1.htmlUrl}"> ${notices1.noticeTitle}</a>
+                                 <a href="${notices1.htmlUrl}" >
+                                     <div style="text-align: right;"> ${notices1.noticeTime} </div>
+                                 </a>
 
                             </li>
                         </#if>

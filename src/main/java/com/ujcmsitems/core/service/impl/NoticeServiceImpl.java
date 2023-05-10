@@ -5,6 +5,7 @@ import com.ujcmsitems.core.domain.Notice;
 import com.ujcmsitems.core.dto.NoticeDto;
 import com.ujcmsitems.core.service.NoticeService;
 import com.ujcmsitems.utils.Response;
+import com.ujcmsitems.utils.UUIDUtil;
 import com.ujcmsitems.utils.YangUtils;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,7 @@ import java.util.List;
  * @author a1002
  */
 @Service
-public class NoticeServiceImpl implements NoticeService {
+public class NoticeServiceImpl implements  NoticeService {
     @Resource
     private NoticeRepository noticeRepository;
 
@@ -31,17 +32,26 @@ public class NoticeServiceImpl implements NoticeService {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-hh-ss");
         Date date = new Date();
         int status = 0;
-        Notice notice = new Notice(noticeTitle, noticeContent, format.format(date), status, firstTarget,noticeDto.getHtmlUrl());
+        String dateTime = "";
+
+        UUIDUtil util = new UUIDUtil();
+        String generate = util.generate();
+        String htmlUrl = generate + ".html";
+        Notice notice = new Notice(noticeTitle, noticeContent, dateTime, status, firstTarget,htmlUrl);
+        notice.setNoticeTime( format.format(date) );
+        System.out.println(notice);
         noticeRepository.save(notice);
         return Response.ok("添加成功！");
     }
 
     @Override
     @Transactional
-    public Response updateNotice(int id, String noticeTitle, String noticeContent, int status, String firstTarget,String htmlUrl) {
+    public Response updateNotice(Integer id, String noticeTitle, String noticeContent, Integer status, String firstTarget,String htmlUrl) {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-hh-ss");
         Date date = new Date();
-        Notice notice = new Notice(id, noticeTitle, noticeContent, format.format(date), status, firstTarget,htmlUrl);
+        String dateTime = "";
+        Notice notice = new Notice(id, noticeTitle, noticeContent, dateTime, status, firstTarget,htmlUrl);
+        notice.setNoticeTime(format.format(date));
         noticeRepository.save(notice);
         return Response.ok("修改成功！");
     }

@@ -60,7 +60,8 @@ public class MinioController {
     @ResponseBody
     @GetMapping("/listBucket")
     public List<ObjectItem> listObjects(String bucketName) {
-        return minIoUtil.listObjects(bucketName);
+        String bucketName1 = bucketName = "test";
+        return minIoUtil.listObjects(bucketName1);
     }
 
     @ApiOperation(value = "查看桶内某个文件")

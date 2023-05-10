@@ -18,7 +18,7 @@ public interface NoticeService {
     /**
      * 修改中心要闻或公告通知
      */
-    Response updateNotice(int id, String noticeTitle, String noticeContent, int status, String firstTarget,String htmlUrl);
+    Response updateNotice(Integer id, String noticeTitle, String noticeContent, Integer status, String firstTarget,String htmlUrl);
 
     /**
      * 删除中心要闻或公告通知

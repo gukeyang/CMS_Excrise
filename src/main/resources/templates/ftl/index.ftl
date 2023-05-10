@@ -89,6 +89,7 @@
                                 <ul class="biaotiul">
                                     <li class="biaotili zhongxin"><span class="iconfont icon-xinwen"></span>&nbsp;中心要闻</li>
                                     <li class="biaotili gonggao"><span class="iconfont icon-notice"></span>&nbsp;公告通知</li>
+                                    <li><a href="${more1}">更多...</a></li>
                                 </ul>
                             </div>
                             <div class="box-content">
@@ -123,7 +124,7 @@
                                 <ul class="biaotiul">
                                     <li class="biaotili zhongxin"><span class="iconfont icon-kaoshi"></span>&nbsp;在线测试</li>
                                     <li class="biaotili gonggao"><span class="iconfont icon-zhishihudong"></span>&nbsp;师生互动</li>
-
+                                    <li><a href="${more2}">更多...</a></li>
                                 </ul>
                             </div>
                             <div class="box-content">
@@ -214,16 +215,16 @@
 
                         <#list lister as lister>
                             <#if lister.id == 1>
-                                <a href=""><li class="tsulli1">${lister.chTitle}</li></a>
+                                <a href="./second5.html"><li class="tsulli1">${lister.chTitle}</li></a>
                             </#if>
                             <#if lister.id == 2>
-                                <a href=""><li class="tsulli2">${lister.chTitle}</li></a>
+                                <a href="./second4.html"><li class="tsulli2">${lister.chTitle}</li></a>
                             </#if>
                             <#if lister.id == 3>
-                                <a href=""><li class="tsulli3">${lister.chTitle}</li></a>
+                                <a href="./second10.html"><li class="tsulli3">${lister.chTitle}</li></a>
                             </#if>
                             <#if lister.id == 4>
-                                <a href=""><li class="tsulli4">${lister.chTitle}</li></a>
+                                <a href="./second11.html"><li class="tsulli4">${lister.chTitle}</li></a>
                             </#if>
 
                         </#list>

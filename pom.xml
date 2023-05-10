@@ -262,6 +262,35 @@
 
     <build>
         <plugins>
+<!--                    <plugin>-->
+<!--                        <groupId>org.springframework.boot</groupId>-->
+<!--                        <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--                        <configuration>-->
+<!--                            <executable>true</executable>-->
+<!--                        </configuration>-->
+<!--                    </plugin>-->
+<!--                    <plugin>-->
+<!--                        <groupId>org.apache.maven.plugins</groupId>-->
+<!--                        <artifactId>maven-resources-plugin</artifactId>-->
+<!--                        <executions>-->
+<!--                            <execution>-->
+<!--                                <id>copy-resources</id>-->
+<!--                                <phase>process-resources</phase>-->
+<!--                                <goals>-->
+<!--                                    <goal>copy-resources</goal>-->
+<!--                                </goals>-->
+<!--                                <configuration>-->
+<!--                                    <outputDirectory>/www/server/nginx/html/</outputDirectory>-->
+<!--                                    <resources>-->
+<!--                                        <resource>-->
+<!--                                            <directory>src/main/resources/static/</directory>-->
+<!--                                            <filtering>false</filtering>-->
+<!--                                        </resource>-->
+<!--                                    </resources>-->
+<!--                                </configuration>-->
+<!--                            </execution>-->
+<!--                        </executions>-->
+<!--                    </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -290,5 +319,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

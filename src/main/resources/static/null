@@ -27,6 +27,7 @@
                     <div>
 
                 <a href="
+                            ./index.html
                     ">首页</a>
 
             </div>
@@ -129,6 +130,8 @@
                                 <li><a href="second15.html">在线测试</a></li>
                                 <li></li>
                                 <li><a href="second16.html">师生互动</a></li>
+                                <li></li>
+                                <li><a href="second19.html">在线课堂</a></li>
 
                     </ul>
             </div>
@@ -139,24 +142,28 @@
     <div class="row">
         <div class="left-lab col-lg-3 col-md-12">
             <ul>
-                            <li style="background-color: #337ab7" ><a href="sceond1.html">中心要闻</a></li>
-                            <li style="background-color: #337ab7" ><a href="second2.html">公告通知</a></li>
-                            <li style="background-color: #337ab7" ><a href="second17.html">政务系统</a></li>
+                            <li
+                                style="background-color: #337ab7"
+
+                            ><a href="second3.html">学院概括</a></li>
+                            <li
+
+                            ><a href="second18.html">学校历史</a></li>
             </ul>
         </div>
         <div class="right-lab col-lg-9 col-md-12">
-            <h2>我校师生举行“缅怀先师忆初心，传承精神永奋斗”主题祭扫活动</h2>
+            <h2>sad</h2>
             <ul>
                 <li class="linear"></li>
             </ul>
             <div class="neil"> <p>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    string
+                    sadhasidh
                     <br><br>
                 </p>
                 <p>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    2023-03-09-08-25
+                    2023-05-10-03-13
                 </p></div>
 
         </div>

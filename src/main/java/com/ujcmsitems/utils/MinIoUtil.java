@@ -44,6 +44,15 @@ public class MinIoUtil {
 //    @Resource
 //    private ObjectItemService objectItemService;
 
+
+    public String getBucketName() {
+        return bucketName;
+    }
+
+    public void setBucketName(String bucketName) {
+        this.bucketName = bucketName;
+    }
+
     /**
      * 查看存储bucket是否存在
      *

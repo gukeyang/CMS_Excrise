@@ -149,7 +149,7 @@ a {
     position: relative;
     width: 1300px;
     margin: 0 auto;
-    padding-top: 100px;
+    padding-top: 80px;
 }
 
 .page2 .contents .left {
@@ -161,7 +161,7 @@ a {
 
 .page2 .contents .indexbox {
     width: 800px;
-    height: 320px;
+    height: 340px;
     border: #e7e7e7 solid 1px;
 }
 
@@ -181,6 +181,17 @@ a {
     text-align: center;
     line-height: 40px;
     border-bottom: #e7e7e782 solid 1px;
+}
+
+.page2 .contents .indexbox .biaotis .biaotiul li:last-child{
+    float: right;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-family: "Microsoft Yahei", sans-serif;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 /* 左下边盒子设置 */
@@ -206,7 +217,6 @@ a {
 /* 中心要闻和公告通知内容:box-content */
 .page2 .contents .indexbox .box-content {
     height: 280px;
-    overflow: auto;
 }
 
 .page2 .contents .indexbox .box-content ul li {
@@ -252,8 +262,7 @@ a {
     position: relative;
     display: inline-block;
     width: 446px;
-    height: 670px;
-    background-color: pink;
+    height: 710px;
 }
 
 .page2 .contents .youce img {

@@ -2,7 +2,6 @@ package com.ujcmsitems.core.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
-import com.ujcmsitems.core.domain.First;
 import com.ujcmsitems.core.domain.Picture;
 import com.ujcmsitems.core.service.impl.CpictureServiceImpl;
 import com.ujcmsitems.utils.MinIoUtil;
