@@ -36,7 +36,7 @@ public interface NoticeService {
     Notice findNoticeById(int id);
 
     /**
-     * 获取后八条数据
+     * 获取后四条数据
      */
 
     List<Notice> queryNoticeFour(String firstTarget);

@@ -35,8 +35,8 @@ public class CpictureServiceImpl extends ServiceImpl<PictureMapper,Picture> impl
     private MinIoUtil minIoUtil;
 
     @Override
-    public boolean upload(MultipartFile file, String imgName) {
-        return minIoUtil.uploadCPicture(file,imgName);
+    public boolean upload(MultipartFile file, String imgName,Integer type) {
+        return minIoUtil.uploadCPicture(file,imgName,type);
     }
 
     @Override
@@ -63,12 +63,11 @@ public class CpictureServiceImpl extends ServiceImpl<PictureMapper,Picture> impl
         return a;
     }
 
-
     @Override
-    public boolean replace(Long id, String imgName) {
+    public boolean replace(Long id, String imgName,String imgPath,Integer type) {
         Date d = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-      Picture picture = new Picture(id,null,sdf.format(d),imgName);
+      Picture picture = new Picture(id,imgPath,sdf.format(d),imgName,type);
       boolean a = true;
       try {
           a =  pictureMapper.updateById(picture) != 0;

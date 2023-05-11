@@ -3,6 +3,7 @@ package com.ujcmsitems.core.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ujcmsitems.core.domain.Picture;
+import io.swagger.models.auth.In;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public interface CpictureService extends IService<Picture> {
      * @param imgName
      * @return
      */
-    boolean upload(MultipartFile file, String imgName);
+    boolean upload(MultipartFile file, String imgName , Integer type);
 
     /**
      * 获取图片信息
@@ -37,7 +38,7 @@ public interface CpictureService extends IService<Picture> {
      * @return
      */
 
-    List<String>  Getallurl();
+    List<String> Getallurl();
 
     /**
      * 修改图片信息
@@ -46,7 +47,7 @@ public interface CpictureService extends IService<Picture> {
      * @return
      */
 
-    boolean replace (Long id,String imgName);
+    boolean replace (Long id,String imgName,String imgPath,Integer type);
 
     /**
      * 批量删除

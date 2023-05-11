@@ -4,10 +4,7 @@ package com.ujcmsitems.core.domain;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
@@ -24,13 +21,15 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @ApiModel(value="区块设置实体类", description="")
+@Getter
+@Setter
 public class partS implements Serializable {
 
     @ApiModelProperty(value = "id")
     private Long id;
     @ApiModelProperty(value = "名称")
     private String name;
-    @ApiModelProperty(value = "状态")
+    @ApiModelProperty(value = "描述")
     private String status;
 
     public partS(String name, String status) {

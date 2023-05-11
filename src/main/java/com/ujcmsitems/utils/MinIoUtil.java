@@ -177,7 +177,7 @@ public class MinIoUtil {
      * @param file 图片
      * @return Boolean
      */
-    public Boolean uploadCPicture(MultipartFile file,String CPictureName) {
+    public Boolean uploadCPicture(MultipartFile file,String CPictureName,Integer type) {
 
         try {
             bucketName = "carousel";
@@ -193,7 +193,7 @@ public class MinIoUtil {
 
             log.info("filepath=========={}", filePathc);
             log.info("fileName=========={}", CPictureName);
-            Picture picture = new Picture( null,minioip + "/" + PbucketName + "/" + filePathc,sdf.format(d),CPictureName);
+            Picture picture = new Picture( null,minioip + "/" + PbucketName + "/" + filePathc,sdf.format(d),CPictureName,type);
             System.out.println(picture.getId());
             pictureMapper.insert(picture);
 

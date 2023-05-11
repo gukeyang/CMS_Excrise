@@ -17,8 +17,9 @@ public interface NoticeRepository extends JpaRepository<Notice, Integer>, JpaSpe
 
     List<Notice> queryNoticeFour(String firstTarget);
 
-    @Query(value="SELECT * FROM notice",nativeQuery = true)
+    @Query(value="SELECT * FROM notice ORDER BY id DESC",nativeQuery = true)
     List<Notice> queryAllNotice();
+
 
 
 }

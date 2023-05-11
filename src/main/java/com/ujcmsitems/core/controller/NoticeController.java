@@ -14,6 +14,7 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author a1002
@@ -99,5 +100,15 @@ public class NoticeController {
     @ApiImplicitParam(name = "id", value = "id", required = true)
     public Notice findNoticeById(@PathVariable int id) {
         return noticeService.findNoticeById(id);
+    }
+
+    /**
+     * 获取所有文章信息
+     */
+    @GetMapping("/findALLNotice")
+    @ApiOperation(value = "获取所有的文章数据")
+    @ResponseBody
+    public List findAllNotice() {
+        return noticeService.queryAllNotice();
     }
 }

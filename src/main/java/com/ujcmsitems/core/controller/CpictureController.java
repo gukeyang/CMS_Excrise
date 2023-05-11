@@ -3,6 +3,7 @@ package com.ujcmsitems.core.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.ujcmsitems.core.domain.Picture;
+import com.ujcmsitems.core.service.CpictureService;
 import com.ujcmsitems.core.service.impl.CpictureServiceImpl;
 import com.ujcmsitems.utils.MinIoUtil;
 import com.ujcmsitems.utils.R;
@@ -10,6 +11,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -22,19 +24,19 @@ import java.util.List;
 @RequestMapping("/picture")
 public class CpictureController {
     @Autowired
-    private  CpictureServiceImpl cpictureService;
+    private CpictureService cpictureService;
     @Autowired
     private MinIoUtil minIoUtil;
 
     @ApiOperation(value = "上传图片")
     @PostMapping("/pictureUpload")
-    public String upload(MultipartFile file,String pictureName) {
+    public String upload(MultipartFile file,String pictureName,Integer type) {
         String bucketName = "carousel";
         System.out.println(bucketName);
         if (StringUtils.isBlank(bucketName)) {
             return "存储bucket名称为空，无法上传";
         }
-        if (!minIoUtil.uploadCPicture(file,pictureName)) {
+        if (!minIoUtil.uploadCPicture(file,pictureName,type)) {
             return "图片上传失败";
         }
         return "图片上传成功";
@@ -65,8 +67,8 @@ public class CpictureController {
 
     @PostMapping("/replace")
     @ApiOperation("修改图片名称")
-    public String deletebyid(long id,String imgName){
-        if (cpictureService.replace(id,imgName)){
+    public String replace(long id, String imgName, String imgPath,Integer type){
+        if (cpictureService.replace(id, imgName, imgPath, type)){
             return "修改成功";
         }else {
             return "修改失败";

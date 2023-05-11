@@ -1,8 +1,6 @@
 package com.ujcmsitems.core.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 /**
  * @author guekyang
@@ -10,6 +8,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class Picture {
 
     //id
@@ -20,5 +20,6 @@ public class Picture {
     private String imgTime;
     //图片名称
     private String imgName;
-
+    //图片类型
+    private Integer type;
 }
