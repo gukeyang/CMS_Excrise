@@ -156,15 +156,23 @@
             <ul>
                 <li class="linear"></li>
             </ul>
-            <div class="neil"> <p>
+            <div class="neil">
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    中心”下属实训中心建立了一个现代化的手术室，手术台上方配置高清摄像头。手术整个操作过程可全部展现在隔壁实验室的影布上，学生可仔细观察实验教师的操作。在实验室内，学生上课情况也通过高清摄像头传输给手术室内教师。当学生对实验操作不理解时，可通过语音对讲系统向老师提问。同时，老师也可通过该系统提问上课学生。
+                    <p><span class="ql-size-20px">4月12日下午，党委办公室在行政楼1209室召开专题会议传达学习学校学习贯彻习近平新时代中国特色社会主义思想主题教育工作会议精神。会议由党委办公室主任赵长春主持。 会上，党委办公室副主任张永波传达了学校学习贯彻习近平新时代中国特色社会主义思想主题教育工作会议精神和校</span></p>
                     <br><br>
-                </p>
-                <p>
+                <p style="text-align: right">
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     2023-05-10-03-17
-                </p></div>
+                </p>
+
+
+                    <p>
+                        <ul style="list-style-type:none">
+                            <li>附件【<a id="download-button" onclick="downloadFile()"> 2023-05-12&&1683899080326.jpg + 的似的是的 </a>】</li>
+                        </ul>
+                    </p>
+
+            </div>
 
         </div>
     </div>
@@ -183,5 +191,39 @@
     <span>畜牧兽医河南省虚拟</br>仿真实验教学中心</span>
     <span><img src="./ziyuan/images/1.png" alt=""></span>
 </div>
+<script>
+    function downloadFile() {
+        var htitle = "的似的是的"; // 替换为实际的 htitle 值
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/minioDownload?htitle='+ htitle, true);
+        xhr.responseType = 'blob';
+        xhr.onload = function() {
+            if (this.status === 200) {
+                var filename = '';
+                var contentDisposition = this.getResponseHeader('content-disposition');
+                if (contentDisposition && contentDisposition.indexOf('attachment') !== -1) {
+                    filename = contentDisposition.split('fileName=')[1];
+                }
+                var blob = new Blob([this.response], { type: 'application/octet-stream' });
+                var url = URL.createObjectURL(blob);
+
+                var a = document.createElement('a');
+                a.href = url;
+                a.download = filename || 'download';
+                a.target = '_self';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+
+                URL.revokeObjectURL(url);
+            }
+        };
+        xhr.setRequestHeader('Content-Type', 'application/octet-stream;charset=utf-8');
+        xhr.setRequestHeader('Cache-Control', 'no-cache, no-store, max-age=0, must-revalidate');
+        xhr.setRequestHeader('Expires', '0');
+        xhr.setRequestHeader('Pragma', 'no-cache');
+        xhr.send();
+    }
+</script>
 </body>
 </html>

@@ -26,11 +26,18 @@ public class ObjectItemServiceImpl extends ServiceImpl<ObjectItemMapper, ObjectI
     private ObjectItemMapper mapper;
 
     @Override
-    public void removeByPath(List<String> path) {
+    public void removeByPath(List<String> objectName) {
         LambdaQueryWrapper<ObjectItem> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.in(ObjectItem::getObjectName, path);
+        queryWrapper.in(ObjectItem::getObjectName, objectName);
         objectItemService.remove(queryWrapper);
 
+    }
+
+    @Override
+    public void removeByHtitle(String htitle) {
+        LambdaQueryWrapper<ObjectItem> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(ObjectItem::getHtitle, htitle);
+        objectItemService.remove(wrapper);
     }
 
     @Override
@@ -40,13 +47,37 @@ public class ObjectItemServiceImpl extends ServiceImpl<ObjectItemMapper, ObjectI
         return page;
     }
 
+    //实现分页模糊查询
     @Override
     public IPage<ObjectItem> getPageObjectLike(Integer currentPage, Integer pageSize, String search) {
         QueryWrapper<ObjectItem> objectQueryWrapper = new QueryWrapper<>();
-        objectQueryWrapper.like("objectName",search);
+        objectQueryWrapper.like("htitle",search);
         Page<ObjectItem> objectPage = new Page<>(currentPage, pageSize);
         mapper.selectPage(objectPage, objectQueryWrapper);
         return objectPage;
     }
+
+    /**
+     * 实现模糊查询
+     * @param htitle
+     * @return
+     */
+    @Override
+    public List<ObjectItem> searchByLike(String htitle) {
+        QueryWrapper<ObjectItem> wrapper = new QueryWrapper<>();
+        wrapper.like("htitle", htitle);
+        List<ObjectItem> objectItems = mapper.selectList(wrapper);
+        return objectItems;
+    }
+
+    /**
+     * 通过id查询
+     */
+    public ObjectItem getObjectItemsById(Long id){
+        LambdaQueryWrapper<ObjectItem> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(ObjectItem::getId, id);
+        return objectItemService.getOne(wrapper);
+    }
+
 
 }

@@ -21,5 +21,5 @@ public class Picture {
     //图片名称
     private String imgName;
     //图片类型
-    private Integer type;
+    private Long type;
 }

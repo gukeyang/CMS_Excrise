@@ -16,11 +16,11 @@ public class ObjectItem {
     private Long id;
     //文件名称
     private String objectName;
-    //
+    //大小
     private Long size;
-    //
+    //标题
     private String htitle;
-    //
+    //所属区块
     private String hpart;
 
 }

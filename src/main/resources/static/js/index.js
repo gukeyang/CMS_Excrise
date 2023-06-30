@@ -1,14 +1,9 @@
-window.addEventListener = function () {
-    
-
+window.onload=function(){
     // page1轮播图
     var imgs = this.document.getElementsByClassName('img')
     var lis = this.document.getElementsByClassName('dian')
     var a = 0;
 
-
-    //添加一个定时器
-    setInterval(fun, 2000)
     //遍历添加事件
     for (var j = 0; j < lis.length; j++) {
 
@@ -35,6 +30,9 @@ window.addEventListener = function () {
             a = num;
         }
     }
+    //添加一个定时器
+    setInterval(fun, 2000)
+
     function fun() {
         for (var i = 0; i < imgs.length; i++) {
             imgs[i].style.display = 'none';
@@ -49,8 +47,9 @@ window.addEventListener = function () {
     }
 
     
+    
 
-    //page2 轮播图
+    // page2 轮播图
     var yimgs = this.document.getElementsByClassName('yimg')
     var ylis = this.document.getElementsByClassName('ydian')
     var b = 0;
@@ -222,6 +221,3 @@ window.addEventListener = function () {
         tsulli4[0].style.paddingLeft = "20px";
     }
 }
-$(function () {
-    $('#dowebok').fullpage();
-});

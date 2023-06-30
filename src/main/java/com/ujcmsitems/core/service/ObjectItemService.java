@@ -16,7 +16,9 @@ import java.util.List;
  */
 public interface ObjectItemService extends IService<ObjectItem> {
 
-    void removeByPath(List<String> path);
+    void removeByPath(List<String> objectName);
+
+    void removeByHtitle(String htitle);
 
     /**
      * 分页查询
@@ -35,4 +37,21 @@ public interface ObjectItemService extends IService<ObjectItem> {
      * @return
      */
     IPage<ObjectItem> getPageObjectLike(Integer currentPage, Integer pageSize,String search);
+
+
+    /**
+     *模糊查询
+     * @param htitle
+     * @return
+     */
+    List<ObjectItem> searchByLike(String htitle);
+
+    /**
+     * id
+     * 查询
+     * @param id
+     * @return
+     */
+
+    public ObjectItem getObjectItemsById(Long id);
 }

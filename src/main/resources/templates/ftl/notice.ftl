@@ -77,15 +77,23 @@
             <ul>
                 <li class="linear"></li>
             </ul>
-            <div class="neil"> <p>
+            <div class="neil">
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     ${data.getNoticeContent()}
                     <br><br>
-                </p>
-                <p>
+                <p style="text-align: right">
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     ${data.getNoticeTime()}
-                </p></div>
+                </p>
+
+
+                    <p>
+                        <ul style="list-style-type:none">
+                            <li>附件【<a id="download-button" onclick="downloadFile()"> ${object.objectName} + ${object.htitle} </a>】</li>
+                        </ul>
+                    </p>
+
+            </div>
 
         </div>
     </div>
@@ -104,5 +112,39 @@
     <span>畜牧兽医河南省虚拟</br>仿真实验教学中心</span>
     <span><img src="./ziyuan/images/1.png" alt=""></span>
 </div>
+<script>
+    function downloadFile() {
+        var htitle = "${object.htitle}"; // 替换为实际的 htitle 值
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/minioDownload?htitle='+ htitle, true);
+        xhr.responseType = 'blob';
+        xhr.onload = function() {
+            if (this.status === 200) {
+                var filename = '';
+                var contentDisposition = this.getResponseHeader('content-disposition');
+                if (contentDisposition && contentDisposition.indexOf('attachment') !== -1) {
+                    filename = contentDisposition.split('fileName=')[1];
+                }
+                var blob = new Blob([this.response], { type: 'application/octet-stream' });
+                var url = URL.createObjectURL(blob);
+
+                var a = document.createElement('a');
+                a.href = url;
+                a.download = filename || 'download';
+                a.target = '_self';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+
+                URL.revokeObjectURL(url);
+            }
+        };
+        xhr.setRequestHeader('Content-Type', 'application/octet-stream;charset=utf-8');
+        xhr.setRequestHeader('Cache-Control', 'no-cache, no-store, max-age=0, must-revalidate');
+        xhr.setRequestHeader('Expires', '0');
+        xhr.setRequestHeader('Pragma', 'no-cache');
+        xhr.send();
+    }
+</script>
 </body>
 </html>

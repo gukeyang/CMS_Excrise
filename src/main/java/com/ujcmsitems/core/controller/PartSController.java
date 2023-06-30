@@ -41,10 +41,6 @@ public class PartSController {
 
     @DeleteMapping("/deletePartS")
     @ApiOperation("删除区块")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "name", value = "区块名称", required = true),
-            @ApiImplicitParam(name = "status", value = "区块描述", required = true)
-    })
     @ResponseBody
     //删除
     public R deletePartS(Long id){
@@ -53,10 +49,6 @@ public class PartSController {
 
     @PutMapping("/updatePartS")
     @ApiOperation("修改区块")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "name", value = "区块名称", required = true),
-            @ApiImplicitParam(name = "status", value = "区块描述", required = true)
-    })
     @ResponseBody
     //修改
     public R updatePartS(Long id, String name, String status){
@@ -65,10 +57,6 @@ public class PartSController {
 
     @GetMapping("/searchPartS")
     @ApiOperation("用id查询区块")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "name", value = "区块名称", required = true),
-            @ApiImplicitParam(name = "status", value = "区块描述", required = true)
-    })
     @ResponseBody
     //查询
     public R  searchPartS(Long id){

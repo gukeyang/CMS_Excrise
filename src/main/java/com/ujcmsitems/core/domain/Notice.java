@@ -31,13 +31,13 @@ public class Notice implements Serializable {
     @Column(name = "notice_time")
     private String noticeTime;
     @Column(name = "status")
-    private Integer status;
+    private String status;
     @Column(name = "first_target")
     private String firstTarget;
     @Column(name = "html_url")
     private String htmlUrl;
 
-    public Notice(String noticeTitle, String noticeContent, String noticeTime, Integer status, String firstTarget) {
+    public Notice(String noticeTitle, String noticeContent, String noticeTime, String status, String firstTarget) {
         this.noticeTitle = noticeTitle;
         this.noticeContent = noticeContent;
         this.noticeTime = noticeTime;
@@ -52,7 +52,7 @@ public class Notice implements Serializable {
         this.firstTarget = firstTarget;
     }
 
-    public Notice(String noticeTitle, String noticeContent, String format, int status, String firstTarget, String htmlUrl) {
+    public Notice(String noticeTitle, String noticeContent, String format, String status, String firstTarget, String htmlUrl) {
         this.noticeTitle = noticeTitle;
         this.noticeContent = noticeContent;
         this.noticeTime = noticeTime;

@@ -13,7 +13,7 @@ import java.util.Locale;
  * 封装freemarker用于创建模板和加载模板
  */
 public class FreeMarkerUtil {
-
+//
 //    private static final String htmlUrl = "/www/server/nginx/html/"; // 生成静态html文件的位置
     private static final String htmlUrl = "src/main/resources/static/"; // 生成静态html文件的位置
 

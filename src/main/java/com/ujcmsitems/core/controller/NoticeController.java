@@ -23,6 +23,7 @@ import java.util.List;
 @Api(tags = "中心要闻/公告通知")
 @RestController
 @RequestMapping("/article")
+@CrossOrigin
 public class NoticeController {
     @Resource
     private NoticeService noticeService;
@@ -59,7 +60,7 @@ public class NoticeController {
             @ApiImplicitParam(name = "noticeContent", value = "内容", required = true),
             @ApiImplicitParam(name = "firstTarget", value = "中心要闻/公告通知", required = true),
     })
-    public Response updateNotice(Integer id, String noticeTitle, String noticeContent, Integer status, String firstTarget,String htmlUrl) {
+    public Response updateNotice(Integer id, String noticeTitle, String noticeContent, String status, String firstTarget,String htmlUrl) {
         return noticeService.updateNotice(id, noticeTitle, noticeContent, status, firstTarget,htmlUrl);
     }
 

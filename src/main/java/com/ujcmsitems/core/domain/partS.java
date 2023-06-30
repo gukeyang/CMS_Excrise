@@ -18,12 +18,9 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
 @ApiModel(value="区块设置实体类", description="")
-@Getter
-@Setter
-public class partS implements Serializable {
+@EqualsAndHashCode(callSuper = false)
+public class partS{
 
     @ApiModelProperty(value = "id")
     private Long id;

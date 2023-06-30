@@ -41,9 +41,6 @@ public class MinIoUtil {
 
     @Autowired
     private ObjectItemService objectItemService;
-//    @Resource
-//    private ObjectItemService objectItemService;
-
 
     public String getBucketName() {
         return bucketName;
@@ -107,6 +104,7 @@ public class MinIoUtil {
         return true;
     }
 
+
     /**
      * 文件上传
      *
@@ -114,12 +112,14 @@ public class MinIoUtil {
      * @param
      * @return Boolean
      */
-    public Boolean upload(MultipartFile file,String title,String part) {
+    public Boolean upload(MultipartFile file,String htitle,String hpart) {
         try {
             Date d = new Date();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-            String fileNewName = System.currentTimeMillis() + file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
+            String fileNewName = System.currentTimeMillis()
+                    + file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
+
             String filePathc = sdf.format(d) + "&&" + fileNewName;
             String name="test";
             PutObjectArgs objectArgs = PutObjectArgs.builder().bucket(name).object(filePathc)
@@ -136,8 +136,8 @@ public class MinIoUtil {
 
             ObjectItem objectItem = new ObjectItem();
             objectItem.setObjectName(filePathc);
-            objectItem.setHtitle(title);
-            objectItem.setHpart(part);
+            objectItem.setHtitle(htitle);
+            objectItem.setHpart(hpart);
 
             try {
                 for (Result<Item> result : results) {
@@ -177,14 +177,14 @@ public class MinIoUtil {
      * @param file 图片
      * @return Boolean
      */
-    public Boolean uploadCPicture(MultipartFile file,String CPictureName,Integer type) {
+    public Boolean uploadCPicture(MultipartFile file,String CPictureName,Long type) {
 
         try {
             bucketName = "carousel";
             Date d = new Date();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
-            String filePathc = sdf.format(d) + "&&" + CPictureName;
+            String uuid = UUIDUtil.getUUID();
+            String filePathc = sdf.format(d) + "&&" + uuid;
             PutObjectArgs objectArgs = PutObjectArgs.builder().bucket(bucketName).object(filePathc)
                     .stream(file.getInputStream(), file.getSize(), -1).contentType(file.getContentType()).build();
             //文件名称相同会覆盖

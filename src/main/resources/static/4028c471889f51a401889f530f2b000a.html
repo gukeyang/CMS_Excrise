@@ -143,28 +143,42 @@
         <div class="left-lab col-lg-3 col-md-12">
             <ul>
                             <li
-                                style="background-color: #337ab7"
 
-                            ><a href="second3.html">学院概括</a></li>
+                            ><a href="second14.html">试题库</a></li>
                             <li
 
-                            ><a href="second18.html">学校历史</a></li>
+                            ><a href="second15.html">在线测试</a></li>
+                            <li
+                                style="background-color: #337ab7"
+
+                            ><a href="second16.html">师生互动</a></li>
+                            <li
+
+                            ><a href="second19.html">在线课堂</a></li>
             </ul>
         </div>
         <div class="right-lab col-lg-9 col-md-12">
-            <h2>sad</h2>
+            <h2>模拟电子技术仿真指导</h2>
             <ul>
                 <li class="linear"></li>
             </ul>
-            <div class="neil"> <p>
+            <div class="neil">
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    sadhasidh
+                    期末考试模拟考试平台
                     <br><br>
-                </p>
-                <p>
+                <p style="text-align: right">
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    2023-05-10-03-13
-                </p></div>
+                    2023-06-09-04-20
+                </p>
+
+
+                    <p>
+                        <ul style="list-style-type:none">
+                            <li>附件【<a id="download-button" onclick="downloadFile()"> 2023-05-12&&1683899080326.jpg + 的似的是的 </a>】</li>
+                        </ul>
+                    </p>
+
+            </div>
 
         </div>
     </div>
@@ -183,5 +197,39 @@
     <span>畜牧兽医河南省虚拟</br>仿真实验教学中心</span>
     <span><img src="./ziyuan/images/1.png" alt=""></span>
 </div>
+<script>
+    function downloadFile() {
+        var htitle = "的似的是的"; // 替换为实际的 htitle 值
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/minioDownload?htitle='+ htitle, true);
+        xhr.responseType = 'blob';
+        xhr.onload = function() {
+            if (this.status === 200) {
+                var filename = '';
+                var contentDisposition = this.getResponseHeader('content-disposition');
+                if (contentDisposition && contentDisposition.indexOf('attachment') !== -1) {
+                    filename = contentDisposition.split('fileName=')[1];
+                }
+                var blob = new Blob([this.response], { type: 'application/octet-stream' });
+                var url = URL.createObjectURL(blob);
+
+                var a = document.createElement('a');
+                a.href = url;
+                a.download = filename || 'download';
+                a.target = '_self';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+
+                URL.revokeObjectURL(url);
+            }
+        };
+        xhr.setRequestHeader('Content-Type', 'application/octet-stream;charset=utf-8');
+        xhr.setRequestHeader('Cache-Control', 'no-cache, no-store, max-age=0, must-revalidate');
+        xhr.setRequestHeader('Expires', '0');
+        xhr.setRequestHeader('Pragma', 'no-cache');
+        xhr.send();
+    }
+</script>
 </body>
 </html>

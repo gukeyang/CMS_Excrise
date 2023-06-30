@@ -143,28 +143,42 @@
         <div class="left-lab col-lg-3 col-md-12">
             <ul>
                             <li
-                                style="background-color: #337ab7"
 
-                            ><a href="second3.html">学院概括</a></li>
+                            ><a href="second14.html">试题库</a></li>
                             <li
 
-                            ><a href="second18.html">学校历史</a></li>
+                            ><a href="second15.html">在线测试</a></li>
+                            <li
+                                style="background-color: #337ab7"
+
+                            ><a href="second16.html">师生互动</a></li>
+                            <li
+
+                            ><a href="second19.html">在线课堂</a></li>
             </ul>
         </div>
         <div class="right-lab col-lg-9 col-md-12">
-            <h2>河南科技学院简介</h2>
+            <h2>模拟电子技术仿真指导</h2>
             <ul>
                 <li class="linear"></li>
             </ul>
-            <div class="neil"> <p>
+            <div class="neil">
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    河南科技学院是一所省属普通本科院校。学校始建于1939年，前身为中国共产党早期创建的延安自然科学院大学部生物系，历经北方大学农学院、华北大学农学院、华北大学农学院长治分院、北京农业大学长治分校、平原农学院、百泉农业专科学校、河南职业技术师范学院等时期。2004年5月，经教育部批准，更名为河南科技学院。学校地处全国文明城市、国家卫生城市--河南新乡市，占地面积2021亩，校舍面积近78万平方米。建校80余年来，学科专业已涵盖农学、工学、理学、管理学、教育学、文学、经济学、法学、艺术学等9大学科门类，拥有23个二级学院，70个本科专业，全日制普通在校生2.9万余人。图书馆纸质图书180万册，数字资源总量1105万册。学校建有国家级一流专业4个，国家级特色专业、综合改革试点专业、卓越职教师资培养计划改革试点专业和卓越农林人才培养计划改革试点专业等15个，河南省一流专业、特色专业、综合改革试点专业、本科工程教育人才培养模式改革试点专业等38个。学校是河南省博士学位授予重点立项培育单位、河南省特色骨干学科（群）建设高校，作物学学科、园艺学学科群和高端智能起重装备学科群为河南省特色骨干学科（群），农业科学、植物学与动物学学科进入ESI全球排名前1%。有省重点一级学科10个，硕士学位授权一级学科12个，硕士专业学位授权类别13个。学校是国家“2011”计划协同创新单位，建有河南省协同创新中心。学校有国家级虚拟仿真实验教学平台，省、部级重点实验室、国际合作实验室、工程技术研究中心和实验教学示范中心等45个，有河南省科技创新团队、省高校科技创新团队、省高校教学团队、省优秀基层教学组织等53个。建有国家现代农业科技示范展示基地、国家级职业教育“双师型”教师培训基地、国家级产业技术综合试验站、河南省现代农业产业技术研究中心，是教育部确定的首批“全国重点建设职教师资培训基地”“国家高职高专师资培训基地。
+                    期末考试模拟考试平台
                     <br><br>
-                </p>
-                <p>
+                <p style="text-align: right">
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    2023-05-04
-                </p></div>
+                    2023-06-09-04-20
+                </p>
+
+
+                    <p>
+                        <ul style="list-style-type:none">
+                            <li>附件【<a id="download-button" onclick="downloadFile()"> 2023-05-12&&1683899080326.jpg + 的似的是的 </a>】</li>
+                        </ul>
+                    </p>
+
+            </div>
 
         </div>
     </div>
@@ -183,5 +197,39 @@
     <span>畜牧兽医河南省虚拟</br>仿真实验教学中心</span>
     <span><img src="./ziyuan/images/1.png" alt=""></span>
 </div>
+<script>
+    function downloadFile() {
+        var htitle = "的似的是的"; // 替换为实际的 htitle 值
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/minioDownload?htitle='+ htitle, true);
+        xhr.responseType = 'blob';
+        xhr.onload = function() {
+            if (this.status === 200) {
+                var filename = '';
+                var contentDisposition = this.getResponseHeader('content-disposition');
+                if (contentDisposition && contentDisposition.indexOf('attachment') !== -1) {
+                    filename = contentDisposition.split('fileName=')[1];
+                }
+                var blob = new Blob([this.response], { type: 'application/octet-stream' });
+                var url = URL.createObjectURL(blob);
+
+                var a = document.createElement('a');
+                a.href = url;
+                a.download = filename || 'download';
+                a.target = '_self';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+
+                URL.revokeObjectURL(url);
+            }
+        };
+        xhr.setRequestHeader('Content-Type', 'application/octet-stream;charset=utf-8');
+        xhr.setRequestHeader('Cache-Control', 'no-cache, no-store, max-age=0, must-revalidate');
+        xhr.setRequestHeader('Expires', '0');
+        xhr.setRequestHeader('Pragma', 'no-cache');
+        xhr.send();
+    }
+</script>
 </body>
 </html>

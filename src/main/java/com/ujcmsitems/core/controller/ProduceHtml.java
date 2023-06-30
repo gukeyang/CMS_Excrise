@@ -48,6 +48,9 @@ public class ProduceHtml {
 
     @Autowired
     private CharacteristicService characteristicService;
+
+    @Autowired
+    private ObjectItemService objectItemService;
     /**
      * 生成静态页面的接口
      * @return
@@ -118,7 +121,7 @@ public class ProduceHtml {
         List<Characteristic> lister = characteristicService.list();
         model.addAttribute("lister",lister);
         //生成页面
-        FreeMarkerUtil.processTemplate("index.ftl",model,"index.html");
+        FreeMarkerUtil.processTemplate("index2.ftl",model,"index.html");
         return "更新成功";
     }
 
@@ -169,6 +172,11 @@ public class ProduceHtml {
         for (int i = 1; i <= sizeN * 3;i++){
             Notice data = noticeService.findNoticeById(i);
             if(data != null){
+                if(data.getStatus() != null){
+                    Long FileStatus = Long.valueOf(data.getStatus());
+                    ObjectItem object= objectItemService.getObjectItemsById(FileStatus);
+                    model.addAttribute("object",object);
+                }
                 System.out.println(data);
                 if(data.getId() == i) {
                     String htmlUrl = data.getHtmlUrl();
@@ -263,5 +271,12 @@ public class ProduceHtml {
 
         }
         return "更新成功";
+    }
+    @ApiOperation(value = "更新测试")
+    @GetMapping("/test")
+    public String test(Model model) throws NullPointerException{
+        model.addAttribute("key",1223);
+        FreeMarkerUtil.processTemplate("test.html", model,  "test.html");
+        return "完成";
     }
 }

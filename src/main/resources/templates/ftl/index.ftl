@@ -19,7 +19,7 @@
         <div class="logo">
             <#list pictures as p>
                 <#if p.imgName == "logo">
-                    <a href="./index.html"><img src= "${p.imgPath}" alt=""></a>
+                    <a href="./index2.ftl"><img src= "${p.imgPath}" alt=""></a>
                 </#if>
             </#list>
         </div>
@@ -228,6 +228,7 @@
                             </#if>
 
                         </#list>
+
                     </ul>
                 </div>
 

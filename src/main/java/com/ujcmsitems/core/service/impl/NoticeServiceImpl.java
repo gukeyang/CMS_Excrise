@@ -31,7 +31,7 @@ public class NoticeServiceImpl implements  NoticeService {
         String firstTarget=noticeDto.getFirstTarget();
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-hh-ss");
         Date date = new Date();
-        int status = 0;
+        String status = null;
         String dateTime = "";
 
         UUIDUtil util = new UUIDUtil();
@@ -46,7 +46,7 @@ public class NoticeServiceImpl implements  NoticeService {
 
     @Override
     @Transactional
-    public Response updateNotice(Integer id, String noticeTitle, String noticeContent, Integer status, String firstTarget,String htmlUrl) {
+    public Response updateNotice(Integer id, String noticeTitle, String noticeContent, String status, String firstTarget,String htmlUrl) {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-hh-ss");
         Date date = new Date();
         String dateTime = "";

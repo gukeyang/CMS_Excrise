@@ -162,23 +162,23 @@
             <ul>
                 <li class="linear"></li>
             </ul>
-            <div class="neil"> <p>
+            <div class="neil">
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    根据《河南省财政厅关于开展高校资产管理专题调研的通知》工作安排，4月18日上午，省财政厅、教育厅高校资产管理现场专题调研工作在我校进行，调研组副组长、省财政厅资产管理处二级调研员金贵联，省教育厅财务处副处长郭轶，省财政厅资产管理处一级主任科员朱智敏，省教育厅财务处干部贾培峰，新乡医学院国资处正处级组织员万同玉、资产处资产与设备科科长赵斌，北京久其软件区域经理张涛等领导和专家组成员参加本次调研工作，并在学校召开高校资产管理现场专题调研集中座谈会。校党委书记宋亚伟出席调研座谈会，会议由副校长胡铁柱主持。河南师范大学、河南科技学院、新乡医学院、安阳师范学院、河南工学院、河南护理职业学院、河南女子职业学院、河南物流职业学院等国有资产管理工作负责人，我校校长办公室、财务处、审计处、后勤服务中心、实验室与设备管理处、资产经营管理有限公司等相关职能部门负责人和资产处全体工作人员参加了本次座谈会。
-
-宋亚伟致辞对调研组的到来表示热烈的欢迎，并详细介绍了学校历史沿革、学科建设、科技创新、国有资产管理等情况。学校高度重视资产管理工作，认真按照国家、省关于国有资产管理相关政策要求，围绕中心大局，服务教学科研、师生需求，严格规范工作程序，加强资产数字平台建设，提高资产使用效能，保障资产保值增值，推动新时代资产管理工作高质量健康发展。对省财政厅、教育厅和兄弟院校长期以来对我校资产管理工作给予的大力支持和帮助表示衷心的感谢。
-
-金贵联介绍了本次调研的目的、意义以及工作要求。他指出，高校资产管理工作政策性强、要求高，要认真学习贯彻《河南省省属本科高校国有资产管理办法》豫财资〔2016〕135号文件精神和相关规定，强化资产管理，履行资产处置权职责、加快资产信息系统一体化建设，通过调研座谈，全面了解高校资产管理、处置情况，分析解决高校资产管理工作短板，交流分享好的经验和做法，形成可推广的指导意见，推进高校资产管理工作创新提升。郭轶对现场调研提纲和高校资产管理存在的突出问题进行了强调讲解，并要求各高校遵循实事求是、严谨细致的态度，敢于发现问题，结合各学校实际认真分析、提升调研效果。
-
-调研组一行听取了8所高校资产管理部门负责人工作情况的汇报，现场实地查阅各高校的资产配置、处置、出租出借等情况。并通过座谈会深入交流探讨了当前加强高等院校资产管理中的难点、痛点、堵点等问题。
-
-调研组对我校资产管理工作给与高度肯定，并强调资产管理要创新管理模式，突出工作重点，以服务于学校教学、科研、发展为中心，完善资产处置、资产配置管理、资产出租出借等基本点，通过摸清存量，管好增量，调整资产结构，加强大型实验仪器设备共享共用等问题。下一步学校将认真落实调研组提出的工作要求，在盘活存量资产、建立共享机制、加强绩效评价、注重结果运用上力求突破，奋力推进学校“博大”工程建设。
+                    <p><span class="ql-size-20px">4月12日下午，党委办公室在行政楼1209室召开专题会议传达学习学校学习贯彻习近平新时代中国特色社会主义思想主题教育工作会议精神。会议由党委办公室主任赵长春主持。 会上，党委办公室副主任张永波传达了学校学习贯彻习近平新时代中国特色社会主义思想主题教育工作会议精神和校</span></p>
                     <br><br>
-                </p>
-                <p>
+                <p style="text-align: right">
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     2023-03-09-08-25
-                </p></div>
+                </p>
+
+
+                    <p>
+                        <ul style="list-style-type:none">
+                            <li>附件【<a id="download-button" onclick="downloadFile()"> 2023-05-12&&1683899080326.jpg + 的似的是的 </a>】</li>
+                        </ul>
+                    </p>
+
+            </div>
 
         </div>
     </div>
@@ -197,5 +197,39 @@
     <span>畜牧兽医河南省虚拟</br>仿真实验教学中心</span>
     <span><img src="./ziyuan/images/1.png" alt=""></span>
 </div>
+<script>
+    function downloadFile() {
+        var htitle = "的似的是的"; // 替换为实际的 htitle 值
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/minioDownload?htitle='+ htitle, true);
+        xhr.responseType = 'blob';
+        xhr.onload = function() {
+            if (this.status === 200) {
+                var filename = '';
+                var contentDisposition = this.getResponseHeader('content-disposition');
+                if (contentDisposition && contentDisposition.indexOf('attachment') !== -1) {
+                    filename = contentDisposition.split('fileName=')[1];
+                }
+                var blob = new Blob([this.response], { type: 'application/octet-stream' });
+                var url = URL.createObjectURL(blob);
+
+                var a = document.createElement('a');
+                a.href = url;
+                a.download = filename || 'download';
+                a.target = '_self';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+
+                URL.revokeObjectURL(url);
+            }
+        };
+        xhr.setRequestHeader('Content-Type', 'application/octet-stream;charset=utf-8');
+        xhr.setRequestHeader('Cache-Control', 'no-cache, no-store, max-age=0, must-revalidate');
+        xhr.setRequestHeader('Expires', '0');
+        xhr.setRequestHeader('Pragma', 'no-cache');
+        xhr.send();
+    }
+</script>
 </body>
 </html>

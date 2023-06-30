@@ -156,15 +156,23 @@
             <ul>
                 <li class="linear"></li>
             </ul>
-            <div class="neil"> <p>
+            <div class="neil">
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                      畜牧兽医虚拟仿真实验教学中心，在依托虚拟现实、多媒体、人机交互、数据库和远程互动等网络技术上，以“服务教学、培养能力、面向企业、资源共享”为教学理念，坚持“虚实结合、优势互补、能实不虚”的实践教学原则，逐步构建了3个虚拟仿真实践教学平台，将虚拟实验作为实体实验的补充，突破时间、空间的限制和高成本、易受疫病感染风险的限制，学生可随时、随地在虚拟环境中开展实验，提高了学生的自主学习和实践能力。           目前，“中心”拥有示范互动虚拟仿真实验教学平台、远程互动虚拟仿真实验教学平台和虚拟仿真实验教学模型平台。其中，示范互动虚拟仿真实验教学平台包括手术示范互动教学实验室和显微数码互动教学实验室。远程互动虚拟仿真实验教学平台包括养猪学远程互动教学实验室和肉鸡生产加工远程互动教学实验室。虚拟仿真实验教学模型平台包括虚拟猪养殖、虚拟鸡养殖、养猪场虚拟仿真实验室、饲料厂虚拟仿真实验室和养殖器械仿真实验室。
+                    <p><span class="ql-size-20px">4月12日下午，党委办公室在行政楼1209室召开专题会议传达学习学校学习贯彻习近平新时代中国特色社会主义思想主题教育工作会议精神。会议由党委办公室主任赵长春主持。 会上，党委办公室副主任张永波传达了学校学习贯彻习近平新时代中国特色社会主义思想主题教育工作会议精神和校</span></p>
                     <br><br>
-                </p>
-                <p>
+                <p style="text-align: right">
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     2023-05-10-03-24
-                </p></div>
+                </p>
+
+
+                    <p>
+                        <ul style="list-style-type:none">
+                            <li>附件【<a id="download-button" onclick="downloadFile()"> 2023-05-12&&1683899080326.jpg + 的似的是的 </a>】</li>
+                        </ul>
+                    </p>
+
+            </div>
 
         </div>
     </div>
@@ -183,5 +191,39 @@
     <span>畜牧兽医河南省虚拟</br>仿真实验教学中心</span>
     <span><img src="./ziyuan/images/1.png" alt=""></span>
 </div>
+<script>
+    function downloadFile() {
+        var htitle = "的似的是的"; // 替换为实际的 htitle 值
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/minioDownload?htitle='+ htitle, true);
+        xhr.responseType = 'blob';
+        xhr.onload = function() {
+            if (this.status === 200) {
+                var filename = '';
+                var contentDisposition = this.getResponseHeader('content-disposition');
+                if (contentDisposition && contentDisposition.indexOf('attachment') !== -1) {
+                    filename = contentDisposition.split('fileName=')[1];
+                }
+                var blob = new Blob([this.response], { type: 'application/octet-stream' });
+                var url = URL.createObjectURL(blob);
+
+                var a = document.createElement('a');
+                a.href = url;
+                a.download = filename || 'download';
+                a.target = '_self';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+
+                URL.revokeObjectURL(url);
+            }
+        };
+        xhr.setRequestHeader('Content-Type', 'application/octet-stream;charset=utf-8');
+        xhr.setRequestHeader('Cache-Control', 'no-cache, no-store, max-age=0, must-revalidate');
+        xhr.setRequestHeader('Expires', '0');
+        xhr.setRequestHeader('Pragma', 'no-cache');
+        xhr.send();
+    }
+</script>
 </body>
 </html>
