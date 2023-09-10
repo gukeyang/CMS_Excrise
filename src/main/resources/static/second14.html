@@ -225,6 +225,22 @@
         }
         pagination.innerHTML = pages;
 
+        // 判断是否显示上一页按钮
+        var prevPageButton = document.getElementById("prev-page");
+        if (currentPage === 1) {
+            prevPageButton.style.display = "none"; // 当前页为1时隐藏上一页按钮
+        } else {
+            prevPageButton.style.display = "inline-block"; // 当前页不为1时显示上一页按钮
+        }
+        //判断是否显示下一页按钮
+        var nextPageButton = document.getElementById("next-page");
+        if (currentPage === totalPages) {
+            nextPageButton.style.display = "none"; // 当前页为最后一页时隐藏下一页按钮
+        } else {
+            nextPageButton.style.display = "inline-block"; // 当前页不为最后一页时显示下一页按钮
+        }
+
+
         // 绑定点击事件
         var pageBtns = document.querySelectorAll(".page-btn");
         for (var i = 0; i < pageBtns.length; i++) {
