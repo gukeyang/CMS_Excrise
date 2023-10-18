@@ -47,10 +47,4 @@ public interface NoticeService {
      */
     List<Notice> queryAllNotice();
 
-    /**
-     * 模糊查询
-     * @param noticeTitle
-     * @return
-     */
-    Notice NoticeByLike(String noticeTitle);
 }

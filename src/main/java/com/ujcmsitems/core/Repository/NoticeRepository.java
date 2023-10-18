@@ -24,6 +24,6 @@ public interface NoticeRepository extends JpaRepository<Notice, Integer>, JpaSpe
      * 模糊查询
      * @return
      */
-    @Select("SELECT * FROM notice WHERE noticeTitle = like '%noticeTitle%' ")
-    Notice queryNoticeLike(String noticeTitle);
+//    @Select("SELECT * FROM notice WHERE noticeTitle = like '%noticeTitle%' ")
+//    Notice queryNoticeLike(String noticeTitle);
 }

@@ -104,16 +104,6 @@ public class NoticeController {
     }
 
     /**
-     * 模糊查询
-     */
-    @GetMapping("/findNoticeByLike")
-    @ApiOperation("")
-    @ResponseBody
-    public Notice findNoticeByLike(String noticeTitle){
-        return noticeService.NoticeByLike(noticeTitle);
-    }
-
-    /**
      * 获取所有文章信息
      */
     @GetMapping("/findALLNotice")
