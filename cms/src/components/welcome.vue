@@ -1,8 +1,10 @@
 <template>
     <div>
         <!-- Welcome to the background management system!!! -->
-        <img src="../images/a.png" alt="">
-        <h1>Welcome to the background management system!!!</h1>
+        <img src="../images/a.png" style="height:550px;">
+        <span  style="font-size: 30px;font-weight: 500;">
+            Welcome to the background management system!
+        </span>
     </div>
 </template>
 <script>

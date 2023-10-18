@@ -3,26 +3,25 @@
     <el-card class="box-card">
       <el-row :gutter="20">
         <el-col :span="7">
-          <el-input placeholder="请输入id查询数据" v-model="Id" @input="searchNews">
-            
-          </el-input>
+          <el-input placeholder="请输入标题进行查询" v-model="noticeTitle"></el-input>
         </el-col>
         <el-col :span="6">
-          <el-button type="primary" icon="el-icon-plus" @click="dialogVisible1 = true">添加</el-button>
+          <el-button type="primary" icon="el-icon-search" @click="searchNews = true">查询</el-button>
+          <el-button type="primary" icon="el-icon-plus" @click="handleAdd">添加</el-button>
         </el-col>
       </el-row>
       <el-table style="width: 100%" :data="querySearch">
         <el-table-column prop="id" align="center" label="ID" width="180" sortable>
         </el-table-column>
-        <el-table-column prop="noticeTime" align="center" label="发布日期" width="180" sortable>
-        </el-table-column>
         <el-table-column prop="noticeTitle" align="center" label="标题" width="180">
         </el-table-column>
         <el-table-column prop="firstTarget" align="center" label="栏目" width="180">
         </el-table-column>
-        <el-table-column prop="htmlUrl" align="center" label="url" width="180">
-        </el-table-column>
         <el-table-column prop="noticeContent" align="center" stripe show-overflow-tooltip label="内容" width="180">
+        </el-table-column>
+          <el-table-column prop="htmlUrl" align="center" label="生成页面" width="180">
+        </el-table-column>
+          <el-table-column prop="noticeTime" align="center" label="发布日期" width="180" sortable>
         </el-table-column>
         <el-table-column fixed="right" label="操作" align="center" width="160">
           <template slot-scope="scope">
@@ -40,17 +39,18 @@
       </el-table>
     </el-card>
     <!-- 添加 notice 对话框 -->
-    <el-dialog title="添加中心要闻/公告通知" :visible.sync="dialogVisible1" width="50%" @close="addDialogClosed1">
+    <el-dialog title="添加中心要闻/公告通知" :visible.sync="dialogVisible1" width="75%" @close="addDialogClosed1">
       <!-- :model="ruleForm" :rules="rules" ref="ruleForm"绑定用户数据 -->
       <el-form label-width="100px" :rules="rules" ref="addElForm" status-icon :model="queryInfo">
         <el-form-item label="栏目" prop="firstTarget">
           <el-input v-model="queryInfo.firstTarget" type="text" placeholder="请输入栏目" />
         </el-form-item>
-        <el-form-item label="内容" prop="noticeContent">
-          <el-input v-model="queryInfo.noticeContent" type="text" placeholder="请输入内容" />
-        </el-form-item>
         <el-form-item label="标题" prop="noticeTitle">
           <el-input v-model="queryInfo.noticeTitle" type="text" placeholder="请输入标题" />
+        </el-form-item>
+        <el-form-item label="内容" prop="noticeContent">
+          <!-- <el-input v-model="queryInfo.noticeContent" type="text" placeholder="请输入内容" /> -->
+          <div id="editor"></div>
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
@@ -110,6 +110,8 @@
 </template>
 
 <script>
+import E from "wangeditor"
+import hljs from 'highlight.js'
 var del;
 import axios from 'axios'
 export default {
@@ -166,7 +168,7 @@ export default {
           trigger: 'blur',
         }, { min: 4, message: "请输入不低于4位字符", trigger: "blur", }],
         noticeContent: [{
-          required: true,
+          required: false,
           message: "请输入内容",
           trigger: "blur",
         }, { min: 4, message: "请输入不低于4位字符", trigger: "blur", }],
@@ -175,7 +177,9 @@ export default {
           message: "请输入标题名称",
           trigger: "blur",
         }, { min: 4, message: "请输入不低于4位字符", trigger: "blur", }]
-      }
+      },
+      editor: null,
+      noticeTitle: null
     }
   },
   created() {
@@ -202,11 +206,23 @@ export default {
     //   const data = await this.$http.get('/administrator/addNotice', this.queryInfo)
     //   console.log(data);
     // },
+    handleAdd() {
+      this.dialogVisible1 = true
+      this.form = {}
+      this.$nextTick(() => {
+        this.editor = new E("#editor")
+        this.editor.highlight = hljs
+        this.editor.create()
+      })
+    },
     //点击按钮，添加新闻
     addNews() {
       this.$refs.addElForm.validate(async valid => {
         // console.log(valid);
         if (!valid) return
+        //获取编辑框的内容
+        let content =  this.editor.txt.html()
+        this.form.content = content
         // const { data: res } = await this.$http.post(`/administrator/addNotice?
         // firstTarget=${this.queryInfo.firstTarget}&noticeContent=${this.queryInfo.noticeContent}
         // &noticeTitle=${this.queryInfo.noticeTitle}`)
@@ -216,8 +232,8 @@ export default {
         // &noticeTitle=${this.queryInfo.noticeTitle}`)
         axios.post("/article/addNotice",{
           firstTarget:this.queryInfo.firstTarget,
-          noticeContent:this.queryInfo.noticeContent,
-          noticeTitle:this.queryInfo.noticeTitle
+          noticeTitle:this.queryInfo.noticeTitle,
+          noticeContent:content
         }).then(res=>{
           console.log(res.data);
           if (res.data.code != 1) {
@@ -236,12 +252,15 @@ export default {
     //关闭表单，表单重置
     addDialogClosed1() {
       this.$nextTick(() => {
+        this.editor.destroy()
+        this.editor = null
         this.$refs.addElForm.resetFields()
       })
     },
     addDialogClosed2() {
       this.$nextTick(() => {
         this.$refs.editNotice.resetFields()
+
       })
     },
     forceUpdate() {
@@ -252,13 +271,13 @@ export default {
     },
     // 搜索news
     async searchNews() {
-      if(this.Id=='') {
+      if(this.id=='') {
         this.disabled=false
         this.Allnows()
         return
       }
       this.form=[];
-      const { data: res } = await this.$http.get('/article/findNoticeById/' + this.Id)
+      const { data: res } = await this.$http.get('/article/findAllNotice' + this.id)
       this.form=res;
       // this.querySearch = push(res.data);
       // console.log(this.form);

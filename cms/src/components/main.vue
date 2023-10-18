@@ -67,11 +67,11 @@ export default {
                             name: '文章管理',
                             path: '/news',
                         },
-                        {
-                            id: '12',
-                            name: '区块管理',
-                            path: '/part',
-                        },
+                        // {
+                        //     id: '12',
+                        //     name: 'a',
+                        //     path: '/add',
+                        // },
                     ],
                 },
                 // {
@@ -103,50 +103,50 @@ export default {
                         },
                     ],
                 },
+                // {
+                //     id: '3',
+                //     name: '特色平台库',
+                //     icon: 'icon-yuanchenghudong',
+                //     children: [
+                //         {
+                //             id: '31',
+                //             name: '特色平台库',
+                //             path: '/characteristic',
+                //         },
+                //     ],
+                // },
                 {
                     id: '3',
-                    name: '特色平台库',
-                    icon: 'icon-yuanchenghudong',
-                    children: [
-                        {
-                            id: '31',
-                            name: '特色平台库',
-                            path: '/characteristic',
-                        },
-                    ],
-                },
-                {
-                    id: '4',
-                    name: '添加库',
+                    name: '栏目管理',
                     icon: 'icon-shipinjiaoxue',
                     children: [
                         {
                             id: '41',
-                            name: '第一目录添加库',
+                            name: '一级栏目',
                             path: '/first',
                         },
                         {
                             id: '42',
-                            name: '第二目录添加库',
+                            name: '二级栏目',
                             path: '/second',
                         },
                     ],
                 },
-                {
-                    id: '5',
-                    name: '用户信息',
-                    icon: 'icon-zaixiankaoshi',
-                    children: [
-                        {
-                            id: '51',
-                            name: '获取当前用户信息',
-                            path: '/request',
-                        },
+                // {
+                //     id: '4',
+                //     name: '用户信息',
+                //     icon: 'icon-zaixiankaoshi',
+                //     children: [
+                //         {
+                //             id: '51',
+                //             name: '获取当前用户信息',
+                //             path: '/request',
+                //         },
                         
-                    ],
-                },
+                //     ],
+                // },
                 {
-                    id: '6',
+                    id: '4',
                     name: '页面展示管理',
                     icon: 'icon-zaixiankaoshi',
                     children: [
@@ -159,7 +159,7 @@ export default {
                     ],
                 },
                 {
-                    id: '7',
+                    id: '5',
                     name: '测试',
                     icon: 'icon-yuanchenghudong',
                     children: [

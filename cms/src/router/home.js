@@ -5,7 +5,7 @@ import Login from '../components/login'
 import Main from '../components/main'
 import News from '../components/news'
 import Welcome from '../components/welcome'
-import Part from '../components/part'
+//import Part from '../components/part'
 import Minio from '../components/minio'
 import Characteristic from '../components/characteristic'
 import First from '../components/first'
@@ -42,10 +42,10 @@ const router= new VueRouter({
                     path:'/news',
                     component:News,
                 },
-                {
-                    path:'/part',
-                    component:Part,
-                },
+                // {
+                //     path:'/part',
+                //     component:Part,
+                // },
                 {
                     path:'/minio',
                     component:Minio,

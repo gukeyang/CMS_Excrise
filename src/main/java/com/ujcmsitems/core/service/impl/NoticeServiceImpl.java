@@ -90,4 +90,9 @@ public class NoticeServiceImpl implements  NoticeService {
         return noticeRepository.queryAllNotice();
     }
 
+    @Override
+    public Notice NoticeByLike(String noticeTitle) {
+        return noticeRepository.queryNoticeLike(noticeTitle);
+    }
+
 }

@@ -21,6 +21,9 @@ import axios from 'axios'
 //引入moment
 import moment from 'moment'
 
+import 'highlight.js/styles/monokai-sublime.css'
+
+
 //去除RFC2822/ISO date formats的警告
 moment.suppressDeprecationWarnings = true;
 
