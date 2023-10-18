@@ -13,6 +13,41 @@
     <script src="https://cdn.jsdelivr.cn/npm/respond.js@1.4.2/dest/respond.min.js"></script>
     <!-- <![endif] -->
     <title>畜牧兽医河南省虚拟仿真实验中心</title>
+    <style>
+        #next-page,#prev-page{
+            width: 65px;
+            height: 25px;
+            border: none;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+        }
+        .pagenum{
+            border: none;
+            width: 25px;
+            height: 25px;
+            margin-left: 5px;
+        }
+        .pagenum:hover{
+            background-color: skyblue;
+        }
+        .current-page{
+            background-color: #337ab7;
+        }
+        .boxparent{
+            width: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #pagination{   //好了
+        width: auto;
+            display: flex;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -187,7 +222,7 @@
                                  <a href="34.html" ><div style="text-align: right;"> 2023-03-09-08-25 </div></a>
                             </li>
             </ul>
-            <div style="position: absolute; left: 50%; transform: translateX(-50%)">
+            <div style="position: absolute; left: 50%; transform: translateX(-50%)" class="boxparent">
                 <button class="page-btn" id="prev-page">&laquo; 上一页</button>
                 <span id="pagination"></span>
                 <span id="total-count"></span>
@@ -214,14 +249,6 @@
 <script>
     var itemsPerPage = 9; // 每页显示的数量
     var currentPage = 1; // 当前页数
-
-    // 获取当前页数
-    // 这里假设你有一种方式可以获取到当前页数，比如从 URL 参数中获取或通过其他交互操作获得
-    // 将获取到的当前页数赋值给 currentPage 变量
-    // 示例：假设通过 URL 参数获取当前页数，参数名为 page
-    var urlParams = new URLSearchParams(window.location.search);
-    currentPage = parseInt(urlParams.get('page')) || 1;
-
     var notices = [
         {
             htmlUrl: "4028c471889f51a401889f529f090006.html",
@@ -271,15 +298,15 @@
     ];
     var totalNotices = notices.length; // 公告总数量
     var totalPages = Math.ceil(totalNotices / itemsPerPage); // 计算总页数
-
     function getPageItems(currentPage, itemsPerPage, notices) {
         var startIndex = (currentPage - 1) * itemsPerPage;
         var endIndex = Math.min(startIndex + itemsPerPage, totalNotices);
         return notices.slice(startIndex, endIndex);
     }
-
+    //渲染下方页面导航
     function renderPagination(currentPage, totalPages) {
         var pagination = document.getElementById("pagination");
+        console.log(pagination);
         var pages = "";
         if (totalPages > 1) {
             if (currentPage > 1) {
@@ -289,14 +316,14 @@
             for (var i = 1; i <= totalPages; i++) {
                 if (i === currentPage) {
                     pages +=
-                        '<button class="page-btn current-page" id="page-' +
+                        '<button class="page-btn pagenum current-page" id="page-' +
                         i +
                         '">' +
                         i +
                         "</button>";
                 } else {
                     pages +=
-                        '<button class="page-btn" id="page-' + i + '">' + i + "</button>";
+                        '<button class="page-btn pagenum" id="page-' + i + '">' + i + "</button>";
                 }
             }
             if (currentPage < totalPages) {
@@ -305,23 +332,6 @@
             }
         }
         pagination.innerHTML = pages;
-
-        // 判断是否显示上一页按钮
-        var prevPageButton = document.getElementById("prev-page");
-        if (currentPage === 1) {
-            prevPageButton.style.display = "none"; // 当前页为1时隐藏上一页按钮
-        } else {
-            prevPageButton.style.display = "inline-block"; // 当前页不为1时显示上一页按钮
-        }
-        //判断是否显示下一页按钮
-        var nextPageButton = document.getElementById("next-page");
-        if (currentPage === totalPages) {
-            nextPageButton.style.display = "none"; // 当前页为最后一页时隐藏下一页按钮
-        } else {
-            nextPageButton.style.display = "inline-block"; // 当前页不为最后一页时显示下一页按钮
-        }
-
-
         // 绑定点击事件
         var pageBtns = document.querySelectorAll(".page-btn");
         for (var i = 0; i < pageBtns.length; i++) {
@@ -329,21 +339,28 @@
                 var targetPageNum = 0;
                 if (event.target.id === "prev-page") {
                     targetPageNum = currentPage - 1;
+                    currentPage--;
+                    if(currentPage < 1) currentPage = 1;
+
                 } else if (event.target.id === "next-page") {
+                    currentPage++;
                     targetPageNum = currentPage + 1;
+                    if(currentPage > totalPages ){
+                        currentPage = totalPages;
+                    }
+
                 } else {
-                    targetPageNum = parseInt(event.target.id.split("-")[1]);
+                    currentPage = parseInt(event.target.id.split("-")[1]);
                 }
-                if (targetPageNum >= 1 && targetPageNum <= totalPages) {
-                    currentPage = targetPageNum;
-                    renderNotices(
-                        getPageItems(currentPage, itemsPerPage, notices)
-                    );
-                }
+                renderNotices(
+                    getPageItems(currentPage, itemsPerPage, notices)
+                );
+                //更新下方按钮数据
+                renderButton(currentPage);
             });
         }
     }
-
+    //渲染主体部分，
     function renderNotices(items) {
         var noticesList = document.getElementById("notices-list");
         var listItems = "";
@@ -358,14 +375,50 @@
                 "</div></li>";
         }
         noticesList.innerHTML = listItems;
-
         var totalCount = document.getElementById("total-count");
         totalCount.innerHTML = "共" + totalNotices + "条";
-
+        if(totalPages<=1){
+            var prevPageButton = document.getElementById("prev-page");
+            prevPageButton.style.display = "none"; // 当前页为1时隐藏上一页按钮
+            var nextPageButton = document.getElementById("next-page");
+            nextPageButton.style.display = "none"; // 当前页为最后一页时隐藏下一页按钮
+        }
         renderPagination(currentPage, totalPages);
     }
 
+
+    //初始化渲染
     renderNotices(getPageItems(currentPage, itemsPerPage, notices));
+    //修改下方按钮的显示于掩藏
+    function renderButton(page){
+        console.log(page,totalPages);
+        var prevPageButton = document.getElementById("prev-page");
+        if (page === 1) {
+
+            var prevPageButton = document.getElementById("prev-page");
+            prevPageButton.style.display = "none"; // 当前页为1时隐藏上一页按钮
+        } else {
+            var prevPageButton = document.getElementById("prev-page");
+            prevPageButton.style.display = "inline-block"; // 当前页不为1时显示上一页按钮
+        }
+        //判断是否显示下一页按钮
+        var nextPageButton = document.getElementById("next-page");
+        if (page >= totalPages) {
+
+            var nextPageButton = document.getElementById("next-page");
+            nextPageButton.style.display = "none"; // 当前页为最后一页时隐藏下一页按钮
+        } else {
+            var nextPageButton = document.getElementById("next-page");
+            nextPageButton.style.display = "inline-block"; // 当前页不为最后一页时显示下一页按钮
+        };
+        if(totalPages <=1){
+            var prevPageButton = document.getElementById("prev-page");
+            prevPageButton.style.display = "none"; // 当前页为1时隐藏上一页按钮
+            var nextPageButton = document.getElementById("next-page");
+            nextPageButton.style.display = "none"; // 当前页为最后一页时隐藏下一页按钮
+        }
+    }
+
 </script>
 
 
