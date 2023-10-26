@@ -1,5 +1,7 @@
 package com.ujcmsitems.core.domain;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,6 +25,7 @@ public class Notice implements Serializable {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @TableId(type= IdType.AUTO)
     private Integer id;
     @Column(name = "notice_title")
     private String noticeTitle;
@@ -31,6 +34,7 @@ public class Notice implements Serializable {
     @Column(name = "notice_time")
     private String noticeTime;
     @Column(name = "status")
+    //附件
     private String status;
     @Column(name = "first_target")
     private String firstTarget;

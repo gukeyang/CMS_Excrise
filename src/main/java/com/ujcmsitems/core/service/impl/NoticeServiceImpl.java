@@ -1,5 +1,7 @@
 package com.ujcmsitems.core.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ujcmsitems.core.Repository.NoticeRepository;
 import com.ujcmsitems.core.domain.Notice;
 import com.ujcmsitems.core.dto.NoticeDto;
@@ -29,7 +31,7 @@ public class NoticeServiceImpl implements  NoticeService {
         String noticeTitle=noticeDto.getNoticeTitle();
         String noticeContent=noticeDto.getNoticeContent();
         String firstTarget=noticeDto.getFirstTarget();
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-hh-ss");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date();
         String status = null;
         String dateTime = "";
@@ -89,6 +91,16 @@ public class NoticeServiceImpl implements  NoticeService {
     public List<Notice> queryAllNotice() {
         return noticeRepository.queryAllNotice();
     }
+
+//    @Override
+//    public List<Notice> selectPage(Integer pageNum, Integer pageSize, String noticeTitle, String noticeContent) {
+//        return noticeRepository.selectPage(pageNum,pageSize,noticeTitle,noticeContent);
+//    }
+//
+//    @Override
+//    public Integer selectTotal(String noticeTitle, String noticeContent) {
+//        return noticeRepository.selectTotal(noticeTitle,noticeContent);
+//    }
 
 
 }

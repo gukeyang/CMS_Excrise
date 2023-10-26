@@ -28,19 +28,15 @@ spring:
       max-request-size: 100MB
 mybatis-plus:
   configuration:
-
     map-underscore-to-camel-case: false
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 jackson:
-
   date-format: yyyy-MM-dd HH:mm:ss
-
   time-zone: GMT+8
 jwt:
   route:
     authentication:
       path: /login
-
   header: token
   expiration: 604800
   secret: Authorization

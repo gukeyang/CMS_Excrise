@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Select;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -20,10 +21,13 @@ public interface NoticeRepository extends JpaRepository<Notice, Integer>, JpaSpe
 
     @Query(value="SELECT * FROM notice ORDER BY id DESC",nativeQuery = true)
     List<Notice> queryAllNotice();
-    /**
-     * 模糊查询
-     * @return
-     */
-//    @Select("SELECT * FROM notice WHERE noticeTitle = like '%noticeTitle%' ")
-//    Notice queryNoticeLike(String noticeTitle);
+//
+//    //多条件模糊查询
+//    @Select("select * from  user where notice_title like #{noticeTitle} and notice_content like #{noticeContent} limit #{pageNum} , #{pageSize}")
+//    List<Notice> selectPage(Integer pageNum, Integer pageSize, String noticeTitle, String noticeContent);
+//
+//    //多条件模糊查询总条数
+//    @Select("select count(*) from  user where notice_title like #{noticeTitle} and notice_content like #{noticeContent}")
+//    Integer selectTotal(String noticeTitle, String noticeContent);
+
 }

@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * @author a1002
  */
-public interface NoticeService {
+public interface NoticeService{
     /**
      * 添加中心要闻或公告通知
      */
@@ -47,4 +47,12 @@ public interface NoticeService {
      */
     List<Notice> queryAllNotice();
 
+//
+//    //多条件模糊查询
+//
+//    List<Notice> selectPage(Integer pageNum, Integer pageSize, String noticeTitle, String noticeContent);
+//
+//    //多条件模糊查询总条数
+//
+//    Integer selectTotal(String noticeTitle, String noticeContent);
 }
